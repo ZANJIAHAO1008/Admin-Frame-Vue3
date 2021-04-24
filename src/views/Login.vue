@@ -52,7 +52,7 @@ export default defineComponent({
             state.loading = false;
             ElMessage.success("登录成功");
             localStorage.setItem("person_name", state.param.username);
-            router.push({path: '/home'})
+            router.push({path: '/homePage'})
           }, 700)
         } else {
           ElMessage.warning("请输入账号和密码");
@@ -79,13 +79,15 @@ export default defineComponent({
 
   .login-body {
     position: absolute;
-    left: 40.1%;
-    top: 31%;
+    left: 50%;
+    top: 50%;
     width: 400px;
     background: #ffffff;
     overflow: hidden;
     padding: 0 24px 26px;
     box-sizing: border-box;
+    margin-left: -198px;
+    margin-top: -166px;
 
     .el-button {
       width: 100% !important;

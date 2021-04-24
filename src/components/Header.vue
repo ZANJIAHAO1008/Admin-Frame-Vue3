@@ -7,10 +7,10 @@
     <span class="collapse-title">后台管理系统</span>
     <div class="collapse-right">
       <el-tooltip class="item" effect="dark" content="全屏" placement="bottom">
-        <i class=" fa fa-arrows-alt" @click="requestFullScreen('body')"></i>
+        <i :class="!screen?'fa fa-expand':'fa fa-compress'" @click="requestFullScreen('body')"></i>
       </el-tooltip>
       <el-tooltip class="item" effect="dark" content="消息中心" placement="bottom">
-        <i class="fa fa-bell-o" ></i>
+        <i class="fa fa-bell-o" @click="toGetMessage"></i>
       </el-tooltip>
       <!-- 用户头像 -->
       <div class="user-avatar">
@@ -24,7 +24,8 @@
                     </span>
         <template #dropdown>
           <el-dropdown-menu>
-            <el-link type="primary" href="https://github.com/ZANJIAHAO1008/vue-admin-manage" :underline="false" target="_blank">
+            <el-link type="primary" href="https://github.com/ZANJIAHAO1008/vue-admin-manage" :underline="false"
+                     target="_blank">
               <el-dropdown-item>项目仓库</el-dropdown-item>
             </el-link>
             <el-dropdown-item divided command="signOut">退出登录</el-dropdown-item>
@@ -65,13 +66,13 @@ export default defineComponent({
         }
         state.screen = true;
       } else {
-        if(document.exitFullScreen) {
+        if (document.exitFullScreen) {
           document.exitFullScreen();
-        } else if(document.mozCancelFullScreen) {
+        } else if (document.mozCancelFullScreen) {
           document.mozCancelFullScreen();
-        } else if(document.webkitExitFullscreen) {
+        } else if (document.webkitExitFullscreen) {
           document.webkitExitFullscreen();
-        } else if(element.msExitFullscreen) {
+        } else if (element.msExitFullscreen) {
           element.msExitFullscreen();
         }
         state.screen = false;
@@ -92,11 +93,16 @@ export default defineComponent({
       }
     };
 
+    const toGetMessage = () => {  //进入消息中心
+      router.push("/messageCenter");
+    }
+
     return {
       ...toRefs(state),
       switchCollapse,
       handleCommand,
-      requestFullScreen
+      requestFullScreen,
+      toGetMessage
     }
   }
 })
@@ -112,7 +118,7 @@ export default defineComponent({
 
   .collapse-btn {
     float: left;
-    padding: 0 21px;
+    padding: 0px 15px 0 30px;
     cursor: pointer;
     line-height: 70px;
   }
@@ -134,10 +140,15 @@ export default defineComponent({
     height: 70px;
     display: flex;
     align-items: center;
+
+    i {
+      padding-right: 18px;
+      cursor: pointer;
+    }
   }
 
   .user-avatar {
-    margin: 0 20px;
+    margin: 0 20px 0 5px;
   }
 
   img {

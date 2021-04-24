@@ -16,23 +16,51 @@ const router = createRouter({
         {
             path:"/home",
             meta: {
-                title: '主页'
+                title: '首页'
             },
             component: () => import ("../views/Home.vue"),
-            children:[
+            children: [
                 {
-                    path:"/table",
+                    path: "/homePage",
                     meta: {
-                        title: '表格'
+                        title: '个人中心'
+                    },
+                    component: () => import ("../views/homePage.vue")
+                },
+                {
+                    path: "/table",
+                    meta: {
+                        title: '基础表格'
                     },
                     component: () => import ("../views/Table.vue")
                 },
                 {
-                    path:"/404",
+                    path: "/form",
                     meta: {
-                        title: '该页面不存在'
+                        title: '基础表单'
+                    },
+                    component: () => import ("../views/Form.vue")
+                },
+                {
+                    path: "/404",
+                    meta: {
+                        title: '404'
                     },
                     component: () => import ("../views/404.vue")
+                },
+                {
+                    path: "/403",
+                    meta: {
+                        title: '404'
+                    },
+                    component: () => import ("../views/403.vue")
+                },
+                {
+                    path: "/messageCenter",
+                    meta: {
+                        title: '消息中心'
+                    },
+                    component: () => import ("../views/messageCenter.vue")
                 },
             ]
         }
@@ -41,8 +69,6 @@ const router = createRouter({
 
 router.beforeEach((to, from, next) => {
     document.title = `后台管理系统 - ${to.meta.title} `;
-
-    console.log(to);
     const user = localStorage.getItem('person_name');
     if(!user && to.path!=='/login'){  //路由校验
         next('/login')
