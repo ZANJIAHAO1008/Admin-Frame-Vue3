@@ -91,7 +91,7 @@ export default defineComponent({
               title: "基础表格"
             },
             {
-              icon: "fa fa-table",
+              icon: "fa fa-edit",
               index: "form",
               title: "基础表单"
             },

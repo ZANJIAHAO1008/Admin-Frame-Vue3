@@ -7,7 +7,7 @@
     <span class="collapse-title">后台管理系统</span>
     <div class="collapse-right">
       <el-tooltip class="item" effect="dark" content="全屏" placement="bottom">
-        <i :class="!screen?'fa fa-expand':'fa fa-compress'" @click="requestFullScreen('body')"></i>
+        <i class="fa fa-arrows-alt" @click="requestFullScreen('body')"></i>
       </el-tooltip>
       <el-tooltip class="item" effect="dark" content="消息中心" placement="bottom">
         <i class="fa fa-bell-o" @click="toGetMessage"></i>
@@ -36,7 +36,7 @@
   </div>
 </template>
 <script>
-import {defineComponent, getCurrentInstance, toRefs, reactive, ref, computed} from 'vue'
+import {defineComponent, getCurrentInstance, toRefs, reactive, ref, computed, watch} from 'vue'
 import {useStore} from 'vuex';
 import {useRouter} from "vue-router";
 import {ElMessage} from 'element-plus'
@@ -49,12 +49,13 @@ export default defineComponent({
     const state = reactive({
       collapse: computed(() => store.state.collapse),
       username: computed(() => localStorage.getItem('person_name')),
-      screen: false, //全屏按钮
-    })
+    });
+
 
     const requestFullScreen = (element) => {  //进入全屏 退出全屏
-      let ele = document.querySelector(element) || document.documentElement;
-      if (!state.screen) {
+      const isFullScreen = document.fullScreen || document.mozFullScreen || document.webkitIsFullScreen || document.msFullscreenElement; //判断窗口是否全屏
+      let ele = document.querySelector(element) || document.documentElement; //获取元素
+      if (!isFullScreen) {
         if (ele.requestFullscreen) {
           ele.requestFullscreen();
         } else if (ele.mozRequestFullScreen) {
@@ -64,7 +65,6 @@ export default defineComponent({
         } else if (ele.msRequestFullscreen) {
           ele.msRequestFullscreen();
         }
-        state.screen = true;
       } else {
         if (document.exitFullScreen) {
           document.exitFullScreen();
@@ -75,7 +75,6 @@ export default defineComponent({
         } else if (element.msExitFullscreen) {
           element.msExitFullscreen();
         }
-        state.screen = false;
       }
     }
 

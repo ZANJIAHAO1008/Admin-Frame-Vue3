@@ -67,18 +67,18 @@ const router = createRouter({
     ],
 })
 
-router.beforeEach((to, from, next) => {
-    document.title = `后台管理系统 - ${to.meta.title} `;
-    const user = localStorage.getItem('person_name');
-    if(!user && to.path!=='/login'){  //路由校验
-        next('/login')
-    }
-    else if(!to.meta.title){ //不存在的页面进入404
-        next('/404')
-    }
-    else{
-        next();
-    }
-});
+// router.beforeEach((to, from, next) => {
+//     document.title = `后台管理系统 - ${to.meta.title} `;
+//     const user = localStorage.getItem('person_name');
+//     if(!user && to.path!=='/login'){  //路由校验
+//         next('/login')
+//     }
+//     else if(!to.meta.title){ //不存在的页面进入404
+//         next('/404')
+//     }
+//     else{
+//         next();
+//     }
+// });
 
 export default router;
