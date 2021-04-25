@@ -184,6 +184,7 @@ export default defineComponent({
         border-bottom-left-radius: 10px;
         border-bottom-right-radius: 10px;
         background-color: #E6A23C;
+        cursor: pointer;
       }
     }
   }
