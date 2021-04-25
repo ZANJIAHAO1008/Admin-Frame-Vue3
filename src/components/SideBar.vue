@@ -163,4 +163,13 @@ export default defineComponent({
 .sidebar > ul {
   height: 100%;
 }
+
+.el-menu-item:focus, .el-menu-item:hover {
+  outline: 0px;
+  background-color: #606266 !important;
+}
+
+.el-submenu__title:hover {
+  background-color: #606266 !important;
+}
 </style>
