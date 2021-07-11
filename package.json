@@ -6,7 +6,10 @@
     "build": "vite build"
   },
   "dependencies": {
+    "axios": "^0.21.1",
     "element-plus": "^1.0.2-beta.40",
+    "js-cookie": "^2.2.1",
+    "qs": "^6.10.1",
     "vue": "^3.0.4",
     "vue-router": "^4.0.0-beta.6",
     "vuex": "^4.0.0"

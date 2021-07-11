@@ -20,9 +20,9 @@
 </template>
 <script>
 import {defineComponent, getCurrentInstance, toRefs, reactive, ref} from 'vue'
-import {ElMessage} from 'element-plus'
 import {useRoute, useRouter} from 'vue-router'
-
+import { login } from '../api/user.js'
+import Cookies from "js-cookie";
 export default defineComponent({
   setup() {
     let {proxy} = getCurrentInstance(); // vue原型
@@ -48,15 +48,19 @@ export default defineComponent({
       loginRef.value.validate(valid => {
         if (valid) {
           state.loading = true;
-          proxy._public.debounce(() => {
-            state.loading = false;
-            ElMessage.success("登录成功");
-            localStorage.setItem("person_name", state.param.username);
-            router.push({path: '/homePage'})
-          }, 700)
-        } else {
-          ElMessage.warning("请输入账号和密码");
-          return false;
+            login(
+                {
+                  ...state.param
+                }
+            ).then(res=>{
+              if(res.data){
+                state.loading = false;
+                Cookies.set("token",res.data);
+              }
+              localStorage.setItem("person_name", state.param.username);
+              router.push({path: '/homePage'})
+            })
+
         }
       });
     }
