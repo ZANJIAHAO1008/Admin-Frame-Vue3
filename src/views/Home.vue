@@ -39,8 +39,8 @@
           <Tags></Tags>
           <div class="content">
             <router-view v-slot="{ Component }">
-              <transition name="el-zoom-in-top" mode="out-in">
-                <component :is="Component"></component>
+              <transition  name="el-fade-in" >
+                <component  v-if="Component" :is="Component"></component>
               </transition>
             </router-view>
             <el-backtop target=".content"></el-backtop>
