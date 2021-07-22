@@ -1,0 +1,38 @@
+//message
+.el-message {
+  background-color: #fff !important;
+  padding: 10px 24px !important;
+  align-items: center !important;
+  box-shadow: 0 4px 12px rgb(0, 0, 0, 0.15) !important;
+  min-width: auto !important;
+  border-color: #ffffff !important;
+}
+
+//button
+.el-button {
+  min-height: 32px !important;
+  padding: 0 15px !important;
+}
+
+.el-button--primary {
+  background-color: #305cd0 !important;
+  border-color: #305cd0 !important;
+}
+
+.el-button--danger {
+  background-color: #f76c4d !important;
+  border-color: #f76c4d !important;
+}
+
+//input
+.el-input__inner {
+  height: 34px !important;
+  line-height: 34px !important;
+}
+
+.el-input__prefix {
+  font-size: 18px !important;
+}
+
+//form
+

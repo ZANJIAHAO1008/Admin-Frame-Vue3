@@ -1,0 +1,14 @@
+
+#nprogress .bar {
+  background: red !important; //自定义颜色
+}
+
+#nprogress {
+  .bar {
+    z-index: 15031;
+  }
+
+  .spinner {
+    z-index: 15031;
+  }
+}

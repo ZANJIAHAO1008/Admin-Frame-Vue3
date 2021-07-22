@@ -1,4 +1,3 @@
-import Cookies from "js-cookie";
 import {ElLoading} from "element-plus";
 export const debounce = (function () {   //防重复提交
 	let timer = 0
@@ -8,11 +7,7 @@ export const debounce = (function () {   //防重复提交
 	}
 })()
 
-export function getToken (){
- return	Cookies.get("token")
-}
-
-export  function  Loading(){ //loading方法
+export function Loading() { //loading方法
 	return ElLoading.service({
 		lock: false,
 		text: '加载中···',

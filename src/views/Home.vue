@@ -1,7 +1,7 @@
 <template>
   <div class="app-wrapper">
     <el-container style="height: 100vh">
-      <el-affix :offset="400" style="width: 120px!important;">
+      <el-affix :offset="400" style="width: 120px!important;height: 0;">
         <ul class="zan-fix">
           <li>
             <a class="fix-top" href="http://wpa.qq.com/msgrd?v=3&uin=974813758&site=qq&menu=yes" target="_blank">
