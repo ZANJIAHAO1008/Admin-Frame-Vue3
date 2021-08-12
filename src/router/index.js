@@ -10,7 +10,7 @@ NProgress.configure({
 
 
 const router = createRouter({
-    // history: createWebHashHistory(),
+    history: createWebHashHistory('/vue-management-template/'),
     routes: [{
         path: '/',
         redirect: '/login'

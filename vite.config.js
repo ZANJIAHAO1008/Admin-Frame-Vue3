@@ -16,12 +16,12 @@ module.exports = {
      * 在生产中服务时的基本公共路径。
      * @default '/'
      */
-    base: '/vue-management-template/',
+    base: '/vue-management-template/',  //github pages
+    // base:"./",
     /**
      * 与“根”相关的目录，构建输出将放在其中。如果目录存在，它将在构建之前被删除。
-     * @default 'dist'
      */
-    outDir: 'dist',
+
     // 反向代理
     proxy: {
         // '/api': {
