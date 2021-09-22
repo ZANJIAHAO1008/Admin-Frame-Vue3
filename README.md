@@ -10,9 +10,9 @@ Vite 需要 Node.js 版本 >= 12.0.0。
 ##### 有需要帮忙可以联系 Q 974813758
 
 ## 2、项目运行
-`git clone https://github.com/ZANJIAHAO1008/Admin-Frame-Vue3-template.git`
+`git clone https://github.com/ZANJIAHAO1008/Admin-Frame-Vue3.git`
 
-`cd Admin-Frame-Vue3-template`
+`cd Admin-Frame-Vue3`
 
 `npm install `
 
