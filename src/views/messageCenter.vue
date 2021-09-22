@@ -6,13 +6,15 @@
           <el-table :data="unread" :show-header="false" style="width: 100%">
             <el-table-column>
               <template #default="scope">
-                <span class="message-title">{{scope.row.title}}</span>
+                <span class="message-title">{{ scope.row.title }}</span>
               </template>
             </el-table-column>
             <el-table-column prop="date" width="180"></el-table-column>
             <el-table-column width="120">
               <template #default="scope">
-                <el-button size="small" @click="handleRead(scope.$index)">标为已读</el-button>
+                <el-button size="small" @click="handleRead(scope.$index)"
+                  >标为已读</el-button
+                >
               </template>
             </el-table-column>
           </el-table>
@@ -25,13 +27,15 @@
             <el-table :data="read" :show-header="false" style="width: 100%">
               <el-table-column>
                 <template #default="scope">
-                  <span class="message-title">{{scope.row.title}}</span>
+                  <span class="message-title">{{ scope.row.title }}</span>
                 </template>
               </el-table-column>
               <el-table-column prop="date" width="150"></el-table-column>
               <el-table-column width="120">
                 <template #default="scope">
-                  <el-button type="danger" @click="handleDel(scope.$index)">删除</el-button>
+                  <el-button type="danger" @click="handleDel(scope.$index)"
+                    >删除</el-button
+                  >
                 </template>
               </el-table-column>
             </el-table>
@@ -45,13 +49,15 @@
             <el-table :data="recycle" :show-header="false" style="width: 100%">
               <el-table-column>
                 <template #default="scope">
-                  <span class="message-title">{{scope.row.title}}</span>
+                  <span class="message-title">{{ scope.row.title }}</span>
                 </template>
               </el-table-column>
               <el-table-column prop="date" width="150"></el-table-column>
               <el-table-column width="120">
                 <template #default="scope">
-                  <el-button @click="handleRestore(scope.$index)">还原</el-button>
+                  <el-button @click="handleRestore(scope.$index)"
+                    >还原</el-button
+                  >
                 </template>
               </el-table-column>
             </el-table>
@@ -65,60 +71,79 @@
   </div>
 </template>
 <script>
-import {defineComponent, toRefs, reactive, ref, computed, watchEffect, watch} from 'vue';
-export  default defineComponent({
-  name:"messageCenter",
-  setup(){
+import {
+  defineComponent,
+  toRefs,
+  reactive,
+  ref,
+  computed,
+  watchEffect,
+  watch,
+} from "vue";
+export default defineComponent({
+  name: "messageCenter",
+  setup() {
     const state = reactive({
-      message: 'first',
+      message: "first",
       showHeader: false,
-      unread: [{
-        date: '2018-04-19 20:00:00',
-        title: '【系统通知】该系统将于今晚凌晨2点到5点进行升级维护',
-      },{
-        date: '2018-04-19 21:00:00',
-        title: '今晚12点整发大红包，先到先得',
-      }],
-      read: [{
-        date: '2018-04-19 20:00:00',
-        title: '【系统通知】该系统将于今晚凌晨2点到5点进行升级维护'
-      }],
-      recycle: [{
-        date: '2018-04-19 20:00:00',
-        title: '【系统通知】该系统将于今晚凌晨2点到5点进行升级维护'
-      }],
-      unreadNum:computed(()=> state.unread.length)
-    })
+      unread: [
+        {
+          date: new Date(),
+          title: "福建本土新增明显下降",
+        },
+        {
+          date: new Date(),
+          title: "哈尔滨市新增3例核酸初筛阳性人员",
+        },
+        {
+          date: new Date(),
+          title: "BOSS血掉的有点快",
+        },
+      ],
+      read: [
+        {
+          date: new Date(),
+          title: "拜登宣称美国不寻求新冷战",
+        },
+      ],
+      recycle: [
+        {
+          date: new Date(),
+          title: "江苏省委政法委原书记王立科被双开",
+        },
+      ],
+      unreadNum: computed(() => state.unread.length),
+    });
 
-   const handleRead = (index)=>{
+    const handleRead = (index) => {
       const item = state.unread.splice(index, 1);
-     state.read = item.concat(state.read);
+      state.read = item.concat(state.read);
     };
-    const handleDel= (index)=>{
+    const handleDel = (index) => {
       const item = state.read.splice(index, 1);
       state.recycle = item.concat(state.recycle);
     };
-    const handleRestore= (index)=>{
+    const handleRestore = (index) => {
       const item = state.recycle.splice(index, 1);
       state.read = item.concat(state.read);
     };
 
-
-    return{
+    return {
       ...toRefs(state),
       handleRead,
       handleDel,
-      handleRestore
-    }
-  }
-})
+      handleRestore,
+    };
+  },
+});
 </script>
-<style lang="less" scoped>
-.messageCenter{
-  .message-title{
+<style lang="scss" scoped>
+.messageCenter {
+  .message-title {
     cursor: pointer;
   }
-  .handle-row{
+
+  .handle-row {
     margin-top: 30px;
   }
 }

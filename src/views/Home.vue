@@ -1,46 +1,25 @@
 <template>
   <div class="app-wrapper">
     <el-container style="height: 100vh">
-      <el-affix :offset="400" style="width: 120px!important;height: 0;">
-        <ul class="zan-fix">
-          <li>
-            <a class="fix-top" href="http://wpa.qq.com/msgrd?v=3&uin=974813758&site=qq&menu=yes" target="_blank">
-              <i class="fa fa-send"></i>
-              <span>联系
-                <br>作者</span>
-            </a>
-          </li>
-          <li>
-            <a class="fix-middle"
-               href="https://qm.qq.com/cgi-bin/qm/qr?k=zdyTLc5giV9LdBFoGRWyAub_bqYMuVR6&jump_from=webapi"
-               target="_blank">
-              <i class="fa fa-user-o"></i>
-              <span>加入
-                <br>群聊</span>
-            </a>
-          </li>
-          <li>
-            <a class="fix-bottom" @click="RewardVisible = true;">
-              <i class="fa fa-rmb"></i>
-              <span>打赏
-                <br>作者</span>
-            </a>
-          </li>
-        </ul>
-      </el-affix>
-      <el-header height="70px">
-        <Header></Header>
-      </el-header>
+      <el-aside style="width: auto">
+        <side-bar></side-bar>
+      </el-aside>
       <el-container>
-        <el-aside width="auto">
-          <side-bar></side-bar>
-        </el-aside>
+        <el-header height="64px">
+          <Header></Header>
+        </el-header>
         <el-main>
           <Tags></Tags>
           <div class="content">
             <router-view v-slot="{ Component }">
-              <transition  name="el-fade-in" >
-                <component  v-if="Component" :is="Component"></component>
+              <transition
+                appear
+                appear-active-class="animate__animated animate__pulse"
+                enter-active-class="animate__animated animate__fadeIn"
+                name="fade"
+              >
+                <!--进入 enter-active-class   移出 leave-active-class  初始 appear-active-class-->
+                <component :is="Component" v-if="Component"></component>
               </transition>
             </router-view>
             <el-backtop target=".content"></el-backtop>
@@ -48,146 +27,84 @@
         </el-main>
       </el-container>
     </el-container>
-    <el-dialog
-        v-model="RewardVisible"
-        title="打赏作者"
-        width="500"
-    >
-      <div style="display: flex;justify-content: space-around">
-      <span>
-          <h1>微信</h1>
-        <el-image
-            fit="fill"
-            src="src/assets/image/wx.png"
-            style="width: 250px; height: 300px">
-        </el-image>
-      </span>
-        <span>
-          <h1>支付宝</h1>
-        <el-image
-            fit="fill"
-            src="src/assets/image/zfb.jpg"
-            style="width: 250px; height: 300px">
-        </el-image>
-        </span>
-      </div>
-      <template #footer>
-    <span class="dialog-footer">
-      <el-button type="primary" @click="RewardVisible = false">返 回</el-button>
-    </span>
-      </template>
-    </el-dialog>
   </div>
 </template>
 <script>
-import {defineComponent, toRefs, reactive, ref, computed, watchEffect, watch} from 'vue';
-import SideBar from "../components/SideBar.vue";
-import Header from "../components/Header.vue";
-import Tags from "../components/Tags.vue";
-import {useStore} from "vuex";
+import {
+  defineComponent,
+  toRefs,
+  reactive,
+  ref,
+  computed,
+  watchEffect,
+  watch,
+} from "vue";
+import SideBar from "../components/SideBar/index.vue";
+import Header from "../components/Header/index.vue";
+import Tags from "../components/Tags/index.vue";
+import { useStore } from "vuex";
 
 export default defineComponent({
-  name: 'home',
+  name: "home",
   components: {
     SideBar,
     Header,
-    Tags
+    Tags,
   },
   setup() {
     const store = useStore();
-    const state = reactive({
-      RewardVisible: false,
-    })
-    return {
-      ...toRefs(state)
+
+    if (sessionStorage.getItem("store")) {
+      store.replaceState(
+        Object.assign(
+          {},
+          store.state,
+          JSON.parse(sessionStorage.getItem("store"))
+        )
+      );
     }
-  }
-})
+    // 在页面刷新时将store保存到sessionStorage里
+    window.addEventListener("beforeunload", () => {
+      sessionStorage.setItem("store", JSON.stringify(store.state));
+    });
+    const state = reactive({});
+    return {
+      ...toRefs(state),
+    };
+  },
+});
 </script>
-<style lang="less">
+<style lang="scss">
 .app-wrapper {
   width: 100%;
   height: 100%;
   overflow: hidden;
 
-  .el-header, .el-main {
+  .el-header,
+  .el-main {
     padding: 0;
   }
 
   .el-main {
-    background-color: #f0f0f0;
+    background: #f5f7f9;
 
     .content {
       padding: 24px;
       box-sizing: border-box;
-      margin: 8px 8px 0 8px;
+      margin: 0px 8px 0 8px;
       background: #ffffff;
       overflow-x: hidden;
       overflow-y: auto;
-      height: calc(100vh - 138px);
+      height: calc(100vh - 115px);
       color: #5e6d82;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12), 0 0 6px rgba(0, 0, 0, 0.04);
     }
   }
 
-  .el-affix--fixed, .el-overlay {
+  .el-affix--fixed,
+  .el-overlay {
     right: 8px !important;
     position: fixed;
   }
-
-  .zan-fix {
-    box-shadow: 0 1px 24px rgb(149 149 149 / 40%);
-    border-radius: 10px;
-
-    li {
-      list-style: none;
-      vertical-align: top;
-
-      i {
-        display: block;
-        font-size: 18px;
-        text-align: center;
-      }
-
-      span {
-        margin-top: 2px;
-        display: block;
-        font-size: 14px;
-        text-align: center;
-      }
-
-      .fix-top, .fix-middle, .fix-bottom {
-        text-decoration: none;
-        display: block;
-        width: 78px;
-        padding: 10px 0 8px 0;
-        color: #ffffff;
-        float: left;
-        border-color: #409EFF;
-        opacity: .7;
-      }
-
-      .fix-top:hover, .fix-middle:hover, .fix-bottom:hover {
-        opacity: 1
-      }
-
-      .fix-top {
-        border-top-left-radius: 10px;
-        border-top-right-radius: 10px;
-        background: rgb(121, 187, 255);
-      }
-
-      .fix-middle {
-        background-color: #67C23A;
-      }
-
-      .fix-bottom {
-        border-bottom-left-radius: 10px;
-        border-bottom-right-radius: 10px;
-        background-color: #E6A23C;
-        cursor: pointer;
-      }
-    }
-  }
-
 }
 </style>

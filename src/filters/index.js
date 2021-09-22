@@ -5,5 +5,14 @@ export default {
             '女', '男'
         ]
         return dataWare[val] ?? '未知';
+    },
+    langFilter(val) {
+        //过滤国际化中文
+        switch (val) {
+            case 'zh-cn':
+                return '中文';
+            case 'en':
+                return '英文';
+        }
     }
 }

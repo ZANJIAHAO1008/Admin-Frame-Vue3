@@ -4,7 +4,7 @@ const path = require('path')
 module.exports = {
     alias: {
         // 键必须以斜线开始和结束
-        '/@/': path.resolve(__dirname, './src')
+        '@/': path.resolve(__dirname, './src')
     },
     // 是否自动在浏览器打开
     open: true,
@@ -16,12 +16,12 @@ module.exports = {
      * 在生产中服务时的基本公共路径。
      * @default '/'
      */
-    base: '/vue-management-template/',  //github pages
-    // base:"./",
+    base: './',
     /**
      * 与“根”相关的目录，构建输出将放在其中。如果目录存在，它将在构建之前被删除。
+     * @default 'dist'
      */
-
+    outDir: 'dist',
     // 反向代理
     proxy: {
         // '/api': {
@@ -30,9 +30,11 @@ module.exports = {
         //     rewrite: path => path.replace(/^\/api/, '')
         // }
         '/api': {
-            target: 'http://127.0.0.1:7001',
+            target:'http://127.0.0.1:7001',//本地
+            // target: 'http://121.40.203.8:7001', //线上
             changeOrigin: true,
             rewrite: path => path.replace(/^\/api/, '')
+            
         }
     }
 }

@@ -1,4 +1,4 @@
-import {ElLoading} from "element-plus";
+import { ElLoading } from "element-plus";
 export const debounce = (function () {   //防重复提交
 	let timer = 0
 	return function (callback, ms) {

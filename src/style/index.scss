@@ -1,6 +1,15 @@
 
+.zan-pagination {
+  text-align: right;
+  margin-top: 12px;
+}
+
+.zan-nav, .zan-table {
+  box-sizing: border-box;
+}
+
 #nprogress .bar {
-  background: red !important; //自定义颜色
+  //background: rgb(48, 92, 208) !important; // 加载进度条自定义颜色
 }
 
 #nprogress {
@@ -11,4 +20,21 @@
   .spinner {
     z-index: 15031;
   }
+}
+
+/*全局滚动条样式*/
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+/* background-color: #01c8dc;
+border-radius: 3px; */
+  background-color: #b6b6b6;
+}
+/*全局滚动条样式结束*/
+
+.m-t8 {
+  margin-top: 8px;
 }

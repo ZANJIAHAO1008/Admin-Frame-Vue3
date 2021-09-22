@@ -1,15 +1,35 @@
 <template>
   <div class="thereIsNo">
     <!--    <el-empty description="抱歉页面好像不存在哦~" :image-size="300"></el-empty>-->
-    <el-result title="404" subTitle="抱歉，请求错误">
+    <el-result :image-size="400" subTitle="很抱歉，您访问的页面去月球了~~">
       <template #icon>
         <el-image
-            src="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png"></el-image>
+          src="https://www.undi.cn/404/fresh-moon/picture/404.png"
+        ></el-image>
       </template>
       <template #extra>
-        <el-button type="primary" size="medium">返回</el-button>
+        <el-button
+          size="medium"
+          type="primary"
+          @click="router.push({ path: '/homePage' })"
+          >返回首页</el-button
+        >
       </template>
     </el-result>
   </div>
-
 </template>
+
+<script>
+import { defineComponent } from "vue";
+import { useRouter } from "vue-router";
+
+export default defineComponent({
+  setup() {
+    const router = useRouter(); //路由
+
+    return {
+      router,
+    };
+  },
+});
+</script>
