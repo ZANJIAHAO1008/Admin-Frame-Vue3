@@ -84,6 +84,13 @@ const constantRouterMap = [
                 },
                 component: () => import("../views/403.vue")
             },
+            {
+                path: "/wangeditor",
+                meta: {
+                    title: '富文本编辑器'
+                },
+                component: () => import("../views/content/wangeditor.vue")
+            },
         ]
     }
 ]

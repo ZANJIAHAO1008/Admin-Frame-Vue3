@@ -14,10 +14,15 @@ export default {
                 resourceIcon: "fa fa-file-text",
                 children: [
                     {
-                        resourceName: "表格操作",
+                        resourceName: "表格增删改查",
                         resourceUrl: "/table",
                         children: []
-                    }
+                    },
+                    {
+                        resourceName: '富文本编辑器',
+                        resourceUrl: "/wangeditor",
+                        children: []
+                    },
                 ]
             },
             {
