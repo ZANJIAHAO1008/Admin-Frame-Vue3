@@ -9,15 +9,27 @@ export default {
                 children: []
             },
             {
-                resourceName: "内容管理",
+                resourceName: "表单模板",
                 resourceUrl: "/content",
                 resourceIcon: "fa fa-file-text",
                 children: [
                     {
-                        resourceName: "表格增删改查",
+                        resourceName: "基础表单",
+                        resourceUrl: "/easyForm",
+                        children: []
+                    },
+                    {
+                        resourceName: "表格表单",
                         resourceUrl: "/table",
                         children: []
                     },
+                ]
+            },
+            {
+                resourceName: '编辑器',
+                resourceUrl: "/wangeditor",
+                resourceIcon: "fa fa-bold",
+                children: [
                     {
                         resourceName: '富文本编辑器',
                         resourceUrl: "/wangeditor",
@@ -38,8 +50,29 @@ export default {
                 ]
             },
             {
+                resourceName: "返回结果",
+                resourceUrl: "/result",
+                resourceIcon: "fa fa-random",
+                children: [
+                    {
+                        resourceName: "成功",
+                        resourceUrl: "/successTip",
+                        children: []
+                    }, {
+                        resourceName: "异常",
+                        resourceUrl: "/warningTip",
+                        children: []
+                    },
+                    {
+                        resourceName: "失败",
+                        resourceUrl: "/errorTip",
+                        children: []
+                    },
+                ]
+            },
+            {
                 resourceName: "异常页面",
-                resourceUrl: "",
+                resourceUrl: "/error",
                 resourceIcon: "fa fa-exclamation-triangle",
                 children: [{
                     resourceName: "404",

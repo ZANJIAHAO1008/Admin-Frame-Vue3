@@ -64,9 +64,16 @@ const constantRouterMap = [
                 component: () => import("../views/messageCenter.vue")
             },
             {
+                path: "/easyForm",
+                meta: {
+                    title: '基础表单'
+                },
+                component: () => import("../views/content/easyForm.vue")
+            },
+            {
                 path: "/table",
                 meta: {
-                    title: '表格操作'
+                    title: '表格表单'
                 },
                 component: () => import("../views/content/table.vue")
             },
@@ -90,6 +97,27 @@ const constantRouterMap = [
                     title: '富文本编辑器'
                 },
                 component: () => import("../views/content/wangeditor.vue")
+            },
+            {
+                path: "/successTip",
+                meta: {
+                    title: '成功'
+                },
+                component: () => import("../views/content/tip/success.vue")
+            },
+            {
+                path: "/errorTip",
+                meta: {
+                    title: '失败'
+                },
+                component: () => import("../views/content/tip/error.vue")
+            },
+            {
+                path: "/warningTip",
+                meta: {
+                    title: '异常'
+                },
+                component: () => import("../views/content/tip/warning.vue")
             },
         ]
     }

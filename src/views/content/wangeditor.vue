@@ -14,11 +14,18 @@
     <el-button style="margin-top: 8px" type="primary" @click="printHTML"
       >同步内容</el-button
     >
-    <div class="m-t8" v-html="html"></div>
+    <el-card class="m-t8">
+      <template #header>
+        <div class="card-header">
+          <span style="font-size: 18px">HTML 代码</span>
+        </div>
+      </template>
+      <div v-text="html ? html : '请输入内容后同步'"></div>
+    </el-card>
   </div>
 </template>
 <script>
-import WangEditor from "wangeditor";
+import E from "wangeditor";
 import {
   onMounted,
   onBeforeUnmount,
@@ -38,7 +45,7 @@ export default defineComponent({
 
     onMounted(() => {
       //初始化富文本编辑器
-      content.instance = new WangEditor(editorRef.value);
+      content.instance = new E(editorRef.value);
       Object.assign(content.instance.config, {
         onchange() {
           console.log("change");
@@ -67,5 +74,4 @@ export default defineComponent({
 });
 </script>
 <style lang="scss" scoped>
-
 </style>
