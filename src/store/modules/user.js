@@ -43,6 +43,11 @@ export default {
                 resourceIcon: "fa fa-bold",
                 children: [
                     {
+                        resourceName: 'markdown',
+                        resourceUrl: "/markdown",
+                        children: []
+                    },
+                    {
                         resourceName: '富文本编辑器',
                         resourceUrl: "/wangeditor",
                         children: []

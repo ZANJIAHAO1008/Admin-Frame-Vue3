@@ -96,7 +96,14 @@ const constantRouterMap = [
                 meta: {
                     title: '富文本编辑器'
                 },
-                component: () => import("../views/content/wangeditor.vue")
+                component: () => import("../views/content/editor/wangeditor.vue")
+            },
+            {
+                path: "/markdown",
+                meta: {
+                    title: 'markdown'
+                },
+                component: () => import("../views/content/editor/markdown.vue")
             },
             {
                 path: "/successTip",

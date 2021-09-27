@@ -3,13 +3,6 @@
     <p style="font-size: 26px">
       wangEditor —— 轻量级 web 富文本编辑器，配置方便，使用简单。
     </p>
-    <el-link
-      style="font-size: 18px"
-      type="primary"
-      class="m-t8"
-      href=" https://www.wangeditor.com"
-      >官网：https://www.wangeditor.com</el-link
-    >
     <div ref="editorRef" class="m-t8"></div>
     <el-button style="margin-top: 8px" type="primary" @click="printHTML"
       >同步内容</el-button
@@ -36,11 +29,11 @@ import {
 } from "vue";
 export default defineComponent({
   setup() {
-    const editorRef = ref();
+    const editorRef = ref("");
     const content = reactive({
       html: "",
-      text: "",
-      instance: "",
+      text: "222",
+      instance: "222",
     });
 
     onMounted(() => {

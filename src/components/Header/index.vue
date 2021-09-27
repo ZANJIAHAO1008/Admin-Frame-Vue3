@@ -218,8 +218,8 @@ export default defineComponent({
     display: flex;
     align-items: center;
 
-    i {
-      padding-right: 5px;
+    .fa {
+      padding-right: 15px;
       cursor: pointer;
     }
   }
