@@ -34,11 +34,6 @@
       >
         <i class="fa fa-bell-o" @click="toGetMessage"></i>
       </el-tooltip>
-      <!-- 用户头像 -->
-      <div class="user-avatar">
-        <el-avatar icon="el-icon-user-solid"></el-avatar>
-      </div>
-
       <!-- 用户名下拉菜单 -->
       <el-dropdown size="small" trigger="click" @command="handleCommand">
         <span class="el-dropdown-link btn_username_group">
@@ -59,6 +54,12 @@
           </el-dropdown-menu>
         </template>
       </el-dropdown>
+      <!-- 用户头像 -->
+      <div class="user-avatar">
+        <img src="/src/assets/image/touxiang.jpg" />
+        <!-- <el-avatar icon="el-icon-user-solid">
+        </el-avatar> -->
+      </div>
     </div>
     <check-pass v-model:passVisible="passVisible"></check-pass>
     <base-info ref="baseInfoRef" v-model:baseVisible="baseVisible"></base-info>
@@ -97,7 +98,7 @@ export default defineComponent({
     const baseInfoRef = ref("null");
     const state = reactive({
       collapse: computed(() => store.state.collapse),
-      username: computed(() => localStorage.getItem('username') || "待完善"),
+      username: computed(() => localStorage.getItem("username") || "待完善"),
       passVisible: false, //修改密码弹框
       baseVisible: false, //基本信息弹框
     });
@@ -218,13 +219,13 @@ export default defineComponent({
     align-items: center;
 
     i {
-      padding-right: 18px;
+      padding-right: 5px;
       cursor: pointer;
     }
   }
 
   .user-avatar {
-    margin: 0 5px 0 20px;
+    margin: 0 15px 0 5px;
   }
 
   img {

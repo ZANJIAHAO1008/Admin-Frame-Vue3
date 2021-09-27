@@ -164,8 +164,8 @@ export default defineComponent({
 
     const state = reactive({
       param: {
-        username: "",
-        password: "",
+        username: "admin",
+        password: "123456",
       }, //登录账号
       loginStatus: true, //登陆or注册 true  false
       register: {
