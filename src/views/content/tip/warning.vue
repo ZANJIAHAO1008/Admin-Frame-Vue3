@@ -5,7 +5,9 @@
         <div class="bg-defult p-defult">
           <div class="t-l">异常原因分析：</div>
           <div class="t-l m-t8">
-            您的账号最近3日内交易过于频繁，请尽快联系管理员处理异常
+            您的账号最近3日内交易过于频繁，请尽快
+            <span style="color: #409eff; cursor: pointer">联系管理员</span>
+            处理异常
           </div>
         </div>
         <div class="m-t8">

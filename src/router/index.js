@@ -119,6 +119,13 @@ const constantRouterMap = [
                 },
                 component: () => import("../views/content/tip/warning.vue")
             },
+            {
+                path: "/dialogDrag",
+                meta: {
+                    title: '可拖拽弹框'
+                },
+                component: () => import("../views/content/dialogDrag.vue")
+            },
         ]
     }
 ]

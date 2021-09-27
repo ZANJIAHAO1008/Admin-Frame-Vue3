@@ -9,6 +9,18 @@ export default {
                 children: []
             },
             {
+                resourceName: '组件',
+                resourceUrl: "/zujian",
+                resourceIcon: 'fa fa-wrench',
+                children: [
+                    {
+                        resourceName: "可拖拽弹框",
+                        resourceUrl: "/dialogDrag",
+                        children: []
+                    },
+                ]
+            },
+            {
                 resourceName: "表单模板",
                 resourceUrl: "/content",
                 resourceIcon: "fa fa-file-text",
