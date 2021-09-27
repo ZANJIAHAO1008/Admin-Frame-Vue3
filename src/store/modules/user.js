@@ -18,6 +18,11 @@ export default {
                         resourceUrl: "/dialogDrag",
                         children: []
                     },
+                    {
+                        resourceName: "添加水印",
+                        resourceUrl: "/wartermark",
+                        children: []
+                    },
                 ]
             },
             {

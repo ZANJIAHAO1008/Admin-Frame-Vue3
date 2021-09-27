@@ -133,6 +133,13 @@ const constantRouterMap = [
                 },
                 component: () => import("../views/content/dialogDrag.vue")
             },
+            {
+                path: "/wartermark",
+                meta: {
+                    title: '添加水印'
+                },
+                component: () => import("../views/content/wartermark.vue")
+            },
         ]
     }
 ]
