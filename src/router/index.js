@@ -68,28 +68,35 @@ const constantRouterMap = [
                 meta: {
                     title: '基础表单'
                 },
-                component: () => import("../views/content/easyForm.vue")
+                component: () => import("../views/content/form/easyForm.vue")
             },
             {
                 path: "/table",
                 meta: {
                     title: '表格表单'
                 },
-                component: () => import("../views/content/table.vue")
+                component: () => import("../views/content/form/table.vue")
             },
             {
                 path: "/404",
                 meta: {
                     title: '404'
                 },
-                component: () => import("../views/404.vue")
+                component: () => import("../views/content/abnormal/404.vue")
             },
             {
                 path: "/403",
                 meta: {
                     title: '403'
                 },
-                component: () => import("../views/403.vue")
+                component: () => import("../views/content/abnormal/403.vue")
+            },
+            {
+                path: "/build",
+                meta: {
+                    title: '功能建设中'
+                },
+                component: () => import("../views/content/abnormal/build.vue")
             },
             {
                 path: "/wangeditor",

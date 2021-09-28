@@ -56,7 +56,7 @@
       </el-dropdown>
       <!-- 用户头像 -->
       <div class="user-avatar">
-        <img src="/src/assets/image/touxiang.jpg" />
+        <img src="../../assets/image/touxiang.jpg" />
         <!-- <el-avatar icon="el-icon-user-solid">
         </el-avatar> -->
       </div>

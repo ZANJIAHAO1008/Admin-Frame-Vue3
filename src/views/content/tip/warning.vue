@@ -2,7 +2,7 @@
   <div>
     <el-result icon="warning" title="提交异常">
       <template #extra>
-        <div class="bg-defult p-defult">
+        <div class="bg-defult p-defult min-w600">
           <div class="t-l">异常原因分析：</div>
           <div class="t-l m-t8">
             您的账号最近3日内交易过于频繁，请尽快

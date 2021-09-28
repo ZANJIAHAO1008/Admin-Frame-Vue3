@@ -1,16 +1,19 @@
 <template>
   <div class="thereIsNo">
-    <!--    <el-empty description="抱歉页面好像不存在哦~" :image-size="300"></el-empty>-->
-    <el-result :image-size="400" subTitle="很抱歉，您访问的页面去月球了~~">
+    <el-result :image-size="400">
       <template #icon>
-        <el-image
-          src="https://www.undi.cn/404/fresh-moon/picture/404.png"
-        ></el-image>
+        <img
+          class="abnormal-img min-w600 min-h500"
+          src="/src/assets/image/403.svg"
+          alt=""
+        />
       </template>
       <template #extra>
+        <h2 class="p-defult font-32">很抱歉，您暂无权限访问。</h2>
         <el-button
           size="medium"
           type="primary"
+          plain
           @click="router.push({ path: '/homePage' })"
           >返回首页</el-button
         >
@@ -33,3 +36,4 @@ export default defineComponent({
   },
 });
 </script>
+

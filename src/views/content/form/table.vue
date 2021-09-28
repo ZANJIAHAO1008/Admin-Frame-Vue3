@@ -173,7 +173,7 @@ import {
   shallowRef,
 } from "vue";
 import { ElMessageBox } from "element-plus";
-import Pagination from "../../components/Pagination/index.vue";
+import Pagination from "../../../components/Pagination/index.vue";
 export default defineComponent({
   name: "table",
   components: {

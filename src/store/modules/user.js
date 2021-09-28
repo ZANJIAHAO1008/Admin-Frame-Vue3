@@ -105,7 +105,13 @@ export default {
                     resourceName: "403",
                     resourceUrl: "/403",
                     children: []
-                },]
+                },
+                {
+                    resourceName: "功能建设中",
+                    resourceUrl: "/build",
+                    children: []
+                },
+            ]
             },
             {
                 resourceName: "权限管理",

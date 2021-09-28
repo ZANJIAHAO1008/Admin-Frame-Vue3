@@ -244,7 +244,7 @@ export default defineComponent({
   width: 100%;
   height: 100vh;
   background-size: 100% 100%;
-  background-image: url(../assets/image/BG.png);
+  background-image: url("../assets/image/BG.png");
 
   .login-body {
     position: absolute;
