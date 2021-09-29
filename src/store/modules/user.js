@@ -23,6 +23,11 @@ export default {
                         resourceUrl: "/wartermark",
                         children: []
                     },
+                    {
+                        resourceName: "谷歌地图",
+                        resourceUrl: "/map",
+                        children: []
+                    },
                 ]
             },
             {
@@ -111,7 +116,7 @@ export default {
                     resourceUrl: "/build",
                     children: []
                 },
-            ]
+                ]
             },
             {
                 resourceName: "权限管理",

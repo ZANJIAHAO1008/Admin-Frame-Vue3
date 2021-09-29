@@ -5,6 +5,8 @@
 ## 1、介绍
 本项目是基于Vue3 + Element-Plus + Vite 开发的实现后台管理系统。
 
+[访问地址](http://47.96.87.129:8001)
+
 #### 1.1、使用技术
 Vite + Vue3 + Element-Plus + Sass + Vuex + Vue-router + Vue-i8n + Echarts
 #### 1.2、兼容性注意
@@ -23,7 +25,15 @@ Vite 需要 Node.js 版本 >= 12.0.0。
 
 
 
-## 3、目前包含功能
+## 3、项目截图
+
+![avatar](http://47.96.87.129:8001/denglu.png)
+
+- ![avatar](http://47.96.87.129:8001/shouye.png)
+
+
+
+## 4、目前包含功能
 
 - 登陆
 - 注册

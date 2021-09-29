@@ -147,6 +147,13 @@ const constantRouterMap = [
                 },
                 component: () => import("../views/content/wartermark.vue")
             },
+            {
+                path: "/map",
+                meta: {
+                    title: '谷歌地图'
+                },
+                component: () => import("../views/content/map.vue")
+            },
         ]
     }
 ]
