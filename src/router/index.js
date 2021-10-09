@@ -150,9 +150,16 @@ const constantRouterMap = [
             {
                 path: "/map",
                 meta: {
-                    title: '谷歌地图'
+                    title: '地图'
                 },
                 component: () => import("../views/content/map.vue")
+            },
+            {
+                path: "/timePicker",
+                meta: {
+                    title: '时间选择器'
+                },
+                component: () => import("../views/content/timePicker.vue")
             },
         ]
     }

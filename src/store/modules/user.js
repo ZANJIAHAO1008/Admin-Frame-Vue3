@@ -24,7 +24,12 @@ export default {
                         children: []
                     },
                     {
-                        resourceName: "谷歌地图",
+                        resourceName: "时间选择器",
+                        resourceUrl: "/timePicker",
+                        children: []
+                    },
+                    {
+                        resourceName: "地图",
                         resourceUrl: "/map",
                         children: []
                     },
