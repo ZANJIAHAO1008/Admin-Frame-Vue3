@@ -86,7 +86,14 @@
   </div>
 </template>
 <script>
-import { inject, onMounted, defineComponent, reactive, toRefs } from "vue";
+import {
+  inject,
+  onMounted,
+  defineComponent,
+  reactive,
+  toRefs,
+  onUnmounted,
+} from "vue";
 export default defineComponent({
   name: "homePage",
   setup() {
@@ -127,6 +134,8 @@ export default defineComponent({
       // };
       chartsInit();
     });
+
+    onUnmounted(() => {});
 
     const chartsInit = () => {
       //图标初始化
