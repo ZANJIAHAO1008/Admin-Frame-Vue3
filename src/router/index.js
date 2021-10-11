@@ -99,11 +99,11 @@ const constantRouterMap = [
                 component: () => import("../views/content/abnormal/build.vue")
             },
             {
-                path: "/wangeditor",
+                path: "/textEditor",
                 meta: {
                     title: '富文本编辑器'
                 },
-                component: () => import("../views/content/editor/wangeditor.vue")
+                component: () => import("../views/content/editor/textEditor.vue")
             },
             {
                 path: "/markdown",

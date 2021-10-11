@@ -54,7 +54,7 @@ export default {
             },
             {
                 resourceName: '编辑器',
-                resourceUrl: "/wangeditor",
+                resourceUrl: "/textEditor",
                 resourceIcon: "fa fa-bold",
                 children: [
                     {
@@ -64,7 +64,7 @@ export default {
                     },
                     {
                         resourceName: '富文本编辑器',
-                        resourceUrl: "/wangeditor",
+                        resourceUrl: "/textEditor",
                         children: []
                     },
                 ]
