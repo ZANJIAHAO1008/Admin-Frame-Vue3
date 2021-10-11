@@ -18,10 +18,18 @@
     <el-card class="m-t8">
       <template #header>
         <div class="card-header">
-          <span style="font-size: 18px">HTML 代码</span>
+          <span style="font-size: 18px">Html代码</span>
         </div>
       </template>
       <div v-text="content ? content : '输入内容后自动同步'"></div>
+    </el-card>
+    <el-card class="m-t8">
+      <template #header>
+        <div class="card-header">
+          <span style="font-size: 18px">Text文本</span>
+        </div>
+      </template>
+      <div v-html="content ? content : '输入内容后自动同步'"></div>
     </el-card>
   </div>
 </template>
@@ -36,7 +44,7 @@ export default defineComponent({
   },
   setup() {
     const state = reactive({
-      readOnly: false,
+      readOnly: false, //只读
       content: "<h1><strong>欢迎来到Admin-Frame-Vue3</strong></h1>",
       toolbarOptions: [
         ["bold", "italic", "underline", "strike"], // toggled buttons
@@ -84,4 +92,6 @@ export default defineComponent({
   },
 });
 </script>
+<style lang="scss" scoped>
+</style>
 
