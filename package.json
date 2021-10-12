@@ -7,6 +7,7 @@
     "build": "vite build"
   },
   "dependencies": {
+    "@amap/amap-jsapi-loader": "^1.0.1",
     "@vueup/vue-quill": "^1.0.0-beta.7",
     "amfe-flexible": "^2.2.1",
     "animate.css": "^4.1.1",
