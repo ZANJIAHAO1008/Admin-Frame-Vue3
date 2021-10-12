@@ -82,12 +82,12 @@
       </div>
     </el-card>
       </el-col>
+  </el-row>
 </template>
 
 <script>
 import { defineComponent, onMounted, onUnmounted, reactive, toRefs } from "vue";
 import AMapLoader from "@amap/amap-jsapi-loader";
-import { ElMessage } from "element-plus";
 export default defineComponent({
   setup() {
     const state = reactive({
@@ -212,7 +212,6 @@ export default defineComponent({
           createMap(AMap);
           state?.map.on("complete", () => {
             console.log("地图加载完成！");
-            ElMessage.success("地图加载完成！");
             logMapinfo();
           });
         })
