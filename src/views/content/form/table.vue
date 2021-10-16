@@ -174,6 +174,7 @@ import {
 } from "vue";
 import { ElMessageBox } from "element-plus";
 import Pagination from "../../../components/Pagination/index.vue";
+import {getDate} from "../../../api/mock.js"
 export default defineComponent({
   name: "table",
   components: {
@@ -245,6 +246,9 @@ export default defineComponent({
 
     const getInfo = (val) => {
       //查询列表
+      getDate().then(res=>{
+        console.log(res);
+      })
     };
 
     const operation = (type, target) => {

@@ -54,7 +54,7 @@ export default {
             },
             {
                 resourceName: '编辑器',
-                resourceUrl: "/textEditor",
+                resourceUrl: "/editor",
                 resourceIcon: "fa fa-bold",
                 children: [
                     {

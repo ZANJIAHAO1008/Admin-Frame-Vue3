@@ -24,10 +24,10 @@ module.exports = {
     outDir: 'dist',
     // 反向代理
     proxy: {
-        // '/api': {
-        //     target: '后台URL',
-        //     changeOrigin: true,
-        //     rewrite: path => path.replace(/^\/api/, '')
-        // }
+        '/api': {
+            target: 'http://localhost:8080',
+            changeOrigin: true,
+            rewrite: path => path.replace(/^\/api/, '')
+        }
     }
 }
