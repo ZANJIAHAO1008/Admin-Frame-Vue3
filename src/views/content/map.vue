@@ -1,87 +1,97 @@
 <template>
-  <el-row :gutter="10">
-    <el-col :xs="24" :sm="24" :md="24" :lg="18" :xl="18"
-      >
-       <div id="container" class="defult-h"></div>
-      </el-col>
+  <el-row :gutter="10" v-loading="loading" element-loading-text="地图加载中...">
+    <el-col :xs="24" :sm="24" :md="24" :lg="18" :xl="18">
+      <div id="container" class="defult-h"></div>
+    </el-col>
 
-      <el-col :xs="24" :sm="24" :md="24" :lg="6" :xl="6"
-      >
-      <el-card >
-      <template #header>
-        <div class="card-header">
-          <span style="font-size: 18px">当前所在行政区信息</span>
+    <el-col :xs="24" :sm="24" :md="24" :lg="6" :xl="6">
+      <el-card>
+        <template #header>
+          <div class="card-header">
+            <span style="font-size: 18px">当前所在行政区信息</span>
+          </div>
+        </template>
+        <div>
+          <span v-if="info"
+            >位置:{{ info.province + info.city + info.district }}</span
+          >
+          <span v-else>暂无位置信息</span>
         </div>
-      </template>
-      <div>
-        <span v-if="info"
-          >位置:{{ info.province + info.city + info.district }}</span
-        >
-        <span v-else>暂无位置信息</span>
-      </div>
-    </el-card>
-          <el-card class="m-t8">
-      <template #header>
-        <div class="card-header">
-          <span style="font-size: 18px">获取输入提示数据</span>
+      </el-card>
+      <el-card class="m-t8">
+        <template #header>
+          <div class="card-header">
+            <span style="font-size: 18px">获取输入提示数据</span>
+          </div>
+        </template>
+        <div>
+          <el-form :inline="true" :model="mapForm">
+            <el-form-item>
+              <el-autocomplete
+                :fetch-suggestions="searchCity"
+                v-model="mapForm.search"
+                placeholder="获取输入提示数据"
+                @select="selectCity"
+              />
+            </el-form-item>
+          </el-form>
         </div>
-      </template>
-      <div>
-         <el-form :inline="true" :model="mapForm">
-    <el-form-item >
-      <el-autocomplete
-     :fetch-suggestions="searchCity"
-    v-model="mapForm.search"
-    placeholder="获取输入提示数据"
-    @select="selectCity"
-  />
-    </el-form-item>
-  </el-form>
-      </div>
-    </el-card>
-     <el-card class="m-t8">
-      <template #header>
-        <div class="card-header">
-          <span style="font-size: 18px">地图跳转(城市名 \ 城市编码)</span>
+      </el-card>
+      <el-card class="m-t8">
+        <template #header>
+          <div class="card-header">
+            <span style="font-size: 18px">地图跳转(城市名 \ 城市编码)</span>
+          </div>
+        </template>
+        <div>
+          <el-form :inline="true" :model="mapForm">
+            <el-form-item>
+              <el-input
+                v-model="mapForm.name"
+                placeholder="设置地图当前行政区"
+              ></el-input>
+            </el-form-item>
+            <el-form-item>
+              <el-button size="small" type="primary" @click="gotoCity"
+                >跳转</el-button
+              >
+            </el-form-item>
+          </el-form>
         </div>
-      </template>
-      <div>
- <el-form :inline="true" :model="mapForm">
-    <el-form-item >
-      <el-input v-model="mapForm.name" placeholder="设置地图当前行政区"></el-input>
-    </el-form-item>
-    <el-form-item>
-      <el-button size="small" type="primary" @click="gotoCity">跳转</el-button>
-    </el-form-item>
-  </el-form>
-      </div>
-    </el-card>
+      </el-card>
 
-          <el-card>
-      <template #header>
-        <div class="card-header">
-          <span style="font-size: 18px">地图平移</span>
+      <el-card>
+        <template #header>
+          <div class="card-header">
+            <span style="font-size: 18px">地图平移</span>
+          </div>
+        </template>
+        <div>
+          <el-button size="small" type="primary" @click="panBy"
+            >平移像素值：(50,100)</el-button
+          >
+          <el-button size="small" type="primary" @click="panTo"
+            >回到中心点</el-button
+          >
         </div>
-      </template>
-      <div>
-           <el-button size="small" type="primary" @click="panBy">平移像素值：(50,100)</el-button>
-           <el-button size="small" type="primary" @click="panTo">回到中心点</el-button>
-      </div>
-    </el-card>
+      </el-card>
 
-
-              <el-card>
-      <template #header>
-        <div class="card-header">
-          <span style="font-size: 18px">地图标记(点位 \ 窗体)</span>
+      <el-card>
+        <template #header>
+          <div class="card-header">
+            <span style="font-size: 18px">地图标记(点位 \ 窗体)</span>
+          </div>
+        </template>
+        <div>
+          <el-button size="small" type="primary" @click="addMarker(AMap)"
+            >添加点标记</el-button
+          >
+          <el-button size="small" type="primary" @click="openInfo(AMap)"
+            >添加窗体</el-button
+          >
         </div>
-      </template>
-      <div>
-           <el-button size="small" type="primary" @click="addMarker(AMap)">添加点标记</el-button>
-           <el-button size="small" type="primary" @click="openInfo(AMap)">添加窗体</el-button>
-      </div>
-    </el-card>
-      </el-col>
+      </el-card>
+    </el-col>
   </el-row>
 </template>
 
@@ -91,6 +101,7 @@ import AMapLoader from "@amap/amap-jsapi-loader";
 export default defineComponent({
   setup() {
     const state = reactive({
+      loading: false,
       map: null,
       AMap: null,
       marker: null,
@@ -194,6 +205,7 @@ export default defineComponent({
     };
 
     onMounted(() => {
+      state.loading = true;
       AMapLoader.load({
         key: "e996569c0dd8ad17cf52a3051eae2562", // 申请好的Web端开发者Key，首次调用 load 时必填
         version: "1.4.15", // 指定要加载的 JSAPI 的版本，缺省时默认为 1.4.15
@@ -213,6 +225,7 @@ export default defineComponent({
           state?.map.on("complete", () => {
             console.log("地图加载完成！");
             logMapinfo();
+            state.loading = false;
           });
         })
         .catch((e) => {
