@@ -55,10 +55,17 @@
   </div>
 </template>
 <script>
-import { defineComponent, toRefs, reactive, onMounted } from "vue";
+import {
+  defineComponent,
+  toRefs,
+  reactive,
+  onMounted,
+  getCurrentInstance,
+} from "vue";
 export default defineComponent({
   name: "messageCenter",
   setup() {
+    let { proxy } = getCurrentInstance(); // vue原型
     const state = reactive({
       categoryList: [
         {
@@ -97,7 +104,8 @@ export default defineComponent({
       //查询消息列表
       state.loading = true;
       state.messageList = [];
-      setTimeout(() => {
+
+      proxy._public.debounce(() => {
         if (state?.storageCategory?.unread === "new") {
           state.messageList.push(
             ...[
