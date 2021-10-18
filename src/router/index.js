@@ -61,7 +61,7 @@ const constantRouterMap = [
                 meta: {
                     title: '消息中心'
                 },
-                component: () => import("../views/messageCenter.vue")
+                component: () => import("../views/message/messageCenter.vue")
             },
             {
                 path: "/easyForm",
