@@ -177,13 +177,13 @@ export default defineComponent({
       border: 1px solid #DCDFE6;
   }
    .el-aside{
-     border-radius: 10px 0 0 0;
+     border-radius: 10px ;
    }
   .el-header {
     height: 50px;
     line-height: 50px;
     font-size: 16px;
-    border-radius: 0 10px 0 0;
+    border-radius: 10px;
     display: flex;
     align-items: center;
   }
