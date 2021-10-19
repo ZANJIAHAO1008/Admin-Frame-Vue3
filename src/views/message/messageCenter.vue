@@ -172,15 +172,18 @@ export default defineComponent({
     }
   }
   .el-aside,
-  .el-header,
-  .el-main {
+  .el-header{
     box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+      border: 1px solid #DCDFE6;
   }
+   .el-aside{
+     border-radius: 10px 0 0 0;
+   }
   .el-header {
     height: 50px;
     line-height: 50px;
     font-size: 16px;
-    border-radius: 7px 7px 0 0;
+    border-radius: 0 10px 0 0;
     display: flex;
     align-items: center;
   }
@@ -199,6 +202,7 @@ export default defineComponent({
     margin-top: 10px;
     .message_body {
       .message_list {
+          border: 1px solid #dedede;
         margin-top: 18px;
         cursor: pointer;
         list-style: none;
