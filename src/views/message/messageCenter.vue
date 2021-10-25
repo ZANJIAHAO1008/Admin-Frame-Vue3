@@ -13,7 +13,10 @@
             "
             @click="changeCategory(item)"
           >
-            <el-badge :value="item.unread">
+            <el-badge
+              :value="item.unread"
+              :type="item.type ? item.type : 'danger'"
+            >
               {{ item.name }}
             </el-badge>
           </li>
