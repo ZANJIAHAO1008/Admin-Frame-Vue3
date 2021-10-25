@@ -13,10 +13,7 @@
             "
             @click="changeCategory(item)"
           >
-            <el-badge
-              :value="item.unread"
-              :type="item.type ? item.type : 'error'"
-            >
+            <el-badge :value="item.unread">
               {{ item.name }}
             </el-badge>
           </li>
@@ -55,33 +52,28 @@
   </div>
 </template>
 <script>
-import {
-  defineComponent,
-  toRefs,
-  reactive,
-  onMounted,
-  getCurrentInstance,
-} from "vue";
+import { defineComponent, toRefs, reactive, onMounted } from "vue";
 export default defineComponent({
-  name: "messageCenter",
   setup() {
-    let { proxy } = getCurrentInstance(); // vue原型
     const state = reactive({
       categoryList: [
         {
           name: "回复我的",
           id: "0",
           unread: 0,
+          type: null,
         },
         {
           name: "我的消息",
           id: "1",
           unread: 12,
+          type: null,
         },
         {
           name: "@我的",
           id: "2",
           unread: 108,
+          type: null,
         },
         {
           name: "系统通知",
@@ -96,16 +88,15 @@ export default defineComponent({
     });
 
     onMounted(() => {
-      state.storageCategory = state.categoryList[3];
       getInfo();
     });
 
     const getInfo = () => {
       //查询消息列表
       state.loading = true;
-      state.messageList = [];
-
-      proxy._public.debounce(() => {
+      setTimeout(() => {
+        state.messageList = [];
+        state.storageCategory = state.categoryList[3];
         if (state?.storageCategory?.unread === "new") {
           state.messageList.push(
             ...[
@@ -172,13 +163,13 @@ export default defineComponent({
     }
   }
   .el-aside,
-  .el-header{
+  .el-header {
     box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
-      border: 1px solid #DCDFE6;
+    border: 1px solid #dcdfe6;
   }
-   .el-aside{
-     border-radius: 10px ;
-   }
+  .el-aside {
+    border-radius: 10px;
+  }
   .el-header {
     height: 50px;
     line-height: 50px;
@@ -202,7 +193,7 @@ export default defineComponent({
     margin-top: 10px;
     .message_body {
       .message_list {
-          border: 1px solid #dedede;
+        border: 1px solid #dedede;
         margin-top: 18px;
         cursor: pointer;
         list-style: none;

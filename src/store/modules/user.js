@@ -71,7 +71,7 @@ export default {
             },
             {
                 resourceName: "消息管理",
-                resourceUrl: "/messageCenter",
+                resourceUrl: "/messageManagement",
                 resourceIcon: "fa fa-comment",
                 children: [
                     {
