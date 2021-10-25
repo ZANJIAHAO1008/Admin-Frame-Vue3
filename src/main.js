@@ -11,6 +11,7 @@ import animated from 'animate.css'
 import i18n from '../src/locales/i18n.js'
 import 'amfe-flexible'
 import dialogDrag from './directive/dialogDrag';
+import copy from './directive/copy';
 import moment from 'moment';
 const app = createApp(App)
 app.config.globalProperties._public = _public; //公共方法
@@ -23,6 +24,7 @@ app.use(ElementPlus,
 app.use(i18n)
 app.use(animated)
 app.use(dialogDrag)
+app.use(copy)
 app.use(router)
 app.use(store)
 app.mount('#app')

@@ -33,10 +33,15 @@ export default {
                         resourceUrl: "/map",
                         children: []
                     },
+                    {
+                        resourceName: "复制",
+                        resourceUrl: "/copy",
+                        children: []
+                    },
                 ]
             },
             {
-                resourceName: "表单模板",
+                resourceName: "模板",
                 resourceUrl: "/content",
                 resourceIcon: "fa fa-file-text",
                 children: [

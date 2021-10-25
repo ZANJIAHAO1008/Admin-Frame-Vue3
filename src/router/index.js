@@ -161,6 +161,13 @@ const constantRouterMap = [
                 },
                 component: () => import("../views/content/timePicker.vue")
             },
+            {
+                path: "/copy",
+                meta: {
+                    title: '复制'
+                },
+                component: () => import("../views/content/copy.vue")
+            },
         ]
     }
 ]

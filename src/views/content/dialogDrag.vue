@@ -1,5 +1,5 @@
 <template>
-  <el-button @click="dialogVisible = true" type="primary">打开可拖拽弹框</el-button>
+  <el-button @click="dialogVisible = true" type="primary"   size="small">点击打开可拖拽弹框</el-button>
   <div v-dialogdrag>
     <el-dialog
       v-model="dialogVisible"
