@@ -92,6 +92,20 @@ const constantRouterMap = [
                 component: () => import("../views/content/abnormal/403.vue")
             },
             {
+                path: "/networkError",
+                meta: {
+                    title: 'networkError'
+                },
+                component: () => import("../views/content/abnormal/networkError.vue")
+            },
+            {
+                path: "/noData",
+                meta: {
+                    title: '暂无数据'
+                },
+                component: () => import("../views/content/abnormal/noData.vue")
+            },
+            {
                 path: "/build",
                 meta: {
                     title: '功能建设中'

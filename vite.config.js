@@ -29,5 +29,21 @@ module.exports = {
             changeOrigin: true,
             rewrite: path => path.replace(/^\/api/, '')
         }
-    }
+    },
+    // 引入第三方的配置
+    optimizeDeps: {
+        include: [
+            '@amap/amap-jsapi-loader',
+            '@vueup/vue-quill',
+            'amfe-flexible',
+            'clipboard',
+            'element-plus',
+            'js-cookie',
+            'nprogress',
+            'qs', 'vue',
+            'vue-i18n',
+            'moment',
+            'echarts',
+            'axios']
+    },
 }

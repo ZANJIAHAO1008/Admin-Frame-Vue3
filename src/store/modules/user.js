@@ -122,8 +122,18 @@ export default {
                     children: []
                 },
                 {
+                    resourceName: "暂无数据",
+                    resourceUrl: "/noData",
+                    children: []
+                },
+                {
                     resourceName: "功能建设中",
                     resourceUrl: "/build",
+                    children: []
+                },
+                {
+                    resourceName: "网络不可用",
+                    resourceUrl: "/networkError",
                     children: []
                 },
                 ]

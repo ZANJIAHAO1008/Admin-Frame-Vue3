@@ -4,17 +4,12 @@
       <template #icon>
         <img
           class="abnormal-img"
-          src="/src/assets/image/403.svg"
+          src="/src/assets/image/networkError.svg"
           alt=""
         />
       </template>
       <template #extra>
-        <h2 class="abnormal-tip">很抱歉，您暂无权限访问</h2>
-        <el-button
-         type="text"
-          @click="router.push({ path: '/homePage' })"
-          >返回首页</el-button
-        >
+        <h2 class="abnormal-tip">网络不可用，请检查你的网络设置</h2>
       </template>
     </el-result>
   </div>

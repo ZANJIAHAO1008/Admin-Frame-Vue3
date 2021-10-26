@@ -43,12 +43,7 @@
               }}</span>
             </li>
           </ul>
-          <img
-            v-else
-            class="abnormal-img min-w600 min-h500"
-            src="/src/assets/image/unmessage.svg"
-            alt=""
-          />
+          <img v-else src="/src/assets/image/noData.svg" alt="" />
         </el-main>
       </el-container>
     </el-container>

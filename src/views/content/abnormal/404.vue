@@ -3,17 +3,15 @@
     <el-result :image-size="400">
       <template #icon>
         <img
-          class="abnormal-img min-w600 min-h500"
+          class="abnormal-img"
           src="/src/assets/image/404.svg"
           alt=""
         />
       </template>
       <template #extra>
-        <h2 class="p-defult font-32">很抱歉，您所访问的页面不存在。</h2>
+        <h2 class="abnormal-tip">很抱歉，您所访问的页面不存在</h2>
         <el-button
-          size="medium"
-          type="primary"
-          plain
+          type="text"
           @click="router.push({ path: '/homePage' })"
           >返回首页</el-button
         >

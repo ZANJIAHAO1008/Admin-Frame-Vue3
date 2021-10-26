@@ -1,3 +1,45 @@
+@mixin min-wid($width) {
+  // 最低宽度
+  min-width: $width;
+};
+@mixin max-wid($width) {
+  // 最大宽度
+  max-width: $width;
+};
+
+@mixin min-hei($height) {
+   // 最低高度
+  min-height: $height;
+};
+@mixin max-hei($height) {
+  // 最高高度
+ max-height: $height;
+};
+@mixin  font-s($size){
+  //字体大小
+  font-size: $size;
+}
+@mixin  font-col($color){
+  //字体颜色
+    color: $color;
+}
+
+@mixin abnormal {
+  //异常页面样式
+  @include max-hei(300px);
+};
+
+.abnormal-img{
+  //异常页面样式
+  @include abnormal;
+  padding-top: 80px;
+};
+.abnormal-tip{
+ @include font-col(#909399);
+ @include font-s(17px);
+ padding:0 0 24px 0;
+};
+
 
 .zan-pagination {
   text-align: right;
@@ -70,9 +112,6 @@ border-radius: 3px; */
   min-height: 350px;
 }
 
-.abnormal-img{
-  width: calc(100vw - 1200px);
-}
 
 .defult-h{
   min-height: 500px;

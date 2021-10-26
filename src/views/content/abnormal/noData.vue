@@ -4,12 +4,12 @@
       <template #icon>
         <img
           class="abnormal-img"
-          src="/src/assets/image/403.svg"
+          src="/src/assets/image/noData.svg"
           alt=""
         />
       </template>
       <template #extra>
-        <h2 class="abnormal-tip">很抱歉，您暂无权限访问</h2>
+        <h2 class="abnormal-tip">暂无数据</h2>
         <el-button
          type="text"
           @click="router.push({ path: '/homePage' })"
