@@ -1,6 +1,6 @@
 {
   "name": "Admin-Frame",
-  "version": "0.0.1",
+  "version": "1.0.1",
   "description": "Admin-Frame 后台管理系统",
   "scripts": {
     "dev": "vite",
@@ -9,6 +9,8 @@
   "dependencies": {
     "@amap/amap-jsapi-loader": "^1.0.1",
     "@vueup/vue-quill": "^1.0.0-beta.7",
+    "@vueuse/core": "^7.0.3",
+    "@vueuse/integrations": "^7.0.3",
     "amfe-flexible": "^2.2.1",
     "animate.css": "^4.1.1",
     "axios": "^0.21.1",
@@ -19,14 +21,15 @@
     "md-editor-v3": "^1.4.4",
     "moment": "^2.29.1",
     "nprogress": "^0.2.0",
+    "qrcode": "^1.5.0",
     "qs": "^6.10.1",
-    "vue": "^3.0.4",
+    "vue": "^3.2.22",
     "vue-i18n": "^9.1.7",
     "vue-router": "^4.0.0-beta.6",
     "vuex": "^4.0.0"
   },
   "devDependencies": {
-    "@vue/compiler-sfc": "^3.0.4",
+    "@vue/compiler-sfc": "^3.2.22",
     "less": "^3.12.2",
     "less-loader": "^7.0.2",
     "postcss": "^8.3.6",

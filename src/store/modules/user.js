@@ -38,6 +38,21 @@ export default {
                         resourceUrl: "/copy",
                         children: []
                     },
+                    {
+                        resourceName: "生成二维码",
+                        resourceUrl: "/qrcode",
+                        children: []
+                    },
+                    {
+                        resourceName: "无限滚动",
+                        resourceUrl: "/infiniteScroll",
+                        children: []
+                    },
+                    {
+                        resourceName: "监测电脑信息",
+                        resourceUrl: "/computerMonitor",
+                        children: []
+                    },
                 ]
             },
             {

@@ -182,6 +182,27 @@ const constantRouterMap = [
                 },
                 component: () => import("../views/content/copy.vue")
             },
+            {
+                path: "/computerMonitor",
+                meta: {
+                    title: '监测电脑信息'
+                },
+                component: () => import("../views/content/computerMonitor.vue")
+            },
+            {
+                path: "/qrcode",
+                meta: {
+                    title: '生成二维码'
+                },
+                component: () => import("../views/content/qrcode.vue")
+            },
+            {
+                path: "/infiniteScroll",
+                meta: {
+                    title: '无限滚动'
+                },
+                component: () => import("../views/content/infiniteScroll.vue")
+            },
         ]
     }
 ]

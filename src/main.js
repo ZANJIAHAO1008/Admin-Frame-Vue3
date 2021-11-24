@@ -10,8 +10,8 @@ import * as _public from "./util/utils";
 import animated from 'animate.css'
 import i18n from '../src/locales/i18n.js'
 import 'amfe-flexible'
-import dialogDrag from './directive/dialogDrag';
-import copy from './directive/copy';
+import dialogDrag from './directives/dialogDrag';
+import copy from './directives/copy';
 import moment from 'moment';
 const app = createApp(App)
 app.config.globalProperties._public = _public; //公共方法
