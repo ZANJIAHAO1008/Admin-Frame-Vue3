@@ -1,6 +1,6 @@
 
 
-# Admin-Frame-Vue3
+#                           Admin-Frame-Vue3
 
 
 
@@ -16,8 +16,6 @@
 Vite + Vue3 + Element-Plus + Sass + Vuex + Vue-router + Vue-i8n + Echarts
 #### 1.2、兼容性注意
 Vite 需要 Node.js 版本 >= 12.0.0。
-#### 1.3、帮助
-##### 有需要帮忙可以联系 Q 974813758
 
 
 
@@ -107,6 +105,12 @@ Vite 需要 Node.js 版本 >= 12.0.0。
 
 
 
-###### 
+## 帮助
+
+如果有什么问题可以提issues 或者 找我Q 974813758
+
+
+
+
 
 # 如果觉得有帮助的话 ， 可以帮忙点个star吗 
