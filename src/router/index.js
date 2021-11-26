@@ -203,6 +203,13 @@ const constantRouterMap = [
                 },
                 component: () => import("../views/content/infiniteScroll.vue")
             },
+            {
+                path: "/cardList",
+                meta: {
+                    title: '卡片列表'
+                },
+                component: () => import("../views/content/form/cardList.vue")
+            },
         ]
     }
 ]

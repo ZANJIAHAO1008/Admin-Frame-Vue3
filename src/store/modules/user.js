@@ -70,6 +70,11 @@ export default {
                         resourceUrl: "/table",
                         children: []
                     },
+                    {
+                        resourceName: "卡片列表",
+                        resourceUrl: "/cardList",
+                        children: []
+                    },
                 ]
             },
             {
