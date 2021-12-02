@@ -52,10 +52,10 @@
           :xl="6"
           style="margin-top: 12px"
         >
-          <el-card :body-style="{ padding: '24px 12px 18px 18px' }">
+          <el-card :body-style="{ padding: '24px 0px 6px 0px' }">
             <div class="list-nav">
               <el-image
-                style="width: 100px; height: 100px"
+                style="width: 130px; height: 120px"
                 :src="item.image"
                 fit="fill"
               ></el-image>
@@ -274,7 +274,7 @@ export default defineComponent({
 <style lang="scss" scoped>
 .list-nav {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   .l-n-body {
     width: 200px;
     .l-n-b-titie {
@@ -301,6 +301,7 @@ export default defineComponent({
 
 .bottom {
   //   margin-top: 13px;
+      padding: 0 12px;
   line-height: 12px;
   display: flex;
   justify-content: space-between;
