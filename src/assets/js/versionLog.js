@@ -5,7 +5,7 @@ export const versionLog = [
         description:
             ['新增版本日志.',
             ],
-        releaseDate: "2021/11/26"
+        releaseDate: "2021/12/07"
     },
     {
         version: "V1.0.2",

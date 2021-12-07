@@ -13,6 +13,7 @@ import 'amfe-flexible'
 import dialogDrag from './directives/dialogDrag';
 import copy from './directives/copy';
 import moment from 'moment';
+import 'default-passive-events' //添加被动事件监听器来阻止’touchstart’事件
 const app = createApp(App)
 app.config.globalProperties._public = _public; //公共方法
 app.config.globalProperties.$filters = filters; //公共过滤器
