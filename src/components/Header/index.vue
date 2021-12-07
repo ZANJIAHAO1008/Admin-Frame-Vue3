@@ -45,6 +45,9 @@
             <el-dropdown-item divided command="signOut"
               >退出登录</el-dropdown-item
             >
+            <el-dropdown-item command="versionLog" divided
+              >版本日志</el-dropdown-item
+            >
             <el-dropdown-item command="baseInfo" divided
               >基本信息</el-dropdown-item
             >
@@ -63,6 +66,7 @@
     </div>
     <check-pass v-model:passVisible="passVisible"></check-pass>
     <base-info ref="baseInfoRef" v-model:baseVisible="baseVisible"></base-info>
+    <version-log v-model:versionVisible="versionVisible"></version-log>
   </div>
 </template>
 <script>
@@ -83,12 +87,14 @@ import { ElMessage } from "element-plus";
 import Cookies from "js-cookie";
 import checkPass from "../Setting/checkPass.vue";
 import baseInfo from "../Setting/baseInfo.vue";
+import versionLog from "../Setting/versionLog.vue";
 import { useI18n } from "vue-i18n";
 export default defineComponent({
   name: "zan-header",
   components: {
     checkPass,
     baseInfo,
+    versionLog,
   },
   setup(context, props) {
     let { proxy } = getCurrentInstance(); // vue原型
@@ -101,6 +107,7 @@ export default defineComponent({
       username: computed(() => localStorage.getItem("username") || "待完善"),
       passVisible: false, //修改密码弹框
       baseVisible: false, //基本信息弹框
+      versionVisible: false, //版本日志弹框
     });
 
     const requestFullScreen = (element) => {
@@ -152,9 +159,14 @@ export default defineComponent({
         router.push("/login");
         ElMessage.success("登出成功");
       } else if (command == "checkPass") {
+        //打开修改密码弹框
         state.passVisible = true;
       } else if (command == "baseInfo") {
+        //打开基本信息弹框
         baseInfoRef.value.openBaseInfo(store.state.user.user);
+      } else if (command == "versionLog") {
+        //打开版本日志弹框
+        state.versionVisible = true;
       }
     };
 

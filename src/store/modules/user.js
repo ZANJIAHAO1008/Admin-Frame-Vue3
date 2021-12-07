@@ -95,18 +95,6 @@ export default {
                 ]
             },
             {
-                resourceName: "消息管理",
-                resourceUrl: "/messageManagement",
-                resourceIcon: "fa fa-comment",
-                children: [
-                    {
-                        resourceName: "消息中心",
-                        resourceUrl: "/messageCenter",
-                        children: []
-                    }
-                ]
-            },
-            {
                 resourceName: "返回结果",
                 resourceUrl: "/result",
                 resourceIcon: "fa fa-random",
@@ -156,6 +144,24 @@ export default {
                     resourceUrl: "/networkError",
                     children: []
                 },
+                ]
+            },
+            {
+                resourceName: '工作流程',
+                resourceUrl: "/workflow",
+                resourceIcon: 'fa fa-crosshairs',
+                children: []
+            },
+            {
+                resourceName: "消息管理",
+                resourceUrl: "/messageManagement",
+                resourceIcon: "fa fa-comment",
+                children: [
+                    {
+                        resourceName: "消息中心",
+                        resourceUrl: "/messageCenter",
+                        children: []
+                    }
                 ]
             },
             {

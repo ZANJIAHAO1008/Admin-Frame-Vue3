@@ -55,7 +55,6 @@ export default defineComponent({
   props: {
     passVisible: Boolean,
   },
-  emits: ["passVisible"],
   setup(props, context) {
     const checkPassRef = ref(null); //密码验证ref
     const store = useStore(); //vuex

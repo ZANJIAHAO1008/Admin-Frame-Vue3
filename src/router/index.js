@@ -210,6 +210,13 @@ const constantRouterMap = [
                 },
                 component: () => import("../views/content/form/cardList.vue")
             },
+            {
+                path: "/workflow",
+                meta: {
+                    title: '工作流程'
+                },
+                component: () => import("../views/workflow/index.vue")
+            },
         ]
     }
 ]

@@ -124,7 +124,6 @@ export default defineComponent({
   props: {
     baseVisible: Boolean,
   },
-  emits: ["baseVisible", "refresh"],
   setup(props, context) {
     const store = useStore(); //vuex
     const router = useRouter(); //路由
@@ -166,6 +165,10 @@ export default defineComponent({
       ], //角色列表
     });
 
+    const getInit = () => {
+      //基本信息初始化
+      console.log("基本信息初始化");
+    };
     const close = () => {
       context.emit("update:baseVisible", false);
     };
@@ -195,6 +198,7 @@ export default defineComponent({
       saveBaseInfo,
       openBaseInfo,
       baseInfoRef,
+      getInit,
     };
   },
 });
