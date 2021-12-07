@@ -9,9 +9,6 @@
       <div class="text item">
         <el-time-picker
           v-model="value"
-          :disabled-hours="disabledHours"
-          :disabled-minutes="disabledMinutes"
-          :disabled-seconds="disabledSeconds"
           placeholder="请选择"
         >
         </el-time-picker>

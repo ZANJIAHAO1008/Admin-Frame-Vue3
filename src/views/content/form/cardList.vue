@@ -67,7 +67,7 @@
             <div style="padding: 8px 4px 0px 4px">
               <div class="bottom">
                 <time class="time">上架日期：{{ item.putawayDate }}</time>
-                <el-space size="10" spacer="|">
+                <el-space :size="10" spacer="|">
                   <el-button type="text" @click="operation('edit', {})"
                     >编辑</el-button
                   >

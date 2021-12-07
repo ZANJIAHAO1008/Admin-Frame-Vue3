@@ -13,7 +13,7 @@
             <span
               class="v-n-title"
               :style="{
-                paddingLeft: index ? '43px' : '4px',
+                paddingLeft: index ? '50px' : '4px',
               }"
             >
               {{ item.version }}</span

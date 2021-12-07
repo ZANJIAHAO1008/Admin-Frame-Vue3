@@ -76,7 +76,6 @@
     <base-info
       ref="baseInfoRef"
       v-model:baseVisible="baseVisible"
-      @reFresh="reFresh"
     ></base-info>
   </div>
 </template>
@@ -100,7 +99,6 @@ export default defineComponent({
     Pagination,
     baseInfo,
   },
-  emits: [],
   setup() {
     const baseInfoRef = ref("null");
     const state = reactive({
@@ -214,7 +212,6 @@ export default defineComponent({
       getInfo,
       deleteUser,
       baseInfoEdit,
-      reFresh,
     };
   },
 });

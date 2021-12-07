@@ -48,7 +48,7 @@
       <el-input v-model="form.desc" type="textarea"></el-input>
     </el-form-item>
     <el-form-item>
-      <el-button type="primary" @click="onSubmit">Create</el-button>
+      <el-button type="primary" >Create</el-button>
       <el-button>Cancel</el-button>
     </el-form-item>
   </el-form>

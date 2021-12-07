@@ -1,7 +1,7 @@
 <template>
   <div id="diagramContainer">
     <div id="item_left" class="item">前端</div>
-    <div id="item_right" class="item"  >后端</div>
+    <div id="item_right" class="item" style="left: 400px; top: 150px">后端</div>
   </div>
 </template>
 <script>
@@ -14,17 +14,11 @@ export default defineComponent({
       jsPlumb: null,
     });
 
-    onMounted(() => {
-      state.jsPlumb = jsPlumbTarget.jsPlumb;
-      init();
-    });
-
-    const init = () => {
-      //初始化
+    const draw = () => {
       state.jsPlumb.ready(function () {
         state.jsPlumb.connect({
           source: "item_left", //起始点
-          target: "item_right",//目标点
+          target: "item_right", //目标点
           endpoint: "Rectangle", // 端点(方形)
           connector: ["Flowchart"], //连线的样式
           anchor: ["Left", "Right"],
@@ -33,6 +27,17 @@ export default defineComponent({
       state.jsPlumb.draggable("item_left");
       state.jsPlumb.draggable("item_right");
     };
+
+    const init = () => {
+      //初始化
+      state.jsPlumb = jsPlumbTarget.jsPlumb;
+    };
+
+    init();
+
+    onMounted(() => {
+      draw();
+    });
 
     return {
       ...toRefs(state),
@@ -45,7 +50,7 @@ export default defineComponent({
 <style lang="scss" scoped>
 #diagramContainer {
   padding: 20px;
-  width: 80%;
+  // width: 80%;
   height: 400px;
   border: 1px solid gray;
   position: relative;

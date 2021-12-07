@@ -4,7 +4,8 @@ export const versionLog = [
         version: "V1.0.3",
         description:
             ['新增版本日志.',
-                '添加被动事件监听器来阻止touchstart事件.'
+                '新增工作流程(建设中).',
+                '添加被动事件监听器来阻止touchstart事件.',
             ],
         releaseDate: "2021/12/07"
     },
