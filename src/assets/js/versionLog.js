@@ -1,6 +1,13 @@
 //记录版本日志
 export const versionLog = [
     {
+        version: "V1.0.3",
+        description:
+            ['新增版本日志.',
+            ],
+        releaseDate: "2021/11/26"
+    },
+    {
         version: "V1.0.2",
         description:
             ['新增卡片列表.'
