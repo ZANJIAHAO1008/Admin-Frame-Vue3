@@ -68,84 +68,84 @@ const constantRouterMap = [
                 meta: {
                     title: '基础表单'
                 },
-                component: () => import("../views/content/form/easyForm.vue")
+                component: () => import("../views/form/easyForm.vue")
             },
             {
                 path: "/table",
                 meta: {
                     title: '表格表单'
                 },
-                component: () => import("../views/content/form/table.vue")
+                component: () => import("../views/form/table.vue")
             },
             {
                 path: "/404",
                 meta: {
                     title: '404'
                 },
-                component: () => import("../views/content/abnormal/404.vue")
+                component: () => import("../views/abnormal/404.vue")
             },
             {
                 path: "/403",
                 meta: {
                     title: '403'
                 },
-                component: () => import("../views/content/abnormal/403.vue")
+                component: () => import("../views/abnormal/403.vue")
             },
             {
                 path: "/networkError",
                 meta: {
                     title: 'networkError'
                 },
-                component: () => import("../views/content/abnormal/networkError.vue")
+                component: () => import("../views/abnormal/networkError.vue")
             },
             {
                 path: "/noData",
                 meta: {
                     title: '暂无数据'
                 },
-                component: () => import("../views/content/abnormal/noData.vue")
+                component: () => import("../views/abnormal/noData.vue")
             },
             {
                 path: "/build",
                 meta: {
                     title: '功能建设中'
                 },
-                component: () => import("../views/content/abnormal/build.vue")
+                component: () => import("../views/abnormal/build.vue")
             },
             {
                 path: "/textEditor",
                 meta: {
                     title: '富文本编辑器'
                 },
-                component: () => import("../views/content/editor/textEditor.vue")
+                component: () => import("../views/editor/textEditor.vue")
             },
             {
                 path: "/markdown",
                 meta: {
                     title: 'markdown'
                 },
-                component: () => import("../views/content/editor/markdown.vue")
+                component: () => import("../views/editor/markdown.vue")
             },
             {
                 path: "/successTip",
                 meta: {
                     title: '成功'
                 },
-                component: () => import("../views/content/tip/success.vue")
+                component: () => import("../views/tip/success.vue")
             },
             {
                 path: "/errorTip",
                 meta: {
                     title: '失败'
                 },
-                component: () => import("../views/content/tip/error.vue")
+                component: () => import("../views/tip/error.vue")
             },
             {
                 path: "/warningTip",
                 meta: {
                     title: '异常'
                 },
-                component: () => import("../views/content/tip/warning.vue")
+                component: () => import("../views/tip/warning.vue")
             },
             {
                 path: "/dialogDrag",
@@ -208,7 +208,7 @@ const constantRouterMap = [
                 meta: {
                     title: '卡片列表'
                 },
-                component: () => import("../views/content/form/cardList.vue")
+                component: () => import("../views/form/cardList.vue")
             },
             {
                 path: "/workflow",

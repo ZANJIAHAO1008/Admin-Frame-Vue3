@@ -10,8 +10,7 @@ import * as _public from "./util/utils"; //一些全局方法
 import animated from 'animate.css';//动画库
 import i18n from '../src/locales/i18n.js'; //国际化
 import 'amfe-flexible' //移动端适配
-import dialogDrag from './directives/dialogDrag';
-import copy from './directives/copy';
+import { dialogDrag, copy } from './directives/index'; //自定义指令
 import moment from 'moment'; //日期时间格式化
 import 'default-passive-events'; //添加被动事件监听器来阻止’touchstart’事件
 const app = createApp(App)
