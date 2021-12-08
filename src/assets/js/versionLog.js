@@ -29,7 +29,7 @@ export const versionLog = [
         description:
             ['vue版本升级至3.2.22.',
                 '项目中添加vueuse库.',
-                '新增生成二维码、监测电脑信息组件.'
+                '新增生成二维码、监测电脑信息功能.'
             ],
         releaseDate: "2021/11/24"
     },

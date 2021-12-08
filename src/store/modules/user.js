@@ -9,8 +9,8 @@ export default {
                 children: []
             },
             {
-                resourceName: '组件',
-                resourceUrl: "/zujian",
+                resourceName: '功能',
+                resourceUrl: "/gongneng",
                 resourceIcon: 'fa fa-wrench',
                 children: [
                     {
