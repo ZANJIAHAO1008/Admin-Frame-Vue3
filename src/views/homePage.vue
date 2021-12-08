@@ -172,6 +172,9 @@ export default defineComponent({
           },
         ],
       };
+      document
+        .getElementById("visitChart")
+        .setAttribute("_echarts_instance_", "");
       myChart.setOption(option);
     };
 
@@ -221,6 +224,9 @@ export default defineComponent({
           },
         ],
       };
+      document
+        .getElementById("originChart")
+        .setAttribute("_echarts_instance_", "");
       myChart.setOption(option);
     };
 
@@ -247,6 +253,9 @@ export default defineComponent({
           },
         ],
       };
+      document
+        .getElementById("activeChart")
+        .setAttribute("_echarts_instance_", "");
       myChart.setOption(option);
     };
 
@@ -288,6 +297,9 @@ export default defineComponent({
           },
         ],
       };
+      document
+        .getElementById("genderChart")
+        .setAttribute("_echarts_instance_", "");
       myChart.setOption(option);
     };
 

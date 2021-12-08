@@ -45,7 +45,7 @@ import Tags from "../components/Tags/index.vue";
 import { useStore } from "vuex";
 
 export default defineComponent({
-  name: "home",
+  name: "Main",
   components: {
     SideBar,
     Header,

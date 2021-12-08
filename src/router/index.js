@@ -22,11 +22,11 @@ const constantRouterMap = [
         component: () => import("../views/Login.vue")
     },
     {
-        path: "/home",
+        path: "/main",
         meta: {
-            title: '首页'
+            title: '基础'
         },
-        component: () => import("../views/Home.vue"),
+        component: () => import("../views/Main.vue"),
         children: [
             {
                 path: "/homePage",

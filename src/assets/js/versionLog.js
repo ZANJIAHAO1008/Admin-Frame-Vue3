@@ -1,6 +1,14 @@
 //记录版本日志
 export const versionLog = [
     {
+        version: "V1.0.4",
+        description:
+            ['优化首屏加载等待动画.',
+                '修复Echarts切换页面不显示问题.',
+            ],
+        releaseDate: "2021/12/08"
+    },
+    {
         version: "V1.0.3",
         description:
             ['新增版本日志.',

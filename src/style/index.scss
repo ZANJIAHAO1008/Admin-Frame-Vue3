@@ -32,7 +32,7 @@
 .abnormal-img{
   //异常页面样式
   @include abnormal;
-  padding-top: 80px;
+  padding-top:calc(100vh - 750px);
 };
 .abnormal-tip{
  @include font-col(#909399);
