@@ -1,5 +1,5 @@
 <template>
-  <div class="role">
+  <div class="tableOperation">
     <div class="zan-nav">
       <el-form
         :inline="true"
@@ -173,8 +173,9 @@ import {
   shallowRef,
 } from "vue";
 import { ElMessageBox } from "element-plus";
-import Pagination from "../../../components/Pagination/index.vue";
+import Pagination from "../../components/Pagination/index.vue";
 export default defineComponent({
+  name: "tableOperation",
   components: {
     Pagination,
   },
@@ -232,7 +233,6 @@ export default defineComponent({
         name: [{ required: true, message: "请输入姓名", trigger: "blur" }],
       },
     });
-
     provide("pagination", state.pagination); //父子传参
     const components = shallowRef({
       //子组件注册
@@ -241,11 +241,9 @@ export default defineComponent({
     onMounted(() => {
       getInfo();
     });
-
     const getInfo = (val) => {
       //查询列表
     };
-
     const operation = (type, target) => {
       //打开新增 编辑
       state.type = type;
@@ -259,7 +257,6 @@ export default defineComponent({
         state.form = { ...target };
       }
     };
-
     const ok = () => {
       //判断新增 编辑
       const item = {
@@ -272,15 +269,12 @@ export default defineComponent({
         }
       });
     };
-
     const save = () => {
       //新增
     };
-
     const edit = () => {
       //编辑
     };
-
     const del = (id) => {
       //删除
       ElMessageBox.confirm("此操作将永久删除本条记录, 是否继续?", "提示", {
@@ -291,11 +285,9 @@ export default defineComponent({
         .then(() => {})
         .catch(() => {});
     };
-
     const toEnable = (data) => {
       //启用 禁用
     };
-
     const close = () => {
       //关闭
       tableRef.value.resetFields();
@@ -310,7 +302,6 @@ export default defineComponent({
       };
       state.openDialog = false;
     };
-
     return {
       ...toRefs(state),
       tableRef,

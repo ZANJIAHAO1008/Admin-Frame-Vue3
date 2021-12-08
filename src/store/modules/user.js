@@ -66,8 +66,8 @@ export default {
                         children: []
                     },
                     {
-                        resourceName: "表格表单",
-                        resourceUrl: "/table",
+                        resourceName: "表格操作",
+                        resourceUrl: "/tableOperation",
                         children: []
                     },
                     {

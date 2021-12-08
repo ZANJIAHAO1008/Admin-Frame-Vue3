@@ -13,10 +13,11 @@ import 'amfe-flexible' //移动端适配
 import { dialogDrag, copy } from './directives/index'; //自定义指令
 import moment from 'moment'; //日期时间格式化
 import 'default-passive-events'; //添加被动事件监听器来阻止’touchstart’事件
-const app = createApp(App)
+const app = createApp(App);
 app.config.globalProperties._public = _public; //公共方法
 app.config.globalProperties.$filters = filters; //公共过滤器
 app.config.globalProperties.$moment = moment; //日期时间过滤器
+console.log(app);
 app.use(ElementPlus,
     {
         i18n: i18n.global.t,

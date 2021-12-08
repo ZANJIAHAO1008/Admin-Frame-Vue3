@@ -71,11 +71,11 @@ const constantRouterMap = [
                 component: () => import("../views/form/easyForm.vue")
             },
             {
-                path: "/table",
+                path: "/tableOperation",
                 meta: {
-                    title: '表格表单'
+                    title: '表格操作'
                 },
-                component: () => import("../views/form/table.vue")
+                component: () => import("../views/form/tableOperation.vue")
             },
             {
                 path: "/404",
