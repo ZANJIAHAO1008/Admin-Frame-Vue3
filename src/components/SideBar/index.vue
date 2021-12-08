@@ -124,7 +124,10 @@ export default defineComponent({
   height: 100%;
   box-sizing: border-box;
   transition: width 0.3s ease-in-out;
-
+  .sidebar-el-menu {
+    overflow-x: hidden;
+    overflow-y: scroll;
+  }
   .zan-sidebar-nav {
     box-sizing: border-box;
     padding: 16px 10px 16px 10px;

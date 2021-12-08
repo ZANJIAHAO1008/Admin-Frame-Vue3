@@ -80,6 +80,11 @@ export default defineComponent({
   height: 100%;
   overflow: hidden;
 
+  .el-aside {
+    position: relative;
+    overflow: hidden;
+  }
+
   .el-header,
   .el-main {
     padding: 0;
