@@ -1,6 +1,13 @@
 //记录版本日志
 export const versionLog = [
     {
+        version: "V1.0.5",
+        description:
+            ['新增新手引导功能.',
+            ],
+        releaseDate: "2021/12/09"
+    },
+    {
         version: "V1.0.4",
         description:
             ['优化首屏加载等待动画.',

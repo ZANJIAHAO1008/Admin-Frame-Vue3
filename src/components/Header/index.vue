@@ -1,15 +1,17 @@
 <template>
   <div class="zan-header">
     <div class="collapse-btn" @click="switchCollapse">
-      <i v-if="collapse" class="fa fa-indent"></i>
-      <i v-else class="fa fa-dedent"></i>
+      <i v-if="collapse" class="fa fabtn fa-indent"></i>
+      <i v-else class="fa fabtn fa-dedent"></i>
     </div>
     <div class="collapse-right">
       <el-tooltip class="item" effect="dark" content="全屏" placement="bottom">
-        <i class="fa fa-arrows-alt" @click="requestFullScreen('body')"></i>
+        <span class="faSpan"
+          ><i class="fa fa-arrows-alt" @click="requestFullScreen('body')"></i
+        ></span>
       </el-tooltip>
       <el-dropdown @command="changeI18n">
-        <span class="el-dropdown-link">
+        <span class="el-dropdown-link faSpan">
           <i class="fa fa-language" style="font-size: 18px"></i>
         </span>
         <template #dropdown>
@@ -32,7 +34,11 @@
         content="消息中心"
         placement="bottom"
       >
-        <i class="fa fa-bell-o" @click="toGetMessage"></i>
+        <span class="faSpan">
+          <el-badge is-dot class="item">
+            <i class="fa faPad fa-bell-o" @click="toGetMessage"></i
+          ></el-badge>
+        </span>
       </el-tooltip>
       <!-- 用户名下拉菜单 -->
       <el-dropdown size="small" trigger="click" @command="handleCommand">
@@ -108,6 +114,7 @@ export default defineComponent({
       passVisible: false, //修改密码弹框
       baseVisible: false, //基本信息弹框
       versionVisible: false, //版本日志弹框
+      driver: null, //引导实例
     });
 
     const requestFullScreen = (element) => {
@@ -224,13 +231,13 @@ export default defineComponent({
   }
 
   .collapse-right {
-    // float: right;
+    float: right;
     padding-right: 20px;
     height: 64px;
     display: flex;
     align-items: center;
-
-    .fa {
+    justify-content: space-between;
+    .faSpan {
       padding-right: 15px;
       cursor: pointer;
     }

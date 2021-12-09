@@ -186,6 +186,12 @@ export default {
                     },
                 ]
             },
+            {
+                resourceName: '新手引导',
+                resourceUrl: "/noviceGuide",
+                resourceIcon: 'fa fa-question-circle-o',
+                children: []
+            },
         ]
     },
     mutations: {

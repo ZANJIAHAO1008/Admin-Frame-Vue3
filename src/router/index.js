@@ -217,6 +217,13 @@ const constantRouterMap = [
                 },
                 component: () => import("../views/workflow/index.vue")
             },
+            {
+                path: "/noviceGuide",
+                meta: {
+                    title: '新手引导'
+                },
+                component: () => import("../views/noviceGuide/index.vue")
+            },
         ]
     }
 ]
