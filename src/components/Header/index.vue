@@ -104,7 +104,7 @@ export default defineComponent({
   },
   setup(context, props) {
     let { proxy } = getCurrentInstance(); // vue原型
-    const { t } = useI18n();
+    const { t, locale: language } = useI18n();
     const store = useStore(); //vuex
     const router = useRouter(); //路由
     const baseInfoRef = ref("null");
@@ -189,8 +189,10 @@ export default defineComponent({
         ElMessage.warning(`${t("message.public.existence")}`);
         return false;
       }
-      proxy.$i18n.locale = type;
-      Cookies.set("lang", type);
+      Cookies.set("lang", type); //存储国际化
+      language.value = type; //更新i18n配置
+      proxy.$i18n.locale = type; //更新i18n配置
+      location.reload(); //刷新页面显示I18n
       ElMessage.success(`${t("message.public.editLang")}`);
     };
 

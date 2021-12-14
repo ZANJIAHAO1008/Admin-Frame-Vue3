@@ -158,13 +158,14 @@ import {
 } from "vue";
 import { ElMessageBox } from "element-plus";
 import { useStore } from "vuex";
+import resourceList from "../../assets/js/resource";
 export default defineComponent({
   name: "resource",
   setup() {
     const resourceRef = ref(null); //资源ref
     const store = useStore();
     const state = reactive({
-      resourceList: computed(() => store.state.user.resourceList),
+      resourceList,
       visible: false,
       defaultProps: {
         //tree 默认配置项

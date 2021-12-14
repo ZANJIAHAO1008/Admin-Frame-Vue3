@@ -168,6 +168,7 @@ import {
 } from "vue";
 import { ElMessageBox } from "element-plus";
 import { useStore } from "vuex";
+import resourceList from "../../assets/js/resource";
 export default defineComponent({
   name: "role",
   setup() {
@@ -214,7 +215,7 @@ export default defineComponent({
           { required: true, message: "请输入角色名称", trigger: "blur" },
         ],
       },
-      resourceList: computed(() => store.state.user.resourceList),
+      resourceList,
       defaultProps: {
         //tree 默认配置项
         children: "children",

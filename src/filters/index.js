@@ -9,10 +9,12 @@ export default {
     langFilter(val) {
         //过滤国际化中文
         switch (val) {
+            case 'zh':
+                return '中文';
             case 'zh-cn':
                 return '中文';
             case 'en':
-                return '英文';
+                return 'English';
         }
     }
 }

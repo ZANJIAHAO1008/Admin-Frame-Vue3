@@ -7,8 +7,8 @@
 </template>
 <script>
 import { defineComponent, reactive, onMounted } from "vue";
-import Driver from "driver.js";
-import "driver.js/dist/driver.min.css";
+// import Driver from "driver.js";
+// import "driver.js/dist/driver.min.css";
 import steps from "../../assets/js/guide";
 export default defineComponent({
   setup() {

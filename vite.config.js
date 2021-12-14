@@ -33,33 +33,8 @@ module.exports = {
     // 引入第三方的配置
     optimizeDeps: {
         include: [
-            // '@amap/amap-jsapi-loader',
-            // '@vueup/vue-quill',
-            // 'amfe-flexible',
-            // 'clipboard',
-            // 'element-plus',
-            // 'js-cookie',
-            // 'nprogress',
-            // 'qs',
-            // 'vue',
-            // 'vue-i18n',
-            // 'moment',
-            // 'echarts',
-            // 'axios',
-            // 'element-plus/es/locale/lang/en',
-            // 'element-plus/es/locale/lang/zh-cn',
-            // '@vueuse/integrations/useQRCode',
-            // '@vueuse/core',cls
-            // '@vueuse/integrations',
-            // 'default-passive-events',
-            // 'jsplumb',
-            // 'qrcode',
-            // ' @amap/amap-jsapi-loader',
-            // '@vueup/vue-quill',
-            // 'amfe-flexible'
             'element-plus/es/locale/lang/en',
             'element-plus/es/locale/lang/zh-cn',
-            '@vueuse/integrations/useQRCode',
         ],
     },
 }

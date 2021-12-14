@@ -32,7 +32,6 @@ export default defineComponent({
     });
 
     onMounted(() => {
-      console.log(Watermark);
       Watermark.set("Admin Frame 添加水印"); // 添加水印
     });
 

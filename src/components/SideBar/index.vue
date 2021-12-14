@@ -98,7 +98,7 @@
 import { defineComponent, toRefs, reactive, ref, computed, watch } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import { useStore } from "vuex";
-
+import resourceList from "../../assets/js/resource";
 export default defineComponent({
   name: "sidebar",
   setup() {
@@ -107,7 +107,7 @@ export default defineComponent({
     const route = useRoute(); //路由
 
     const state = reactive({
-      menuItem: computed(() => store.state.user.resourceList), //查询菜单栏
+      menuItem: computed(() => resourceList), //查询菜单栏
       onRoutes: computed(() => route.path),
       collapse: computed(() => {
         return store.state.collapse;
