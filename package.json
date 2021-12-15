@@ -33,9 +33,13 @@
   },
   "devDependencies": {
     "@vue/compiler-sfc": "^3.2.22",
+    "@vue/eslint-config-prettier": "^6.0.0",
+    "eslint": "^8.4.1",
+    "eslint-plugin-prettier": "^4.0.0",
     "less-loader": "^7.0.2",
     "postcss": "^8.3.6",
     "postcss-pxtorem": "^6.0.0",
+    "prettier": "^2.5.1",
     "sass": "^1.37.5",
     "vite": "^1.0.0-rc.13"
   }

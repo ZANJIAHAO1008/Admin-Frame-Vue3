@@ -12,8 +12,7 @@
           v-copy="'copydir'"
           class="copydir"
           data-clipboard-text="我是指令复制"
-          >我是指令复制(点击复制)</el-button
-        >
+        >我是指令复制(点击复制)</el-button>
       </div>
     </el-card>
 
@@ -29,8 +28,7 @@
           class="copyBtn"
           @click="copy"
           data-clipboard-text="我是组件内方法复制"
-          >我是组件内方法复制(点击复制)</el-button
-        >
+        >我是组件内方法复制(点击复制)</el-button>
       </div>
     </el-card>
   </el-space>

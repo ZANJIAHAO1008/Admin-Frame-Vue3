@@ -2,7 +2,7 @@
   <div class="login-container">
     <div class="login-body">
       <div class="logo">
-        <img alt="" src="../assets/image/LG.png" />
+        <img alt src="../assets/image/LG.png" />
         <p>Admin Frame</p>
         <span>Zan Admin Frame 是一款中/后台管理系统</span>
       </div>
@@ -38,15 +38,12 @@
               style="width: 100%"
               type="primary"
               @click="submitForm()"
-              >登录</el-button
-            >
+            >登录</el-button>
           </el-form-item>
         </el-form>
         <div class="other-content">
           <el-button type="text" disabled>其它登录方式</el-button>
-          <el-button type="text" @click="loginStatus = false"
-            >注册账户</el-button
-          >
+          <el-button type="text" @click="loginStatus = false">注册账户</el-button>
         </div>
       </div>
       <div v-show="!loginStatus">
@@ -103,18 +100,11 @@
           <!--            <el-input clearable prefix-icon="fa fa-user-o"   v-model.trim="register.address" placeholder="请输入家庭地址"></el-input>-->
           <!--          </el-form-item>-->
           <el-form-item>
-            <el-button
-              style="width: 100%"
-              type="primary"
-              @click="registerForm()"
-              >注册</el-button
-            >
+            <el-button style="width: 100%" type="primary" @click="registerForm()">注册</el-button>
           </el-form-item>
         </el-form>
         <div class="other-content">
-          <el-button style="width: 100%" type="text" @click="loginStatus = true"
-            >使用已有账号登陆</el-button
-          >
+          <el-button style="width: 100%" type="text" @click="loginStatus = true">使用已有账号登陆</el-button>
         </div>
       </div>
     </div>
@@ -223,7 +213,7 @@ export default defineComponent({
               state.param.password = state.register.password;
               submitForm();
             })
-            .catch(() => {});
+            .catch(() => { });
         }
       });
     };

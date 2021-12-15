@@ -7,9 +7,11 @@
         </div>
       </template>
       <div class="text item">
-        <el-tag :type="online ? 'success' : 'danger'">{{
-          online ? "当前网络在线" : "当前是离线状态"
-        }}</el-tag>
+        <el-tag :type="online ? 'success' : 'danger'">
+          {{
+            online ? "当前网络在线" : "当前是离线状态"
+          }}
+        </el-tag>
       </div>
     </el-card>
     <el-card class="box-card" style="width: 60vw">
@@ -35,18 +37,26 @@
         </div>
       </template>
       <div class="text item">
-        <el-tag :type="capsLockState ? 'success' : 'info'">{{
-          capsLockState ? "CapsLock已打开" : "CapsLock未打开"
-        }}</el-tag>
-        <el-tag class="m-l8" :type="altState ? 'success' : 'info'">{{
-          altState ? "Alt已打开" : "Alt未打开"
-        }}</el-tag>
-        <el-tag class="m-l8" :type="controlState ? 'success' : 'info'">{{
-          controlState ? "Control已打开" : "Control未打开"
-        }}</el-tag>
-        <el-tag class="m-l8" :type="numLockState ? 'success' : 'info'">{{
-          numLockState ? "NumLock已打开" : "NumLock未打开"
-        }}</el-tag>
+        <el-tag :type="capsLockState ? 'success' : 'info'">
+          {{
+            capsLockState ? "CapsLock已打开" : "CapsLock未打开"
+          }}
+        </el-tag>
+        <el-tag class="m-l8" :type="altState ? 'success' : 'info'">
+          {{
+            altState ? "Alt已打开" : "Alt未打开"
+          }}
+        </el-tag>
+        <el-tag class="m-l8" :type="controlState ? 'success' : 'info'">
+          {{
+            controlState ? "Control已打开" : "Control未打开"
+          }}
+        </el-tag>
+        <el-tag class="m-l8" :type="numLockState ? 'success' : 'info'">
+          {{
+            numLockState ? "NumLock已打开" : "NumLock未打开"
+          }}
+        </el-tag>
       </div>
     </el-card>
     <el-card class="box-card" style="width: 60vw">

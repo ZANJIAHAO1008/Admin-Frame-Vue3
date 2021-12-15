@@ -6,8 +6,7 @@
     :page-size="pagination.pageSize"
     layout="total, sizes, prev, pager, next, jumper"
     :total="pagination.total"
-  >
-  </el-pagination>
+  ></el-pagination>
 </template>
 <script>
 import { defineComponent, reactive, toRefs, watch, inject } from "vue";

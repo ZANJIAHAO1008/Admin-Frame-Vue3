@@ -1,17 +1,12 @@
 <template>
-  <el-button @click="dialogVisible = true" type="primary"   size="small">点击打开可拖拽弹框</el-button>
+  <el-button @click="dialogVisible = true" type="primary" size="small">点击打开可拖拽弹框</el-button>
   <div v-dialogdrag>
-    <el-dialog
-      v-model="dialogVisible"
-      title="提示"
-      width="30%"
-      :before-close="handleClose"
-    >
+    <el-dialog v-model="dialogVisible" title="提示" width="30%" :before-close="handleClose">
       <div style="heig">
-        <span
-          >Notice: before dialog gets opened for the first time this node and
-          the one bellow will not be rendered</span
-        >
+        <span>
+          Notice: before dialog gets opened for the first time this node and
+          the one bellow will not be rendered
+        </span>
         <div>
           <strong>Extra content (Not rendered)</strong>
         </div>
@@ -19,9 +14,7 @@
       <template #footer>
         <span class="dialog-footer">
           <el-button @click="dialogVisible = false">取消</el-button>
-          <el-button type="primary" @click="dialogVisible = false"
-            >确认</el-button
-          >
+          <el-button type="primary" @click="dialogVisible = false">确认</el-button>
         </span>
       </template>
     </el-dialog>

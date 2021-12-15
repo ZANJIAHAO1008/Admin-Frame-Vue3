@@ -27,58 +27,34 @@
           ></el-input>
         </el-form-item>
         <el-form-item>
-          <el-button
-            icon="el-icon-search"
-            size="small"
-            type="primary"
-            @click="getInfo"
-            >查 询</el-button
-          >
-          <el-button type="primary" size="small" @click="openLog({}, 'add')"
-            >新增角色</el-button
-          >
+          <el-button icon="el-icon-search" size="small" type="primary" @click="getInfo">查 询</el-button>
+          <el-button type="primary" size="small" @click="openLog({}, 'add')">新增角色</el-button>
         </el-form-item>
       </el-form>
     </div>
     <div class="zan-table">
-      <el-table
-        :data="roleList"
-        height="calc(100vh - 320px)"
-        stripe
-        style="width: 100%"
-      >
-        <el-table-column label="角色名称" prop="roleName"> </el-table-column>
-        <el-table-column label="备注" prop="marks"> </el-table-column>
+      <el-table :data="roleList" height="calc(100vh - 320px)" stripe style="width: 100%">
+        <el-table-column label="角色名称" prop="roleName"></el-table-column>
+        <el-table-column label="备注" prop="marks"></el-table-column>
         <el-table-column label="是否默认" prop="grant">
           <template #default="scope">
-            <el-tag v-if="scope.row.grant === '1'" effect="dark" type="success"
-              >是</el-tag
-            >
+            <el-tag v-if="scope.row.grant === '1'" effect="dark" type="success">是</el-tag>
             <el-tag v-else effect="dark" type="danger">否</el-tag>
           </template>
         </el-table-column>
-        <el-table-column label="创建时间" prop="createTime"> </el-table-column>
+        <el-table-column label="创建时间" prop="createTime"></el-table-column>
         <el-table-column label="操作">
           <template #default="scope">
             <el-space spacer="|" style="color: #dedede">
-              <el-button type="text" @click="openAuthorize(scope.row)"
-                >授权</el-button
-              >
-              <el-button type="text" @click="openLog(scope.row, 'edit')"
-                >编辑</el-button
-              >
+              <el-button type="text" @click="openAuthorize(scope.row)">授权</el-button>
+              <el-button type="text" @click="openLog(scope.row, 'edit')">编辑</el-button>
               <el-button type="text" @click="del(scope.row)">删除</el-button>
             </el-space>
           </template>
         </el-table-column>
       </el-table>
     </div>
-    <el-dialog
-      v-model="visible"
-      :before-close="close"
-      title="角色配置"
-      width="865px"
-    >
+    <el-dialog v-model="visible" :before-close="close" title="角色配置" width="865px">
       <el-form
         ref="roleRef"
         :model="roleForm"
@@ -102,8 +78,7 @@
                 active-value="1"
                 inactive-text="否"
                 inactive-value="0"
-              >
-              </el-switch>
+              ></el-switch>
             </el-form-item>
           </el-col>
         </el-row>
@@ -126,12 +101,7 @@
         </span>
       </template>
     </el-dialog>
-    <el-dialog
-      v-model="distribution"
-      :before-close="closeAuthorize"
-      title="权限分配"
-      width="600px"
-    >
+    <el-dialog v-model="distribution" :before-close="closeAuthorize" title="权限分配" width="600px">
       <div class="distribution_content">
         <el-tree
           ref="treeRef"
@@ -141,15 +111,12 @@
           default-expand-all
           node-key="resourceId"
           show-checkbox
-        >
-        </el-tree>
+        ></el-tree>
       </div>
       <template #footer>
         <span class="dialog-footer">
           <el-button size="medium" @click="closeAuthorize">取 消</el-button>
-          <el-button size="medium" type="primary" @click="saveResource"
-            >确 定</el-button
-          >
+          <el-button size="medium" type="primary" @click="saveResource">确 定</el-button>
         </span>
       </template>
     </el-dialog>
@@ -293,7 +260,7 @@ export default defineComponent({
         .then(() => {
           getInfo();
         })
-        .catch(() => {});
+        .catch(() => { });
     };
 
     const openAuthorize = (data) => {

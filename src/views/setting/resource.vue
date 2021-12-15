@@ -19,16 +19,8 @@
           ></el-input>
         </el-form-item>
         <el-form-item>
-          <el-button
-            icon="el-icon-search"
-            size="small"
-            type="primary"
-            @click="getInfo"
-            >查 询</el-button
-          >
-          <el-button type="primary" size="small" @click="openLog({}, 'add')"
-            >新增资源</el-button
-          >
+          <el-button icon="el-icon-search" size="small" type="primary" @click="getInfo">查 询</el-button>
+          <el-button type="primary" size="small" @click="openLog({}, 'add')">新增资源</el-button>
         </el-form-item>
       </el-form>
     </div>
@@ -47,21 +39,9 @@
                 <span>{{ node.label }}</span>
                 <span>
                   <el-space spacer="|" style="color: #dedede">
-                    <el-button
-                      title="添加子资源"
-                      type="text"
-                      @click="openLog(data, 'add')"
-                      >添加</el-button
-                    >
-                    <el-button
-                      title="编辑"
-                      type="text"
-                      @click="openLog(data, 'edit')"
-                      >编辑</el-button
-                    >
-                    <el-button title="删除" type="text" @click="del(data)"
-                      >删除</el-button
-                    >
+                    <el-button title="添加子资源" type="text" @click="openLog(data, 'add')">添加</el-button>
+                    <el-button title="编辑" type="text" @click="openLog(data, 'edit')">编辑</el-button>
+                    <el-button title="删除" type="text" @click="del(data)">删除</el-button>
                   </el-space>
                 </span>
               </span>
@@ -70,12 +50,7 @@
         </el-col>
       </el-row>
     </div>
-    <el-dialog
-      v-model="visible"
-      :before-close="close"
-      title="资源配置"
-      width="865px"
-    >
+    <el-dialog v-model="visible" :before-close="close" title="资源配置" width="865px">
       <el-form
         ref="resourceRef"
         :model="resourceForm"
@@ -103,21 +78,14 @@
           </el-col>
           <el-col :span="12">
             <el-form-item label="权重：" prop="resourceOrder">
-              <el-input-number
-                v-model="resourceForm.resourceOrder"
-                :max="999"
-                :min="1"
-              ></el-input-number>
+              <el-input-number v-model="resourceForm.resourceOrder" :max="999" :min="1"></el-input-number>
             </el-form-item>
           </el-col>
         </el-row>
         <el-row>
           <el-col :span="12">
             <el-form-item label="类型：" prop="resourceType">
-              <el-select
-                v-model="resourceForm.resourceType"
-                placeholder="请选择资源类型"
-              >
+              <el-select v-model="resourceForm.resourceType" placeholder="请选择资源类型">
                 <el-option label="菜单" value="1"></el-option>
                 <el-option label="url" value="2"></el-option>
               </el-select>
@@ -127,13 +95,7 @@
         <el-row>
           <el-col :span="24">
             <el-form-item label="说明：" prop="marks">
-              <el-input
-                v-model="resourceForm.marks"
-                :rows="2"
-                placeholder="请输入说明"
-                type="textarea"
-              >
-              </el-input>
+              <el-input v-model="resourceForm.marks" :rows="2" placeholder="请输入说明" type="textarea"></el-input>
             </el-form-item>
           </el-col>
         </el-row>
@@ -244,7 +206,7 @@ export default defineComponent({
         .then(() => {
           getInfo();
         })
-        .catch(() => {});
+        .catch(() => { });
     };
 
     const close = () => {

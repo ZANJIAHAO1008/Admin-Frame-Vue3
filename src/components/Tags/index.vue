@@ -3,7 +3,7 @@
     <div v-if="tagsList.length > 0" class="tags">
       <el-tag
         :key="tag"
-        type=""
+        type
         :class="path === tag.path ? 'tag_check' : 'tag_nocheck'"
         v-for="(tag, index) in tagsList"
         :closable="tag.path == '/homePage' ? false : true"
@@ -12,9 +12,7 @@
         @close="aClosingTag(tag, index)"
         @click="triggerTag(tag, 'go')"
         :disable-transitions="false"
-      >
-        {{ tag.title }}
-      </el-tag>
+      >{{ tag.title }}</el-tag>
     </div>
     <el-dropdown v-if="tagsList.length > 0" @command="rightMenu">
       <span class="el-dropdown-link">
@@ -23,7 +21,7 @@
       <template #dropdown>
         <el-dropdown-menu>
           <el-dropdown-item command="all">关闭全部</el-dropdown-item>
-          <el-dropdown-item command="other"> 关闭其他</el-dropdown-item>
+          <el-dropdown-item command="other">关闭其他</el-dropdown-item>
         </el-dropdown-menu>
       </template>
     </el-dropdown>

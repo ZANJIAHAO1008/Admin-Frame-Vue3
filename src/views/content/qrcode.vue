@@ -8,7 +8,7 @@
       </template>
       <div class="text item">
         <el-input v-model="text" placeholder="输入内容展示二维码" />
-        <img :src="qrcode" alt="QR Code" v-if="text"/>
+        <img :src="qrcode" alt="QR Code" v-if="text" />
       </div>
     </el-card>
   </el-space>

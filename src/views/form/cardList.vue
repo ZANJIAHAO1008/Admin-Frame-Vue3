@@ -27,16 +27,8 @@
           ></el-input>
         </el-form-item>
         <el-form-item>
-          <el-button
-            size="small"
-            icon="el-icon-search"
-            type="primary"
-            @click="getInfo()"
-            >查 询</el-button
-          >
-          <el-button size="small" type="primary" @click="operation('add', {})"
-            >新增</el-button
-          >
+          <el-button size="small" icon="el-icon-search" type="primary" @click="getInfo()">查 询</el-button>
+          <el-button size="small" type="primary" @click="operation('add', {})">新增</el-button>
         </el-form-item>
       </el-form>
     </div>
@@ -54,11 +46,7 @@
         >
           <el-card :body-style="{ padding: '24px 0px 6px 0px' }">
             <div class="list-nav">
-              <el-image
-                style="width: 130px; height: 120px"
-                :src="item.image"
-                fit="fill"
-              ></el-image>
+              <el-image style="width: 130px; height: 120px" :src="item.image" fit="fill"></el-image>
               <div class="l-n-body">
                 <div class="l-n-b-titie">{{ item.name }}</div>
                 <span class="l-n-b-introduce">{{ item.introduce }}</span>
@@ -68,9 +56,7 @@
               <div class="bottom">
                 <time class="time">上架日期：{{ item.putawayDate }}</time>
                 <el-space :size="10" spacer="|">
-                  <el-button type="text" @click="operation('edit', {})"
-                    >编辑</el-button
-                  >
+                  <el-button type="text" @click="operation('edit', {})">编辑</el-button>
                   <el-button type="text" @click="del">删除</el-button>
                 </el-space>
               </div>
@@ -92,11 +78,7 @@
         <el-row :gutter="20">
           <el-col :span="12">
             <el-form-item label="商品名称：" prop="name">
-              <el-input
-                placeholder="请输入商品名称"
-                v-model="form.name"
-                clearable
-              ></el-input>
+              <el-input placeholder="请输入商品名称" v-model="form.name" clearable></el-input>
             </el-form-item>
           </el-col>
         </el-row>
@@ -104,11 +86,7 @@
         <el-row :gutter="20">
           <el-col :span="12">
             <el-form-item label="商品类型：" prop="height">
-              <el-input
-                placeholder="请输入商品类型"
-                v-model="form.height"
-                clearable
-              ></el-input>
+              <el-input placeholder="请输入商品类型" v-model="form.height" clearable></el-input>
             </el-form-item>
           </el-col>
         </el-row>
@@ -127,11 +105,7 @@
         <el-row :gutter="20">
           <el-col :span="24">
             <el-form-item label="备注：" prop="marks">
-              <el-input
-                type="textarea"
-                :autosize="{ minRows: 3, maxRows: 5 }"
-                v-model="form.marks"
-              ></el-input>
+              <el-input type="textarea" :autosize="{ minRows: 3, maxRows: 5 }" v-model="form.marks"></el-input>
             </el-form-item>
           </el-col>
         </el-row>
@@ -235,8 +209,8 @@ export default defineComponent({
         cancelButtonText: "取消",
         type: "warning",
       })
-        .then(() => {})
-        .catch(() => {});
+        .then(() => { })
+        .catch(() => { });
     };
 
     const toEnable = (data) => {
@@ -301,7 +275,7 @@ export default defineComponent({
 
 .bottom {
   //   margin-top: 13px;
-      padding: 0 12px;
+  padding: 0 12px;
   line-height: 12px;
   display: flex;
   justify-content: space-between;

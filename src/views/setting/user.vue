@@ -27,56 +27,37 @@
           ></el-input>
         </el-form-item>
         <el-form-item>
-          <el-button
-            icon="el-icon-search"
-            size="small"
-            type="primary"
-            @click="getInfo"
-            >查 询</el-button
-          >
+          <el-button icon="el-icon-search" size="small" type="primary" @click="getInfo">查 询</el-button>
         </el-form-item>
       </el-form>
     </div>
     <div class="zan-table">
-      <el-table
-        :data="userList"
-        height="calc(100vh - 320px)"
-        style="width: 100%"
-      >
-        <el-table-column prop="staffName" label="用户姓名"> </el-table-column>
-        <el-table-column prop="staffId" label="用户ID"> </el-table-column>
-        <el-table-column prop="username" label="用户名"> </el-table-column>
+      <el-table :data="userList" height="calc(100vh - 320px)" style="width: 100%">
+        <el-table-column prop="staffName" label="用户姓名"></el-table-column>
+        <el-table-column prop="staffId" label="用户ID"></el-table-column>
+        <el-table-column prop="username" label="用户名"></el-table-column>
         <el-table-column prop="sex" label="性别">
-          <template #default="scope">{{
-            $filters.Gender(scope.row.sex)
-          }}</template>
+          <template #default="scope">
+            {{
+              $filters.Gender(scope.row.sex)
+            }}
+          </template>
         </el-table-column>
-        <el-table-column prop="phone" label="手机号码"> </el-table-column>
-        <el-table-column prop="address" label="用户住址"> </el-table-column>
-        <el-table-column prop="createTime" label="注册时间"> </el-table-column>
+        <el-table-column prop="phone" label="手机号码"></el-table-column>
+        <el-table-column prop="address" label="用户住址"></el-table-column>
+        <el-table-column prop="createTime" label="注册时间"></el-table-column>
         <el-table-column align="center" label="操作">
           <template #default="scope">
             <el-space spacer="|" style="color: #dedede">
-              <el-button type="text" @click="baseInfoEdit(scope.row)"
-                >编辑</el-button
-              >
-              <el-button type="text" @click="deleteUser(scope.row)"
-                >删除
-              </el-button>
+              <el-button type="text" @click="baseInfoEdit(scope.row)">编辑</el-button>
+              <el-button type="text" @click="deleteUser(scope.row)">删除</el-button>
             </el-space>
           </template>
         </el-table-column>
       </el-table>
-      <component
-        :is="components.pagination"
-        class="zan-pagination"
-        @change="getInfo"
-      ></component>
+      <component :is="components.pagination" class="zan-pagination" @change="getInfo"></component>
     </div>
-    <base-info
-      ref="baseInfoRef"
-      v-model:baseVisible="baseVisible"
-    ></base-info>
+    <base-info ref="baseInfoRef" v-model:baseVisible="baseVisible"></base-info>
   </div>
 </template>
 <script>
@@ -197,8 +178,8 @@ export default defineComponent({
         cancelButtonText: "取消",
         type: "warning",
       })
-        .then(() => {})
-        .catch(() => {});
+        .then(() => { })
+        .catch(() => { });
     };
 
     onMounted(() => {

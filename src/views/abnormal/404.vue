@@ -2,19 +2,11 @@
   <div class="thereIsNo">
     <el-result :image-size="400">
       <template #icon>
-        <img
-          class="abnormal-img"
-          src="/src/assets/image/404.svg"
-          alt=""
-        />
+        <img class="abnormal-img" src="/src/assets/image/404.svg" alt />
       </template>
       <template #extra>
         <h2 class="abnormal-tip">很抱歉，您所访问的页面不存在</h2>
-        <el-button
-          type="text"
-          @click="router.push({ path: '/homePage' })"
-          >返回首页</el-button
-        >
+        <el-button type="text" @click="router.push({ path: '/homePage' })">返回首页</el-button>
       </template>
     </el-result>
   </div>

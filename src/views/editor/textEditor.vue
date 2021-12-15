@@ -1,8 +1,6 @@
 <template>
   <div>
-    <p style="font-size: 26px">
-      QuillEditor —— 轻量级 web 富文本编辑器，配置方便，使用简单。
-    </p>
+    <p style="font-size: 26px">QuillEditor —— 轻量级 web 富文本编辑器，配置方便，使用简单。</p>
     <QuillEditor
       class="m-t8 min-h350"
       :readOnly="readOnly"

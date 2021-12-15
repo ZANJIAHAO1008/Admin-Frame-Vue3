@@ -9,8 +9,8 @@ import { computed, getCurrentInstance, provide, watch } from "vue";
 import Cookies from "js-cookie";
 import { defineComponent, toRefs, reactive } from "vue";
 import { ElConfigProvider } from "element-plus";
-import zhCn from "element-plus/es/locale/lang/zh-cn";
-import en from "element-plus/es/locale/lang/en";
+import zhCn from "element-plus/lib/locale/lang/zh-cn";
+import en from "element-plus/lib/locale/lang/en";
 export default defineComponent({
   name: "App",
   components: {
@@ -27,7 +27,7 @@ export default defineComponent({
     const settingDefaultLang = () => {
       //如果未设置过 则默认中文 可根据接口返回的个人信息中 增加默认语言
       if (!Cookies.get("lang")) {
-        Cookies.set("lang", "zh-cn");
+        Cookies.set("lang", "zh");
       }
     };
     settingDefaultLang();

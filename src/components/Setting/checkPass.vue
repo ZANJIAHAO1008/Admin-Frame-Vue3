@@ -1,10 +1,5 @@
 <template>
-  <el-dialog
-    :before-close="close"
-    :model-value="passVisible"
-    title="修改密码"
-    width="500px"
-  >
+  <el-dialog :before-close="close" :model-value="passVisible" title="修改密码" width="500px">
     <el-form
       ref="checkPassRef"
       :hide-required-asterisk="true"
@@ -15,25 +10,13 @@
       status-icon
     >
       <el-form-item label="原密码" prop="oldPassword">
-        <el-input
-          v-model="ruleForm.oldPassword"
-          autocomplete="off"
-          type="password"
-        ></el-input>
+        <el-input v-model="ruleForm.oldPassword" autocomplete="off" type="password"></el-input>
       </el-form-item>
       <el-form-item label="新密码" prop="newPassword">
-        <el-input
-          v-model="ruleForm.newPassword"
-          autocomplete="off"
-          type="password"
-        ></el-input>
+        <el-input v-model="ruleForm.newPassword" autocomplete="off" type="password"></el-input>
       </el-form-item>
       <el-form-item label="确认密码" prop="checkPass">
-        <el-input
-          v-model="ruleForm.checkPass"
-          autocomplete="off"
-          type="password"
-        ></el-input>
+        <el-input v-model="ruleForm.checkPass" autocomplete="off" type="password"></el-input>
       </el-form-item>
     </el-form>
     <template #footer>

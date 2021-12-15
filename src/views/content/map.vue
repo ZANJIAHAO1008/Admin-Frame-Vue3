@@ -12,9 +12,7 @@
           </div>
         </template>
         <div>
-          <span v-if="info"
-            >位置:{{ info.province + info.city + info.district }}</span
-          >
+          <span v-if="info">位置:{{ info.province + info.city + info.district }}</span>
           <span v-else>暂无位置信息</span>
         </div>
       </el-card>
@@ -46,15 +44,10 @@
         <div>
           <el-form :inline="true" :model="mapForm">
             <el-form-item>
-              <el-input
-                v-model="mapForm.name"
-                placeholder="设置地图当前行政区"
-              ></el-input>
+              <el-input v-model="mapForm.name" placeholder="设置地图当前行政区"></el-input>
             </el-form-item>
             <el-form-item>
-              <el-button size="small" type="primary" @click="gotoCity"
-                >跳转</el-button
-              >
+              <el-button size="small" type="primary" @click="gotoCity">跳转</el-button>
             </el-form-item>
           </el-form>
         </div>
@@ -67,12 +60,8 @@
           </div>
         </template>
         <div>
-          <el-button size="small" type="primary" @click="panBy"
-            >平移像素值：(50,100)</el-button
-          >
-          <el-button size="small" type="primary" @click="panTo"
-            >回到中心点</el-button
-          >
+          <el-button size="small" type="primary" @click="panBy">平移像素值：(50,100)</el-button>
+          <el-button size="small" type="primary" @click="panTo">回到中心点</el-button>
         </div>
       </el-card>
 
@@ -83,12 +72,8 @@
           </div>
         </template>
         <div>
-          <el-button size="small" type="primary" @click="addMarker(AMap)"
-            >添加点标记</el-button
-          >
-          <el-button size="small" type="primary" @click="openInfo(AMap)"
-            >添加窗体</el-button
-          >
+          <el-button size="small" type="primary" @click="addMarker(AMap)">添加点标记</el-button>
+          <el-button size="small" type="primary" @click="openInfo(AMap)">添加窗体</el-button>
         </div>
       </el-card>
     </el-col>

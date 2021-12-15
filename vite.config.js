@@ -4,7 +4,8 @@ const path = require('path')
 module.exports = {
     alias: {
         // 键必须以斜线开始和结束
-        '@/': path.resolve(__dirname, './src')
+        '@/': path.resolve(__dirname, './src'),
+        "vue-i18n": "vue-i18n/dist/vue-i18n.cjs.js"
     },
     // 是否自动在浏览器打开
     open: true,
@@ -33,8 +34,33 @@ module.exports = {
     // 引入第三方的配置
     optimizeDeps: {
         include: [
-            'element-plus/es/locale/lang/en',
-            'element-plus/es/locale/lang/zh-cn',
+            // '@amap/amap-jsapi-loader',
+            // '@vueup/vue-quill',
+            // 'amfe-flexible',
+            // 'clipboard',
+            // 'element-plus',
+            // 'js-cookie',
+            // 'nprogress',
+            // 'qs',
+            // 'vue',
+            // 'vue-i18n',
+            // 'moment',
+            // 'echarts',
+            // 'axios',
+            // 'element-plus/es/locale/lang/en',
+            // 'element-plus/es/locale/lang/zh-cn',
+            // '@vueuse/integrations/useQRCode',
+            // '@vueuse/core',
+            // '@vueuse/integrations',
+            // 'default-passive-events',
+            // 'jsplumb',
+            // 'qrcode',
+            // ' @amap/amap-jsapi-loader',
+            // '@vueup/vue-quill',
+            // 'amfe-flexible'
+            'element-plus/lib/locale/lang/en',
+            'element-plus/lib/locale/lang/zh-cn',
+            '@vueuse/integrations/useQRCode',
         ],
     },
 }

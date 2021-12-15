@@ -7,11 +7,7 @@
         </div>
       </template>
       <div class="text item">
-        <el-time-picker
-          v-model="value"
-          placeholder="请选择"
-        >
-        </el-time-picker>
+        <el-time-picker v-model="value" placeholder="请选择"></el-time-picker>
       </div>
     </el-card>
 
@@ -28,8 +24,7 @@
           range-separator=" - "
           start-placeholder="开始时间"
           end-placeholder="结束时间"
-        >
-        </el-time-picker>
+        ></el-time-picker>
       </div>
     </el-card>
 
@@ -42,14 +37,12 @@
       <div class="text item">
         <div class="m-t8">
           <span>选择时间：</span>
-          <el-time-picker format="HH:mm" v-model="value2" placeholder="请选择">
-          </el-time-picker>
+          <el-time-picker format="HH:mm" v-model="value2" placeholder="请选择"></el-time-picker>
         </div>
 
         <div class="m-t8">
           <span>添加时间：</span>
-          <el-time-picker format="HH:mm" v-model="value3" placeholder="请选择">
-          </el-time-picker>
+          <el-time-picker format="HH:mm" v-model="value3" placeholder="请选择"></el-time-picker>
         </div>
 
         <div class="m-t8">

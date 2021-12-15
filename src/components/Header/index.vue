@@ -6,9 +6,9 @@
     </div>
     <div class="collapse-right">
       <el-tooltip class="item" effect="dark" content="全屏" placement="bottom">
-        <span class="faSpan"
-          ><i class="fa fa-arrows-alt" @click="requestFullScreen('body')"></i
-        ></span>
+        <span class="faSpan">
+          <i class="fa fa-arrows-alt" @click="requestFullScreen('body')"></i>
+        </span>
       </el-tooltip>
       <el-dropdown @command="changeI18n">
         <span class="el-dropdown-link faSpan">
@@ -23,21 +23,15 @@
               :style="{
                 color: $i18n.locale == locale ? 'rgb(64, 158, 255)' : '',
               }"
-              >{{ $filters.langFilter(locale) }}
-            </el-dropdown-item>
+            >{{ $filters.langFilter(locale) }}</el-dropdown-item>
           </el-dropdown-menu>
         </template>
       </el-dropdown>
-      <el-tooltip
-        class="item"
-        effect="dark"
-        content="消息中心"
-        placement="bottom"
-      >
+      <el-tooltip class="item" effect="dark" content="消息中心" placement="bottom">
         <span class="faSpan">
           <el-badge is-dot class="item">
-            <i class="fa faPad fa-bell-o" @click="toGetMessage"></i
-          ></el-badge>
+            <i class="fa faPad fa-bell-o" @click="toGetMessage"></i>
+          </el-badge>
         </span>
       </el-tooltip>
       <!-- 用户名下拉菜单 -->
@@ -48,18 +42,10 @@
         </span>
         <template #dropdown>
           <el-dropdown-menu>
-            <el-dropdown-item divided command="signOut"
-              >退出登录</el-dropdown-item
-            >
-            <el-dropdown-item command="versionLog" divided
-              >版本日志</el-dropdown-item
-            >
-            <el-dropdown-item command="baseInfo" divided
-              >基本信息</el-dropdown-item
-            >
-            <el-dropdown-item command="checkPass" divided
-              >修改密码</el-dropdown-item
-            >
+            <el-dropdown-item divided command="signOut">退出登录</el-dropdown-item>
+            <el-dropdown-item command="versionLog" divided>版本日志</el-dropdown-item>
+            <el-dropdown-item command="baseInfo" divided>基本信息</el-dropdown-item>
+            <el-dropdown-item command="checkPass" divided>修改密码</el-dropdown-item>
           </el-dropdown-menu>
         </template>
       </el-dropdown>
@@ -67,7 +53,7 @@
       <div class="user-avatar">
         <img src="../../assets/image/touxiang.jpg" />
         <!-- <el-avatar icon="el-icon-user-solid">
-        </el-avatar> -->
+        </el-avatar>-->
       </div>
     </div>
     <check-pass v-model:passVisible="passVisible"></check-pass>

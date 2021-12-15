@@ -1,9 +1,6 @@
 <template>
   <div>
-    <el-result
-      icon="success"
-      title="提交成功"
-    >
+    <el-result icon="success" title="提交成功">
       <template #extra>
         <div class="bg-defult p-defult min-w600">
           <div>提交后会在3个工作日里，将结果发送到您的手机。</div>

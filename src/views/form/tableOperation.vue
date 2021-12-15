@@ -32,40 +32,31 @@
             icon="el-icon-search"
             type="primary"
             @click="getInfo(pagination)"
-            >查 询</el-button
-          >
-          <el-button size="small" type="primary" @click="operation('add', {})"
-            >新增</el-button
-          >
+          >查 询</el-button>
+          <el-button size="small" type="primary" @click="operation('add', {})">新增</el-button>
         </el-form-item>
       </el-form>
     </div>
     <div class="zan-table">
       <el-table :data="list" height="calc(100vh - 320px)" style="width: 100%">
-        <el-table-column prop="id" label="ID"> </el-table-column>
-        <el-table-column prop="name" label="姓名"> </el-table-column>
-        <el-table-column prop="address" label="地址"> </el-table-column>
+        <el-table-column prop="id" label="ID"></el-table-column>
+        <el-table-column prop="name" label="姓名"></el-table-column>
+        <el-table-column prop="address" label="地址"></el-table-column>
         <el-table-column align="center" label="操作">
           <template #default="scope">
             <el-space spacer="|" style="color: #dedede">
-              <el-button type="text" @click="operation('edit', scope.row)"
-                >编辑</el-button
-              >
-              <el-button type="text" @click="toEnable(scope.row)">{{
-                scope.row.enabled === "0" ? "启用" : "禁用"
-              }}</el-button>
-              <el-button type="text" @click="del(scope.row.id)"
-                >删除
+              <el-button type="text" @click="operation('edit', scope.row)">编辑</el-button>
+              <el-button type="text" @click="toEnable(scope.row)">
+                {{
+                  scope.row.enabled === "0" ? "启用" : "禁用"
+                }}
               </el-button>
+              <el-button type="text" @click="del(scope.row.id)">删除</el-button>
             </el-space>
           </template>
         </el-table-column>
       </el-table>
-      <component
-        :is="components.pagination"
-        class="zan-pagination"
-        @change="getInfo"
-      ></component>
+      <component :is="components.pagination" class="zan-pagination" @change="getInfo"></component>
     </div>
     <el-dialog
       :title="logTitle"
@@ -80,20 +71,12 @@
         <el-row :gutter="20">
           <el-col :span="12">
             <el-form-item label="姓名：" prop="name">
-              <el-input
-                placeholder="请输入姓名"
-                v-model="form.name"
-                clearable
-              ></el-input>
+              <el-input placeholder="请输入姓名" v-model="form.name" clearable></el-input>
             </el-form-item>
           </el-col>
           <el-col :span="12">
             <el-form-item label="英文名：" prop="englishName">
-              <el-input
-                placeholder="请输入英文名"
-                v-model="form.englishName"
-                clearable
-              ></el-input>
+              <el-input placeholder="请输入英文名" v-model="form.englishName" clearable></el-input>
             </el-form-item>
           </el-col>
         </el-row>
@@ -101,31 +84,19 @@
         <el-row :gutter="20">
           <el-col :span="12">
             <el-form-item label="身高（cm）：" prop="height">
-              <el-input
-                placeholder="请输入身高"
-                v-model="form.height"
-                clearable
-              ></el-input>
+              <el-input placeholder="请输入身高" v-model="form.height" clearable></el-input>
             </el-form-item>
           </el-col>
           <el-col :span="12">
             <el-form-item label="体重（kg）：" prop="weight">
-              <el-input
-                placeholder="请输入体重"
-                v-model="form.weight"
-                clearable
-              ></el-input>
+              <el-input placeholder="请输入体重" v-model="form.weight" clearable></el-input>
             </el-form-item>
           </el-col>
         </el-row>
         <el-row :gutter="20">
           <el-col :span="24">
             <el-form-item label="地址：" prop="address">
-              <el-input
-                placeholder="请输入地址"
-                v-model="form.address"
-                clearable
-              ></el-input>
+              <el-input placeholder="请输入地址" v-model="form.address" clearable></el-input>
             </el-form-item>
           </el-col>
         </el-row>
@@ -144,11 +115,7 @@
         <el-row :gutter="20">
           <el-col :span="24">
             <el-form-item label="备注：" prop="marks">
-              <el-input
-                type="textarea"
-                :autosize="{ minRows: 3, maxRows: 5 }"
-                v-model="form.marks"
-              ></el-input>
+              <el-input type="textarea" :autosize="{ minRows: 3, maxRows: 5 }" v-model="form.marks"></el-input>
             </el-form-item>
           </el-col>
         </el-row>
@@ -282,8 +249,8 @@ export default defineComponent({
         cancelButtonText: "取消",
         type: "warning",
       })
-        .then(() => {})
-        .catch(() => {});
+        .then(() => { })
+        .catch(() => { });
     };
     const toEnable = (data) => {
       //启用 禁用

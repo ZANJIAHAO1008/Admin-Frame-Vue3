@@ -6,12 +6,7 @@
     size="800px"
     @open="getInit"
   >
-    <el-form
-      ref="baseInfoRef"
-      :model="baseInfo"
-      :rules="baseInfoRules"
-      label-width="114px"
-    >
+    <el-form ref="baseInfoRef" :model="baseInfo" :rules="baseInfoRules" label-width="114px">
       <el-row>
         <el-col :span="10">
           <el-form-item label="姓名：">
@@ -42,12 +37,7 @@
       <el-row>
         <el-col :span="10">
           <el-form-item label="出生日期：">
-            <el-date-picker
-              v-model="baseInfo.birthDate"
-              placeholder="选择日期"
-              type="date"
-            >
-            </el-date-picker>
+            <el-date-picker v-model="baseInfo.birthDate" placeholder="选择日期" type="date"></el-date-picker>
           </el-form-item>
         </el-col>
       </el-row>
@@ -62,18 +52,13 @@
         </el-col>
         <el-col :span="10">
           <el-form-item label="权限分配：" prop="jurisdiction">
-            <el-select
-              v-model="baseInfo.jurisdiction"
-              multiple
-              placeholder="请选择"
-            >
+            <el-select v-model="baseInfo.jurisdiction" multiple placeholder="请选择">
               <el-option
                 v-for="item in roleList"
                 :key="item.roleId"
                 :label="item.marks"
                 :value="item.roleId"
-              >
-              </el-option>
+              ></el-option>
             </el-select>
           </el-form-item>
         </el-col>
@@ -81,7 +66,7 @@
       <el-row>
         <el-col :span="20">
           <el-form-item label="家庭住址：">
-            <el-input v-model="baseInfo.address"> </el-input>
+            <el-input v-model="baseInfo.address"></el-input>
           </el-form-item>
         </el-col>
       </el-row>
@@ -92,8 +77,7 @@
               v-model="baseInfo.marks"
               :autosize="{ minRows: 4, maxRows: 6 }"
               type="textarea"
-            >
-            </el-input>
+            ></el-input>
           </el-form-item>
         </el-col>
       </el-row>
@@ -102,9 +86,7 @@
           <div class="baseInfo_footer">
             <el-form-item>
               <el-button size="medium" @click="close">取消</el-button>
-              <el-button size="medium" type="primary" @click="saveBaseInfo"
-                >确定</el-button
-              >
+              <el-button size="medium" type="primary" @click="saveBaseInfo">确定</el-button>
             </el-form-item>
           </div>
         </el-col>

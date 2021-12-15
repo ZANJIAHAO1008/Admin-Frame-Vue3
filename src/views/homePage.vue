@@ -10,17 +10,11 @@
         v-for="(item, index) in dataList"
         :key="index"
       >
-        <el-card
-          class="box-card m-t8"
-          shadow="always"
-          :body-style="{ padding: '35px 20px' }"
-        >
+        <el-card class="box-card m-t8" shadow="always" :body-style="{ padding: '35px 20px' }">
           <template #header>
             <div class="card-header">
               <span class="card-header-title">{{ item.title }}</span>
-              <el-tag :type="item.type" effect="dark" size="small">
-                {{ item.labelTitle }}
-              </el-tag>
+              <el-tag :type="item.type" effect="dark" size="small">{{ item.labelTitle }}</el-tag>
             </div>
           </template>
           <div class="text item card-h-total">{{ item.total }}</div>
@@ -29,11 +23,7 @@
     </el-row>
     <el-row :gutter="10">
       <el-col :xs="24" :sm="24" :md="24" :lg="24" :xl="24">
-        <el-card
-          class="box-card m-t8"
-          shadow="always"
-          :body-style="{ padding: '0' }"
-        >
+        <el-card class="box-card m-t8" shadow="always" :body-style="{ padding: '0' }">
           <template #header>
             <div class="card-header">
               <span class="card-header-title">各时间段流量监控</span>
@@ -135,7 +125,7 @@ export default defineComponent({
       chartsInit();
     });
 
-    onUnmounted(() => {});
+    onUnmounted(() => { });
 
     const chartsInit = () => {
       //图标初始化

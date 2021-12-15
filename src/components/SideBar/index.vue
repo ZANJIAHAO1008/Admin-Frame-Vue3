@@ -1,12 +1,9 @@
 <template>
-  <div
-    :style="{
-      width: collapse ? '64px' : '200px',
-    }"
-    class="sidebar"
-  >
+  <div :style="{
+    width: collapse ? '64px' : '200px',
+  }" class="sidebar">
     <div class="zan-sidebar-nav">
-      <img alt="" src="../../assets/image/LG.png" />
+      <img alt src="../../assets/image/LG.png" />
       <h1 v-if="!collapse">Admin Frame</h1>
     </div>
     <el-menu
@@ -31,8 +28,7 @@
                     ? 'sidebar-title'
                     : 'sidebar-title sidebar-nullIcon'
                 "
-                >{{ item.resourceName }}</span
-              >
+              >{{ item.resourceName }}</span>
             </template>
             <template v-for="childItem in item.children">
               <el-submenu
@@ -48,22 +44,23 @@
                         ? 'sidebar-title'
                         : 'sidebar-title sidebar-nullIcon'
                     "
-                    >{{ childItem.resourceName }}</span
-                  >
+                  >{{ childItem.resourceName }}</span>
                 </template>
                 <el-menu-item
                   v-for="(grandsonItem, i) in childItem.children"
                   :key="i"
                   :index="grandsonItem.resourceUrl"
                 >
-                  <span class="sidebar-title">{{
-                    grandsonItem.resourceName
-                  }}</span>
+                  <span class="sidebar-title">
+                    {{
+                      grandsonItem.resourceName
+                    }}
+                  </span>
                 </el-menu-item>
               </el-submenu>
               <el-menu-item
                 v-else
-                :key="childItem.resourceUrl"
+                :key="childItem.resourceUrl + 'childItem'"
                 :index="childItem.resourceUrl"
               >
                 <template #title>
@@ -74,8 +71,7 @@
                         ? 'sidebar-title'
                         : 'sidebar-title sidebar-nullIcon'
                     "
-                    >{{ childItem.resourceName }}</span
-                  >
+                  >{{ childItem.resourceName }}</span>
                 </template>
               </el-menu-item>
             </template>
@@ -85,9 +81,11 @@
         <template v-else>
           <el-menu-item :key="item.resourceUrl" :index="item.resourceUrl">
             <i :class="item.resourceIcon"></i>
-            <template #title class="sidebar-title">{{
-              item.resourceName
-            }}</template>
+            <template #title class="sidebar-title">
+              {{
+                item.resourceName
+              }}
+            </template>
           </el-menu-item>
         </template>
       </template>

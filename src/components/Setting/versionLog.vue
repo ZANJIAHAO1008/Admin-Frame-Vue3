@@ -9,30 +9,24 @@
       <li v-for="(item, index) in versionInfo" :key="item.version">
         <div class="v-log-nav df-c">
           <div class="df-c">
-            <el-tag effect="dark" size="small" v-if="!index"> NEW </el-tag>
+            <el-tag effect="dark" size="small" v-if="!index">NEW</el-tag>
             <span
               class="v-n-title"
               :style="{
                 paddingLeft: index ? '50px' : '4px',
               }"
-            >
-              {{ item.version }}</span
-            >
+            >{{ item.version }}</span>
           </div>
           <span class="v-n-date">{{ item.releaseDate }}</span>
         </div>
         <ul class="v-log-body">
-          <li v-for="(it, idx) in item.description" :key="idx">
-            {{ idx + 1 + "、" + it }}
-          </li>
+          <li v-for="(it, idx) in item.description" :key="idx">{{ idx + 1 + "、" + it }}</li>
         </ul>
       </li>
     </ul>
     <template #footer>
       <span class="dialog-footer">
-        <el-button size="medium" type="primary" plain @click="close"
-          >返 回</el-button
-        >
+        <el-button size="medium" type="primary" plain @click="close">返 回</el-button>
       </span>
     </template>
   </el-dialog>

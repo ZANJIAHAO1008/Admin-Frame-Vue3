@@ -13,37 +13,38 @@
             "
             @click="changeCategory(item)"
           >
-            <el-badge
-              :value="item.unread"
-              :type="item.type ? item.type : 'danger'"
-            >
-              {{ item.name }}
-            </el-badge>
+            <el-badge :value="item.unread" :type="item.type ? item.type : 'danger'">{{ item.name }}</el-badge>
           </li>
         </ul>
       </el-aside>
       <el-container>
-        <el-header
-          ><span>{{
-            storageCategory ? storageCategory.name : "暂未选择"
-          }}</span>
-          <i class="fa fa-refresh" title="刷新" @click="getInfo"></i
-        ></el-header>
+        <el-header>
+          <span>
+            {{
+              storageCategory ? storageCategory.name : "暂未选择"
+            }}
+          </span>
+          <i class="fa fa-refresh" title="刷新" @click="getInfo"></i>
+        </el-header>
         <el-main v-loading="loading">
           <ul v-if="messageList.length" class="message_body">
             <li v-for="item in messageList" :key="item.id" class="message_list">
               <div class="message_b_nav">
-                <span class="message_b_n_t" :title="item.title">{{
-                  item.title
-                }}</span>
+                <span class="message_b_n_t" :title="item.title">
+                  {{
+                    item.title
+                  }}
+                </span>
                 <span class="message_b_n_d">{{ item.Date }}</span>
               </div>
-              <span class="message_b_content" :title="item.content">{{
-                item.content
-              }}</span>
+              <span class="message_b_content" :title="item.content">
+                {{
+                  item.content
+                }}
+              </span>
             </li>
           </ul>
-          <img v-else src="/src/assets/image/noData.svg" alt="" />
+          <img v-else src="/src/assets/image/noData.svg" alt />
         </el-main>
       </el-container>
     </el-container>

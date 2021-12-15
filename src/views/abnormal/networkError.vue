@@ -2,11 +2,7 @@
   <div class="thereIsNo">
     <el-result :image-size="400">
       <template #icon>
-        <img
-          class="abnormal-img"
-          src="/src/assets/image/networkError.svg"
-          alt=""
-        />
+        <img class="abnormal-img" src="/src/assets/image/networkError.svg" alt />
       </template>
       <template #extra>
         <h2 class="abnormal-tip">网络不可用，请检查你的网络设置</h2>
