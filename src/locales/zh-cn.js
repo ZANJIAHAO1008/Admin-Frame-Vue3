@@ -20,6 +20,9 @@ const cn = {
     },
     //资源
     resource: {
+        login:{
+            name:"登陆"
+        },
         homePage: {
             name: '首页'
         },

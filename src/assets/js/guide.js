@@ -25,7 +25,7 @@ const steps = [
         }
     },
     {
-        element: '.fa-language',
+        element: '.g-language',
         popover: {
             title: "国际化",
             description: "点击切换语言",

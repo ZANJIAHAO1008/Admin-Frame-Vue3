@@ -144,7 +144,6 @@ export default defineComponent({
     const treeRef = ref(null); //资源树的ref
     const store = useStore();
     const state = reactive({
-      resourceList,
       roleList: [
         {
           roleName: "user",

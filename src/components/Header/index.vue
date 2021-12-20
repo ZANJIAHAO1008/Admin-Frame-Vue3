@@ -23,7 +23,7 @@
             :content="transitionLocal('message.public.languageSwitch')"
             placement="left"
           >
-            <i class="fa fa-language" style="font-size: 18px"></i>
+            <i class="fa fa-language g-language" style="font-size: 18px"></i>
           </el-tooltip>
         </span>
 

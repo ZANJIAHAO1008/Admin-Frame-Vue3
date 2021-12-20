@@ -20,6 +20,9 @@ const en = {
     },
     //资源
     resource: {
+        login:{
+            name:"Login"
+        },
         homePage: {
             name: 'HomePage'
         },
