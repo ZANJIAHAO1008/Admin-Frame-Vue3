@@ -27,4 +27,14 @@ export function useI18n(app) {
     app.use(i18n);
 };
 
+export function transitionLocal(message) {
+    //防止刷新 用来转换i18n
+    if (!message) {
+        //无传参
+        return false;
+    };
+    
+    return i18n.global.tc.call(i18n.global, message)
+}
+
 

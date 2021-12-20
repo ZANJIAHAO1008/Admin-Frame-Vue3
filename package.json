@@ -1,7 +1,7 @@
 {
   "name": "Admin-Frame",
-  "version": "1.0.4",
-  "description": "Admin-Frame 后台管理系统",
+  "version": "1.0.6",
+  "description": "Admin-Frame 中/后台管理系统",
   "scripts": {
     "dev": "vite",
     "build": "vite build"

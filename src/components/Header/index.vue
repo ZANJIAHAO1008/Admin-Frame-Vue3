@@ -5,15 +5,28 @@
       <i v-else class="fa fabtn fa-dedent"></i>
     </div>
     <div class="collapse-right">
-      <el-tooltip class="item" effect="dark" content="全屏" placement="bottom">
+      <el-tooltip
+        class="item"
+        effect="dark"
+        :content="transitionLocal('message.public.fullScreen')"
+        placement="bottom"
+      >
         <span class="faSpan">
           <i class="fa fa-arrows-alt" @click="requestFullScreen('body')"></i>
         </span>
       </el-tooltip>
       <el-dropdown @command="changeI18n">
         <span class="el-dropdown-link faSpan">
-          <i class="fa fa-language" style="font-size: 18px"></i>
+          <el-tooltip
+            class="item"
+            effect="dark"
+            :content="transitionLocal('message.public.languageSwitch')"
+            placement="left"
+          >
+            <i class="fa fa-language" style="font-size: 18px"></i>
+          </el-tooltip>
         </span>
+
         <template #dropdown>
           <el-dropdown-menu>
             <el-dropdown-item
@@ -27,7 +40,12 @@
           </el-dropdown-menu>
         </template>
       </el-dropdown>
-      <el-tooltip class="item" effect="dark" content="消息中心" placement="bottom">
+      <el-tooltip
+        class="item"
+        effect="dark"
+        :content="transitionLocal('message.public.messageCenter')"
+        placement="bottom"
+      >
         <span class="faSpan">
           <el-badge is-dot class="item">
             <i class="fa faPad fa-bell-o" @click="toGetMessage"></i>
@@ -42,10 +60,22 @@
         </span>
         <template #dropdown>
           <el-dropdown-menu>
-            <el-dropdown-item divided command="signOut">退出登录</el-dropdown-item>
-            <el-dropdown-item command="versionLog" divided>版本日志</el-dropdown-item>
-            <el-dropdown-item command="baseInfo" divided>基本信息</el-dropdown-item>
-            <el-dropdown-item command="checkPass" divided>修改密码</el-dropdown-item>
+            <el-dropdown-item
+              divided
+              command="signOut"
+            >{{ transitionLocal('message.public.loggedOut') }}</el-dropdown-item>
+            <el-dropdown-item
+              command="versionLog"
+              divided
+            >{{ transitionLocal('message.public.versionLog') }}</el-dropdown-item>
+            <el-dropdown-item
+              command="baseInfo"
+              divided
+            >{{ transitionLocal('message.public.basicInfo') }}</el-dropdown-item>
+            <el-dropdown-item
+              command="checkPass"
+              divided
+            >{{ transitionLocal('message.public.changePassword') }}</el-dropdown-item>
           </el-dropdown-menu>
         </template>
       </el-dropdown>
@@ -81,6 +111,7 @@ import checkPass from "../Setting/checkPass.vue";
 import baseInfo from "../Setting/baseInfo.vue";
 import versionLog from "../Setting/versionLog.vue";
 import { useI18n } from "vue-i18n";
+import { transitionLocal } from '../../locales/i18n'
 export default defineComponent({
   name: "zan-header",
   components: {
@@ -178,7 +209,6 @@ export default defineComponent({
       Cookies.set("lang", type); //存储国际化
       language.value = type; //更新i18n配置
       proxy.$i18n.locale = type; //更新i18n配置
-      location.reload(); //刷新页面显示I18n
       ElMessage.success(`${t("message.public.editLang")}`);
     };
 
@@ -190,6 +220,7 @@ export default defineComponent({
       toGetMessage,
       changeI18n,
       requestFullScreen,
+      transitionLocal
     };
   },
 });

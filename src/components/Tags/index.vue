@@ -12,7 +12,7 @@
         @close="aClosingTag(tag, index)"
         @click="triggerTag(tag, 'go')"
         :disable-transitions="false"
-      >{{ tag.title }}</el-tag>
+      >{{ transitionLocal('message.' + tag.title) }}</el-tag>
     </div>
     <el-dropdown v-if="tagsList.length > 0" @command="rightMenu">
       <span class="el-dropdown-link">
@@ -20,8 +20,8 @@
       </span>
       <template #dropdown>
         <el-dropdown-menu>
-          <el-dropdown-item command="all">关闭全部</el-dropdown-item>
-          <el-dropdown-item command="other">关闭其他</el-dropdown-item>
+          <el-dropdown-item command="all">{{ transitionLocal('message.public.closeAll') }}</el-dropdown-item>
+          <el-dropdown-item command="other">{{ transitionLocal('message.public.closeOther') }}</el-dropdown-item>
         </el-dropdown-menu>
       </template>
     </el-dropdown>
@@ -41,6 +41,7 @@ import {
 import { useRoute, useRouter, onBeforeRouteUpdate } from "vue-router";
 import { useStore } from "vuex";
 import { ElMessage } from "element-plus";
+import { transitionLocal } from '../../locales/i18n'
 export default defineComponent({
   name: "tags",
   setup() {
@@ -123,6 +124,7 @@ export default defineComponent({
       aClosingTag,
       triggerTag,
       rightMenu,
+      transitionLocal
     };
   },
 });

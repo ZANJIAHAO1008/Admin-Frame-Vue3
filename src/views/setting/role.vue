@@ -136,6 +136,7 @@ import {
 import { ElMessageBox } from "element-plus";
 import { useStore } from "vuex";
 import resourceList from "../../assets/js/resource";
+import { transitionLocal } from '../../locales/i18n';
 export default defineComponent({
   name: "role",
   setup() {
@@ -143,6 +144,7 @@ export default defineComponent({
     const treeRef = ref(null); //资源树的ref
     const store = useStore();
     const state = reactive({
+      resourceList,
       roleList: [
         {
           roleName: "user",
@@ -186,7 +188,7 @@ export default defineComponent({
       defaultProps: {
         //tree 默认配置项
         children: "children",
-        label: "resourceName",
+        label: "name",
       },
     });
     onMounted(() => {
@@ -196,7 +198,22 @@ export default defineComponent({
 
     const getInfo = () => {
       //查询列表
+
     };
+
+    const transitionI18n = () => {
+      //格式化国际化
+      state.resourceList = state.resourceList.map(v => {
+        v.name = transitionLocal(v.resourceName);
+        if (v?.children?.length) {
+          v.children = v.children.map(val => {
+            val.name = transitionLocal(val.resourceName);
+            return val;
+          })
+        }
+        return v;
+      })
+    }
 
     const openLog = (data, type) => {
       //保存 修改
@@ -265,6 +282,7 @@ export default defineComponent({
 
     const openAuthorize = (data) => {
       //打开权限分配
+      transitionI18n();
       state.distribution = true;
       state.roleWare = data; //存储选中信息
     };
@@ -290,7 +308,6 @@ export default defineComponent({
       roleRef,
       treeRef,
       getInfo,
-      getAllResource,
       openLog,
       ok,
       del,

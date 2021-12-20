@@ -12,7 +12,7 @@ const steps = [
         element: '.zan-sidebar-nav',
         popover: {
             title: "介绍",
-            description: "Admin-Frame是一款企业级中/后台管理系统",
+            description: "Admin-Frame是一款中/后台管理系统",
             position: "bottom"
         }
     },

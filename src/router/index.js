@@ -1,6 +1,7 @@
 import { createRouter, createWebHashHistory, createWebHistory } from 'vue-router'
 import { ElMessage } from "element-plus";
 import { getToken } from '../util/auth.js';
+import { transitionLocal } from '../locales/i18n'; //国际化
 import NProgress from 'nprogress';//加载进度条
 import 'nprogress/nprogress.css';
 // 进度条配置项
@@ -31,198 +32,205 @@ const constantRouterMap = [
             {
                 path: "/homePage",
                 meta: {
-                    title: '首页'
+                    title: 'resource.homePage.name'
                 },
                 component: () => import("../views/homePage.vue")
             },
             {
                 path: "/user",
                 meta: {
-                    title: '用户管理'
+                    title: 'resource.authority.children.user'
                 },
                 component: () => import("../views/setting/user.vue")
             },
             {
                 path: "/role",
                 meta: {
-                    title: '角色管理'
+                    title: 'resource.authority.children.role'
                 },
                 component: () => import("../views/setting/role.vue")
             },
             {
                 path: "/resource",
                 meta: {
-                    title: '资源管理'
+                    title: 'resource.authority.children.resource'
                 },
                 component: () => import("../views/setting/resource.vue")
             },
             {
                 path: "/messageCenter",
                 meta: {
-                    title: '消息中心'
+                    title: 'resource.message.children.messageCenter'
                 },
                 component: () => import("../views/message/messageCenter.vue")
             },
             {
                 path: "/easyForm",
                 meta: {
-                    title: '基础表单'
+                    title: 'resource.template.chlidren.easyForm'
                 },
                 component: () => import("../views/form/easyForm.vue")
             },
             {
                 path: "/tableOperation",
                 meta: {
-                    title: '表格操作'
+                    title: 'resource.template.chlidren.tableOperation'
                 },
                 component: () => import("../views/form/tableOperation.vue")
             },
             {
                 path: "/404",
                 meta: {
-                    title: '404'
+                    title: 'resource.abnormalPage.children.404'
                 },
                 component: () => import("../views/abnormal/404.vue")
             },
             {
                 path: "/403",
                 meta: {
-                    title: '403'
+                    title: 'resource.abnormalPage.children.403'
                 },
                 component: () => import("../views/abnormal/403.vue")
             },
             {
                 path: "/networkError",
                 meta: {
-                    title: 'networkError'
+                    title: 'resource.abnormalPage.children.networkError'
                 },
                 component: () => import("../views/abnormal/networkError.vue")
             },
             {
                 path: "/noData",
                 meta: {
-                    title: '暂无数据'
+                    title: 'resource.abnormalPage.children.noData'
                 },
                 component: () => import("../views/abnormal/noData.vue")
             },
             {
                 path: "/build",
                 meta: {
-                    title: '功能建设中'
+                    title: 'resource.abnormalPage.children.build'
                 },
                 component: () => import("../views/abnormal/build.vue")
             },
             {
                 path: "/textEditor",
                 meta: {
-                    title: '富文本编辑器'
+                    title: 'resource.editor.chlidren.textEditor'
                 },
                 component: () => import("../views/editor/textEditor.vue")
             },
             {
                 path: "/markdown",
                 meta: {
-                    title: 'markdown'
+                    title: 'resource.editor.chlidren.markdown'
                 },
                 component: () => import("../views/editor/markdown.vue")
             },
             {
                 path: "/successTip",
                 meta: {
-                    title: '成功'
+                    title: 'resource.result.chlidren.successTip'
                 },
                 component: () => import("../views/tip/success.vue")
             },
             {
                 path: "/errorTip",
                 meta: {
-                    title: '失败'
+                    title: 'resource.result.chlidren.errorTip'
                 },
                 component: () => import("../views/tip/error.vue")
             },
             {
                 path: "/warningTip",
                 meta: {
-                    title: '异常'
+                    title: 'resource.result.chlidren.warningTip'
                 },
                 component: () => import("../views/tip/warning.vue")
             },
             {
                 path: "/dialogDrag",
                 meta: {
-                    title: '可拖拽弹框'
+                    title: 'resource.function.chlidren.dialogDrag'
                 },
                 component: () => import("../views/content/dialogDrag.vue")
             },
             {
                 path: "/wartermark",
                 meta: {
-                    title: '添加水印'
+                    title: 'resource.function.chlidren.wartermark'
                 },
                 component: () => import("../views/content/wartermark.vue")
             },
             {
                 path: "/map",
                 meta: {
-                    title: '地图'
+                    title: 'resource.function.chlidren.map'
                 },
                 component: () => import("../views/content/map.vue")
             },
             {
                 path: "/timePicker",
                 meta: {
-                    title: '时间选择器'
+                    title: 'resource.function.chlidren.timePicker'
                 },
                 component: () => import("../views/content/timePicker.vue")
             },
             {
                 path: "/copy",
                 meta: {
-                    title: '复制'
+                    title: 'resource.function.chlidren.copy'
                 },
                 component: () => import("../views/content/copy.vue")
             },
             {
                 path: "/computerMonitor",
                 meta: {
-                    title: '监测电脑信息'
+                    title: 'resource.function.chlidren.computerMonitor'
                 },
                 component: () => import("../views/content/computerMonitor.vue")
             },
             {
                 path: "/qrcode",
                 meta: {
-                    title: '生成二维码'
+                    title: 'resource.function.chlidren.qrcode'
                 },
                 component: () => import("../views/content/qrcode.vue")
             },
             {
                 path: "/infiniteScroll",
                 meta: {
-                    title: '无限滚动'
+                    title: 'resource.function.chlidren.infiniteScroll'
                 },
                 component: () => import("../views/content/infiniteScroll.vue")
             },
             {
                 path: "/cardList",
                 meta: {
-                    title: '卡片列表'
+                    title: 'resource.template.chlidren.cardList'
                 },
                 component: () => import("../views/form/cardList.vue")
             },
             {
                 path: "/workflow",
                 meta: {
-                    title: '工作流程'
+                    title: 'resource.workflow.name'
                 },
                 component: () => import("../views/workflow/index.vue")
             },
             {
                 path: "/noviceGuide",
                 meta: {
-                    title: '新手引导'
+                    title: 'resource.noviceGuide.name'
                 },
                 component: () => import("../views/noviceGuide/index.vue")
+            },
+            {
+                path: "/i18n",
+                meta: {
+                    title: 'resource.i18n.name'
+                },
+                component: () => import("../views/i18n/index.vue")
             },
         ]
     }
@@ -238,7 +246,8 @@ const router = createRouter({
 const whiteList = ['/login', '/404', '/403'];
 
 router.beforeEach((to, from, next) => {
-    document.title = `Admin Frame | ${to.meta.title}`; //添加title
+
+    document.title = `Admin Frame | ${transitionLocal('message.' + to.meta.title) ?? to.meta.title}`; //添加title
     const user = getToken();//获取token to.path !== '/login'
     NProgress.start();// 路由跳转前钩子函数中 - 执行进度条开始加载
     if (!to.matched.length) {

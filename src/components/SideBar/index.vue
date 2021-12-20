@@ -28,7 +28,7 @@
                     ? 'sidebar-title'
                     : 'sidebar-title sidebar-nullIcon'
                 "
-              >{{ item.resourceName }}</span>
+              >{{ transitionLocal(item.resourceName) }}</span>
             </template>
             <template v-for="childItem in item.children">
               <el-submenu
@@ -44,7 +44,7 @@
                         ? 'sidebar-title'
                         : 'sidebar-title sidebar-nullIcon'
                     "
-                  >{{ childItem.resourceName }}</span>
+                  >{{ transitionLocal(childItem.resourceName) }}</span>
                 </template>
                 <el-menu-item
                   v-for="(grandsonItem, i) in childItem.children"
@@ -53,7 +53,7 @@
                 >
                   <span class="sidebar-title">
                     {{
-                      grandsonItem.resourceName
+                      transitionLocal(grandsonItem.resourceName)
                     }}
                   </span>
                 </el-menu-item>
@@ -71,7 +71,7 @@
                         ? 'sidebar-title'
                         : 'sidebar-title sidebar-nullIcon'
                     "
-                  >{{ childItem.resourceName }}</span>
+                  >{{ transitionLocal(childItem.resourceName) }}</span>
                 </template>
               </el-menu-item>
             </template>
@@ -83,7 +83,7 @@
             <i :class="item.resourceIcon"></i>
             <template #title class="sidebar-title">
               {{
-                item.resourceName
+                transitionLocal(item.resourceName)
               }}
             </template>
           </el-menu-item>
@@ -97,6 +97,7 @@ import { defineComponent, toRefs, reactive, ref, computed, watch } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import { useStore } from "vuex";
 import resourceList from "../../assets/js/resource";
+import { transitionLocal } from '../../locales/i18n'; //国际化
 export default defineComponent({
   name: "sidebar",
   setup() {
@@ -113,6 +114,7 @@ export default defineComponent({
     });
     return {
       ...toRefs(state),
+      transitionLocal
     };
   },
 });

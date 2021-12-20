@@ -3,7 +3,20 @@ const en = {
     //公共
     public: {
         editLang: "English switching succeeded",
-        existence: "It's already English"
+        existence: "It's already English",
+        loggedOut: 'loggedOut',
+        versionLog: 'versionLog',
+        basicInfo: "basicInfo",
+        changePassword: "change password",
+        closeAll: "Close All",
+        closeOther: 'Close Other',
+        fullScreen: "full screen",
+        messageCenter: "message center",
+        languageSwitch: "language switch",
+    },
+    introduce:{
+        //基本介绍
+        i18n:"International configuration based on I18N can be configured in any language."
     },
     //资源
     resource: {
@@ -75,6 +88,9 @@ const en = {
         },
         noviceGuide: {
             name: 'Novice Guide',
+        },
+        i18n: {
+            name: 'internationalization',
         },
     }
 }

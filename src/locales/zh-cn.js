@@ -3,7 +3,20 @@ const cn = {
     //公共
     public: {
         editLang: "中文切换成功",
-        existence: "已经是中文了"
+        existence: "已经是中文了",
+        loggedOut: '退出登陆',
+        versionLog: '版本日志',
+        basicInfo: "基本信息",
+        changePassword: "修改密码",
+        closeAll: "关闭全部",
+        closeOther: '关闭其他',
+        fullScreen: "全屏",
+        messageCenter: "消息中心",
+        languageSwitch: "语言选择",
+    },
+    introduce:{
+        //基本介绍
+        i18n:"基于i18n实现国际化配置，可配置任意语言。"
     },
     //资源
     resource: {
@@ -75,6 +88,9 @@ const cn = {
         },
         noviceGuide: {
             name: '新手引导',
+        },
+        i18n: {
+            name: '国际化',
         },
     }
 }

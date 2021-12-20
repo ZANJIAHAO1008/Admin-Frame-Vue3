@@ -121,6 +121,7 @@ import {
 import { ElMessageBox } from "element-plus";
 import { useStore } from "vuex";
 import resourceList from "../../assets/js/resource";
+import { transitionLocal } from '../../locales/i18n';
 export default defineComponent({
   name: "resource",
   setup() {
@@ -132,7 +133,7 @@ export default defineComponent({
       defaultProps: {
         //tree 默认配置项
         children: "children",
-        label: "resourceName",
+        label: "name",
       },
       queryParams: {
         resourceName: "",
@@ -162,7 +163,22 @@ export default defineComponent({
 
     onMounted(() => {
       getInfo();
+      transitionI18n()
     });
+
+    const transitionI18n = () => {
+      //格式化国际化
+      state.resourceList = state.resourceList.map(v => {
+        v.name = transitionLocal(v.resourceName);
+        if (v?.children?.length) {
+          v.children = v.children.map(val => {
+            val.name = transitionLocal(val.resourceName);
+            return val;
+          })
+        }
+        return v;
+      })
+    }
 
     const getInfo = () => {
       //查询列表
