@@ -1,0 +1,71 @@
+<template>
+    <div class="feedbackCenter">
+        <el-card shadow="always" :body-style="{ padding: '30px 10px 15px 10px' }">
+            <el-form :inline="true" :model="queryForm" label-position="right" label-width="84px">
+                <el-form-item label="反馈人：">
+                    <el-input v-model.trim="queryForm.name" clearable placeholder="请输入反馈人姓名">
+                    </el-input>
+                </el-form-item>
+                <el-form-item label="人员ID：">
+                    <el-input v-model.trim="queryForm.id" clearable placeholder="请输入人员ID">
+                    </el-input>
+                </el-form-item>
+                <el-form-item>
+                    <el-button type="primary">查 询</el-button>
+                    <el-button type="primary">新增</el-button>
+                </el-form-item>
+            </el-form>
+        </el-card>
+        <el-card shadow="always" :body-style="{ padding: '30px 10px 15px 10px' }" class="m-t16">
+            <el-table :data="tableData" height="calc(100vh - 345px)" style="width: 100%">
+                <el-table-column prop="id" label="ID"></el-table-column>
+                <el-table-column prop="name" label="创建人"></el-table-column>
+                <el-table-column prop="address" label="反馈问题"></el-table-column>
+                <el-table-column label="操作">
+                    <template #default="scope">
+                        <el-space spacer="|" style="color: #dedede">
+                            <el-button type="text">查看详情</el-button>
+                            <el-button type="text">处理</el-button>
+                        </el-space>
+                    </template>
+                </el-table-column>
+            </el-table>
+            <Pagination :pagination="pagination"></Pagination>
+        </el-card>
+    </div>
+</template>
+<script setup lang="ts" name="AdminFeedbackCenter">
+import Pagination from "@/components/Pagination/index.vue";
+let queryForm = ref({
+    name: "",
+    id: "",
+});
+
+let pagination = ref({
+    total: 100,
+    page: 1,
+    pageSize: 10,
+})
+
+let tableData = ref([
+    {
+        id: "8008208828",
+        name: "曹植饭",
+        address: "图片无法上传",
+    },
+    {
+        id: "8008208828",
+        name: "曹植饭",
+        address: "图片无法下载",
+    },
+    {
+        id: "8008208828",
+        name: "曹植饭",
+        address: "偶先黑屏问题",
+    }
+])
+
+</script>
+<style lang="scss" scoped>
+.feedbackCenter {}
+</style>

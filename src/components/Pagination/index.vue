@@ -1,31 +1,52 @@
 <template>
-  <el-pagination
-    @current-change="currentChange"
-    :current-page="pagination.currentPage"
-    :page-sizes="[10]"
-    :page-size="pagination.pageSize"
-    layout="total, sizes, prev, pager, next, jumper"
-    :total="pagination.total"
-  ></el-pagination>
+  <el-pagination v-model:currentPage="pagination.page" v-model:page-size="pagination.pageSize" background
+    :page-sizes="[10, 20, 100, 200]" layout="sizes,prev, pager, next, jumper,total" :total="pagination.total"
+    @size-change="sizeChange" @current-change="currentChange" class="p-location" />
 </template>
-<script>
-import { defineComponent, reactive, toRefs, watch, inject } from "vue";
-export default defineComponent({
-  setup(props, context) {
-    const pagination = inject("pagination"); //接受
 
-    const currentChange = (val) => {
-      //切换分页
-      context.emit("change", {
+<script setup lang="ts" name="AdminPagination">
+import { PaginationState } from "@/types";
+
+withDefaults(
+  defineProps<{
+    pagination: Partial<PaginationState>;
+  }>(),
+  {
+    pagination: () => {
+      return {
+        page: 1,
         pageSize: 10,
-        page: val,
-      });
-    };
+        total: 100,
+      };
+    },
+  }
+);
 
-    return {
-      pagination,
-      currentChange,
-    };
-  },
-});
+const emits = defineEmits<{
+  (
+    e: "change",
+    target: {
+      page?: number;
+      pageSize?: number;
+    }
+  ): void;
+}>();
+
+const currentChange = (page: number) => {
+  //切换分页
+  emits("change", {
+    page,
+  });
+}
+
+const sizeChange = (pageSize: number) => {
+  //切换展现条数 回到第一页
+  emits("change", { pageSize, page: 1 });
+}
 </script>
+<style lang="scss" scoped>
+.p-location {
+  display: flex;
+  justify-content: right;
+}
+</style>
