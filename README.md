@@ -10,7 +10,7 @@
 
 本项目是基于Vue3 + Element-Plus + Vite 开发的实现后台管理系统。
 
-[访问地址](http://47.96.87.129:8001)
+[访问地址](http://47.96.87.129:8002)
 
 #### 1.1、使用技术
 Vite + Vue3 + Element-Plus + Sass + Pinia + Vue-router + Vue-i8n + Echarts
