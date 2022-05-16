@@ -1,15 +1,18 @@
-export const FONT_SIZE = [
-  //字体大小设置
+export const Component_Size = [
+  //组件尺寸大小
   {
+    name: "large",
     value: "large",
-    label: "大的按钮",
+    label: "偏大号",
   },
   {
+    name: "default",
     value: "default",
-    label: "标准按钮",
+    label: "默认",
   },
   {
+    name: "small",
     value: "small",
-    label: "小的按钮",
+    label: "较小",
   },
 ];

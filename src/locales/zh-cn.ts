@@ -17,9 +17,9 @@ const cn: any = {
     languageSwitch: "语言选择",
     settingFontSize: "字体大小设置",
     switchSuccess: "切换成功",
-    large: "大号按钮",
-    default: "默认按钮",
-    small: "小号按钮",
+    large: "偏大号",
+    default: "默认",
+    small: "较小",
   },
   introduce: {
     //基本介绍

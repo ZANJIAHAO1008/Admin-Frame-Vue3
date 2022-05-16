@@ -8,14 +8,8 @@
           </div>
         </template>
         <div class="text item">
-          <el-radio
-            v-for="locale in $i18n.availableLocales"
-            :key="`locale-${locale}`"
-            v-model="state.chooseI18n"
-            :label="locale"
-            @change="changLang"
-            >{{ $filters.inspectLanguage(locale) }}</el-radio
-          >
+          <el-radio v-for="locale in $i18n.availableLocales" :key="`locale-${locale}`" v-model="state.chooseI18n"
+            :label="locale" @change="changLang">{{ $filters.inspectLanguage(locale) }}</el-radio>
         </div>
       </el-card>
     </el-space>
@@ -26,6 +20,8 @@ import { watch, reactive, ref } from "vue";
 import { useI18n } from "vue-i18n";
 import Cookies from "js-cookie";
 import $filters from "@/filters/index";
+import { useConfigStore } from "@/pinia/modules/config";
+const configStore = useConfigStore();
 const { t, locale: language } = useI18n();
 
 const state = reactive({
@@ -47,6 +43,9 @@ const getDefaultLang = () => {
 const changLang = (lang: any) => {
   Cookies.set("lang", lang); //存储国际化
   language.value = lang; //更新i18n配置
+  configStore.$patch({
+    language: lang
+  })
 }
 
 getDefaultLang();

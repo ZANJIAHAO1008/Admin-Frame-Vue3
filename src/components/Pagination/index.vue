@@ -1,7 +1,7 @@
 <template>
   <el-pagination v-model:currentPage="pagination.page" v-model:page-size="pagination.pageSize" background
     :page-sizes="[10, 20, 100, 200]" layout="sizes,prev, pager, next, jumper,total" :total="pagination.total"
-    @size-change="sizeChange" @current-change="currentChange" class="p-location" />
+    @size-change="sizeChange" @current-change="currentChange" class="pagination-location" />
 </template>
 
 <script setup lang="ts" name="AdminPagination">
@@ -45,8 +45,9 @@ const sizeChange = (pageSize: number) => {
 }
 </script>
 <style lang="scss" scoped>
-.p-location {
+.pagination-location {
   display: flex;
   justify-content: right;
+  padding-top: 15px;
 }
 </style>

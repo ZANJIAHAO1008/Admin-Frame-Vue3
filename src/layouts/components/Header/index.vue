@@ -41,9 +41,9 @@
           </el-dropdown-menu>
         </template>
       </el-dropdown>
-      <el-dropdown @command="settingFontSize">
+      <el-dropdown @command="settingComponentSize">
         <span class="el-dropdown-link faSpan">
-          <!-- <el-tooltip class="item" effect="dark" :content="t('message.public.settingFontSize')" placement="left">
+          <!-- <el-tooltip class="item" effect="dark" :content="t('message.public.settingComponentSize')" placement="left">
             <i class="fa fa-font g-font" style="font-size: 18px"></i>
           </el-tooltip> -->
           <i class="fa fa-font g-font" style="font-size: 18px"></i>
@@ -51,9 +51,10 @@
 
         <template #dropdown>
           <el-dropdown-menu>
-            <el-dropdown-item v-for="(item, key) in FONT_SIZE" :key="`fontsize-${key}`" :command="item.value" :style="{
-              color: useSize == item.value ? 'rgb(64, 158, 255)' : '',
-            }">{{ t(`message.public.${item.value}`) }}</el-dropdown-item>
+            <el-dropdown-item v-for="(item, key) in Component_Size" :key="`componentSize-${key}`" :command="item.value"
+              :style="{
+                color: configStore.componentSize == item.value ? 'rgb(64, 158, 255)' : '',
+              }">{{ t(`message.public.${item.name}`) }}</el-dropdown-item>
           </el-dropdown-menu>
         </template>
       </el-dropdown>
@@ -124,11 +125,13 @@ import VersionLog from "@/components/dropDownItem/versionLog.vue";
 import { useI18n } from "vue-i18n";
 import { useTagStore } from "@/pinia/modules/tag";
 import { useUserStore } from "@/pinia/modules/user";
-import { FONT_SIZE } from "@/assets/js/dictionarie";
+import { Component_Size } from "@/assets/js/dictionarie";
 import { removeToken } from "@/utils/auth";
 import { HeaderState } from "@/types/layout";
 import { getImage } from "@/utils";
-import { transitionLocal } from "@/locales/i18n"; //国际化
+import { transitionLocal } from "@/locales/i18n"; //国际化\
+import { useConfigStore } from "@/pinia/modules/config";
+const configStore = useConfigStore();
 const tagStore = useTagStore();
 const userStore = useUserStore();
 const route = useRoute();
@@ -136,7 +139,6 @@ const { proxy } = <any>getCurrentInstance(); // vue原型
 const { t, locale: language } = useI18n();
 const router = useRouter(); //路由
 const baseInfoRef = ref();
-const useSize = computed(() => Cookies.get("size"));
 const collapse = computed(() => tagStore.collapse); //打开关闭sidebar
 const username = computed(() => userStore?.user?.username || "待完善"); //用户名
 let passVisible = ref<boolean>(false);  //修改密码弹框
@@ -188,30 +190,35 @@ const toGetMessage = () => {
   router.push("/main/feedbackCenter");
 };
 
-const changeI18n = <T extends string>(type: T): void | boolean => {
+const changeI18n = <T extends string>(type: T) => {
   //切换中英文
   if (type == Cookies.get("lang")) {
     //如果已经是这个语言则提醒
     ElMessage.warning(`${t("message.public.recurrentSelection")}`);
-    return false;
+    return;
   }
   Cookies.set("lang", type); //存储国际化
   language.value = type; //更新i18n配置
+  configStore.$patch({
+    language: type
+  })
   proxy.$i18n.locale = type; //更新i18n配置
   ElMessage.success(`${t("message.public.editLang")}`);
-  router.go(0); //刷新页面来显示效果
 };
 
-const settingFontSize = <T extends string>(type: T): void | boolean => {
-  //切换字体大小
-  if (type == Cookies.get("size")) {
-    //如果已经是这个语言则提醒
+const settingComponentSize = (size: any) => {
+  //切换按钮大小
+  if (size === configStore.componentSize) {
+    //如果已经是这个大小则提醒
     ElMessage.warning(`${t("message.public.recurrentSelection")}`);
-    return false;
-  }
-  Cookies.set("size", type ?? "default");
+    return;
+  };
+
+    configStore.$patch({
+      componentSize: size
+    })
+  
   ElMessage.success(`${t("message.public.switchSuccess")}`);
-  router.go(0); //刷新页面来显示效果
 };
 </script>
 <style lang="scss" scoped>
