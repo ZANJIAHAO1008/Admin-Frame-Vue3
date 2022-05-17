@@ -171,7 +171,7 @@ onMounted(() => {
 </script>
 <style lang="scss" scoped>
 .tag_content {
-  padding: 6px 0px;
+  padding-top: 6px;
   margin: 0px 12px;
   box-sizing: border-box;
   white-space: nowrap;

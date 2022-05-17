@@ -9,8 +9,10 @@
           <Header></Header>
         </el-header>
         <el-main>
-          <Tags></Tags>
-          <div id="screen-display" v-loading="!isReload" class="content">
+          <Tags v-if="configStore.appConfig.showTabBar"></Tags>
+          <div id="screen-display" v-loading="!isReload" class="content" :style="{
+            height: configStore.appConfig.showTabBar ? 'calc(100vh - 115px)' : 'calc(100vh - px)'
+          }">
             <router-view v-if="isReload" v-slot="{ Component }">
               <Transition appear name="fade" appear-active-class="animate__animated animate__pulse"
                 enter-active-class="animate__animated animate__fadeIn">
@@ -30,6 +32,8 @@ import SideBar from "@/layouts/components/SideBar/index.vue";
 import Header from "@/layouts/components/Header/index.vue";
 import Tags from "@/layouts/components/Tags/index.vue";
 import { nextTick, provide, ref } from "vue";
+import { useConfigStore } from "@/pinia/modules/config";
+const configStore = useConfigStore();
 const isReload = ref<boolean>(true);
 const reload = () => {
   isReload.value = false;
@@ -61,13 +65,12 @@ provide("reload", reload);
     background: #f0f2f5;
 
     .content {
-      padding: 0px 5px 8px 5px;
+      padding: 6px 5px 8px 5px;
       box-sizing: border-box;
       margin: 0px 8px 0 8px;
       // background: #ffffff;
       overflow-x: hidden;
       overflow-y: auto;
-      height: calc(100vh - 115px);
       color: #515a6e;
       min-width: 1000px;
     }

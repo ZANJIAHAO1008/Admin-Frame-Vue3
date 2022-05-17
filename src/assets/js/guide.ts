@@ -33,14 +33,6 @@ const steps = [
     },
   },
   {
-    element: ".g-font",
-    popover: {
-      title: "按钮设置",
-      description: "点击切换按钮大小",
-      position: "left",
-    },
-  },
-  {
     element: ".fa-bell-o",
     popover: {
       title: "我的消息",
@@ -49,10 +41,26 @@ const steps = [
     },
   },
   {
+    element: ".fa-cogs",
+    popover: {
+      title: "应用配置",
+      description: "可根据喜好自定义配置",
+      position: "left",
+    },
+  },
+  {
     element: ".fabtn",
     popover: {
       title: "菜单开关",
       description: "控制菜单的显示/隐藏",
+      position: "right",
+    },
+  },
+  {
+    element: ".fa-refresh",
+    popover: {
+      title: "重新加载",
+      description: "点击重新加载页面",
       position: "right",
     },
   },

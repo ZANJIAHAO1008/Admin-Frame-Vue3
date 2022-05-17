@@ -2,10 +2,12 @@
   <div class="admin-header">
     <div class="collapse-left">
       <div class="collapse-btn">
-        <i title="点击打开关闭菜单" @click="switchCollapse" :class="collapse ? 'fa fabtn fa-indent' : 'fa fabtn fa-dedent'"></i>
-        <i title="刷新页面" @click="reload()" class="fa fa-refresh" aria-hidden="true"></i>
+        <i v-if="configStore.appConfig.showFoldButton" title="点击打开关闭菜单" @click="switchCollapse"
+          :class="collapse ? 'fa fabtn fa-indent' : 'fa fabtn fa-dedent'"></i>
+        <i v-if="configStore.appConfig.showReFresh" title="刷新页面" @click="reload()" class="fa fa-refresh"
+          aria-hidden="true"></i>
       </div>
-      <div class="collapse-breadcrumb">
+      <div class="collapse-breadcrumb" v-if="configStore.appConfig.showBreadcrumb">
         <el-breadcrumb>
           <el-breadcrumb-item v-for="(item, index) in  route.matched" :key="item.path">
             <span :style="{
@@ -16,19 +18,11 @@
       </div>
     </div>
     <div class="collapse-right">
-      <!-- <el-tooltip class="item" effect="dark" :content="t('message.public.fullScreen')" placement="bottom">
-        <span class="faSpan">
-          <i class="fa fa-arrows-alt" @click="requestFullScreen()"></i>
-        </span>
-      </el-tooltip> -->
-      <span class="faSpan">
+      <span class="faSpan" v-if="configStore.appConfig.showFullScreen">
         <i class="fa fa-arrows-alt" @click="requestFullScreen()"></i>
       </span>
-      <el-dropdown @command="changeI18n">
+      <el-dropdown @command="changeI18n" v-if="configStore.appConfig.showI18n">
         <span class="el-dropdown-link faSpan">
-          <!-- <el-tooltip class="item" effect="dark" :content="t('message.public.languageSwitch')" placement="left">
-            <i class="fa fa-language g-language" style="font-size: 18px"></i>
-          </el-tooltip> -->
           <i class="fa fa-language g-language" style="font-size: 18px"></i>
         </span>
 
@@ -41,34 +35,13 @@
           </el-dropdown-menu>
         </template>
       </el-dropdown>
-      <el-dropdown @command="settingComponentSize">
-        <span class="el-dropdown-link faSpan">
-          <!-- <el-tooltip class="item" effect="dark" :content="t('message.public.settingComponentSize')" placement="left">
-            <i class="fa fa-font g-font" style="font-size: 18px"></i>
-          </el-tooltip> -->
-          <i class="fa fa-font g-font" style="font-size: 18px"></i>
-        </span>
-
-        <template #dropdown>
-          <el-dropdown-menu>
-            <el-dropdown-item v-for="(item, key) in Component_Size" :key="`componentSize-${key}`" :command="item.value"
-              :style="{
-                color: configStore.componentSize == item.value ? 'rgb(64, 158, 255)' : '',
-              }">{{ t(`message.public.${item.name}`) }}</el-dropdown-item>
-          </el-dropdown-menu>
-        </template>
-      </el-dropdown>
-      <!-- <el-tooltip class="item" effect="dark" :content="t('message.public.messageCenter')" placement="bottom">
-        <span class="faSpan">
-          <el-badge is-dot class="item">
-            <i class="fa faPad fa-bell-o" @click="toGetMessage"></i>
-          </el-badge>
-        </span>
-      </el-tooltip> -->
-      <span class="faSpan">
+      <span class="faSpan" @click="toGetMessage" v-if="configStore.appConfig.showMessage">
         <el-badge is-dot class="item">
-          <i class="fa faPad fa-bell-o" @click="toGetMessage"></i>
+          <i class="fa faPad fa-bell-o"></i>
         </el-badge>
+      </span>
+      <span class="faSpan" @click="configVisible = true">
+        <i class="fa faPad fa-cogs"></i>
       </span>
       <!-- 用户名下拉菜单 -->
       <el-dropdown trigger="click" @command="handleCommand">
@@ -103,6 +76,7 @@
     <check-pass v-model:passVisible="passVisible"></check-pass>
     <base-info ref="baseInfoRef" v-model:baseVisible="baseVisible"></base-info>
     <version-log v-model:versionVisible="versionVisible"></version-log>
+    <app-config v-model:configVisible="configVisible"></app-config>
   </div>
 </template>
 <script setup lang="ts" name="AdminHeader">
@@ -122,6 +96,7 @@ import Cookies from "js-cookie";
 import CheckPass from "@/components/dropDownItem/checkPass.vue";
 import BaseInfo from "@/components/dropDownItem/baseInfo.vue";
 import VersionLog from "@/components/dropDownItem/versionLog.vue";
+import AppConfig from "@/components/appConfig/index.vue";
 import { useI18n } from "vue-i18n";
 import { useTagStore } from "@/pinia/modules/tag";
 import { useUserStore } from "@/pinia/modules/user";
@@ -144,6 +119,7 @@ const username = computed(() => userStore?.user?.username || "待完善"); //用
 let passVisible = ref<boolean>(false);  //修改密码弹框
 let baseVisible = ref<boolean>(false);  //基本信息弹框
 let versionVisible = ref<boolean>(false);  //版本日志弹框
+let configVisible = ref<boolean>(false);  //应用配置弹框
 const reload = inject("reload") as Function;
 const requestFullScreen = () => {
   //进入全屏 退出全屏
@@ -204,21 +180,6 @@ const changeI18n = <T extends string>(type: T) => {
   })
   proxy.$i18n.locale = type; //更新i18n配置
   ElMessage.success(`${t("message.public.editLang")}`);
-};
-
-const settingComponentSize = (size: any) => {
-  //切换按钮大小
-  if (size === configStore.componentSize) {
-    //如果已经是这个大小则提醒
-    ElMessage.warning(`${t("message.public.recurrentSelection")}`);
-    return;
-  };
-
-    configStore.$patch({
-      componentSize: size
-    })
-  
-  ElMessage.success(`${t("message.public.switchSuccess")}`);
 };
 </script>
 <style lang="scss" scoped>
