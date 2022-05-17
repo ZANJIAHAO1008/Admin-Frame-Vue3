@@ -6,18 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Admin Frame</title>
   </head>
-  <!-- <script type="text/javascript"
-  src="https://cdn.jsdelivr.net/gh/Fuukei/Public_Repository@latest/static/js/sakura-less.js"></script> -->
-  <!-- <script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget@latest/autoload.js"></script> -->
   <body>
     <div id="app">
-      <div id="Loading">
-        <div class="loader-inner ball-beat">
-          <div></div>
-          <div></div>
-          <div></div>
+      <div id="app">
+        <div class="preload-wrapper">
+          <div class="preload-container">
+            <p class="preload-name">Admin Frame</p>
+            <div class="loading"></div>
+            <p class="preload-title">加载资源中...</p>
+            <p class="preload-sub-title">
+              首次加载资源可能需要较多时间 请耐心等待
+            </p>
+          </div>
         </div>
-        <div class="loading-hint">Loading...</div>
       </div>
     </div>
     <script type="module" src="/src/main.ts"></script>
@@ -31,63 +32,61 @@
       "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
   }
 
-  #Loading {
-    top: 50%;
-    left: 50%;
-    position: absolute;
-    -webkit-transform: translateY(-50%) translateX(-50%);
-    transform: translateY(-50%) translateX(-50%);
-    z-index: 100;
+  .preload-wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background-color: #fff;
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 9999;
   }
 
-  @-webkit-keyframes ball-beat {
-    50% {
-      opacity: 0.2;
-      -webkit-transform: scale(0.75);
-      transform: scale(0.75);
-    }
+  .preload-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    user-select: none;
+    flex-grow: 1;
+  }
 
+  .preload-name {
+    font-size: 32px;
+    color: #262626;
+    margin-bottom: 30px;
+  }
+
+  .preload-title {
+    color: #595959;
+    font-size: 14px;
+    margin: 30px 0 20px 0;
+  }
+
+  .preload-sub-title {
+    color: #8c8c8c;
+    font-size: 12px;
+  }
+
+  .loading {
+    width: 35px;
+    height: 35px;
+    border: 3px solid #409eff;
+    border-top-color: transparent;
+    border-radius: 100%;
+    animation: circle infinite 0.75s linear;
+  }
+
+  @keyframes circle {
+    0% {
+      transform: rotate(0);
+    }
     100% {
-      opacity: 1;
-      -webkit-transform: scale(1);
-      transform: scale(1);
+      transform: rotate(360deg);
     }
-  }
-
-  @keyframes ball-beat {
-    50% {
-      opacity: 0.2;
-      -webkit-transform: scale(0.75);
-      transform: scale(0.75);
-    }
-
-    100% {
-      opacity: 1;
-      -webkit-transform: scale(1);
-      transform: scale(1);
-    }
-  }
-
-  .ball-beat > div {
-    background-color: #409eff;
-    width: 10px;
-    height: 10px;
-    border-radius: 100% !important;
-    margin: 2px;
-    -webkit-animation-fill-mode: both;
-    animation-fill-mode: both;
-    display: inline-block;
-    -webkit-animation: ball-beat 0.7s 0s infinite linear;
-    animation: ball-beat 0.7s 0s infinite linear;
-  }
-
-  .ball-beat > div:nth-child(2n-1) {
-    -webkit-animation-delay: 0.35s !important;
-    animation-delay: 0.35s !important;
-  }
-
-  .loading-hint {
-    padding-top: 6px;
-    color: #909399;
   }
 </style>
