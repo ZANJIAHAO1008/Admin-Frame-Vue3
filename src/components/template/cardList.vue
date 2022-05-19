@@ -1,6 +1,6 @@
 <template>
   <div class="cardList">
-    <el-card shadow="always" :body-style="{ padding: '30px 10px 15px 10px' }">
+    <el-card shadow="never" :body-style="{ padding: '30px 10px 15px 10px' }">
       <el-form :inline="true" :model="queryParams" class="demo-form-inline" label-position="right" label-width="84px">
         <el-form-item label="商品名称：">
           <el-input v-model.trim="queryParams.name" clearable placeholder="请输入商品名称" @keyup.enter="getList"></el-input>

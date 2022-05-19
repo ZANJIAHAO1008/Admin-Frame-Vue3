@@ -1,19 +1,21 @@
 <template>
     <el-drawer :model-value="configVisible" size="400px" title="应用配置" direction="rtl" :before-close="handleClose">
         <div class="appConfig">
-            <!-- <div>
+            <div>
                 <el-divider>
                     主题配置
                 </el-divider>
                 <ul class="config-list">
-                    <li style="justify-content: center;">
-                        <el-switch @change="(() => {
+                    <li>
+                        <label>暗黑模式</label>
+                        <el-switch size="default" @change="(() => {
                             toggleDark()
-                        })" active-color="#000000" v-model="configStore.isDark" size="small" active-text="黑夜模式"
-                            inactive-text="白昼模式" />
+                        })" inactive-color="#A8ABB2" v-model="configStore.isDark" inline-prompt :active-icon="Sunny"
+                            :inactive-icon="Moon" />
                     </li>
+
                 </ul>
-            </div> -->
+            </div>
             <div>
                 <el-divider>
                     导航栏
@@ -21,50 +23,64 @@
                 <ul class="config-list">
                     <li>
                         <label>面包屑</label>
-                        <el-switch @change="((e: any) => {
-                            configStore.handleShowAppConfig('showBreadcrumb', e)
+                        <el-switch size="default" @change="((e: unknown) => {
+                            if (typeof e === 'boolean') {
+                                configStore.handleShowAppConfig('showBreadcrumb', e)
+                            }
                         })" inactive-color="#A8ABB2" v-model="configStore.appConfig.showBreadcrumb" inline-prompt
                             active-text="开" inactive-text="关" />
                     </li>
                     <li>
                         <label>刷新按钮</label>
-                        <el-switch @change="((e: any) => {
-                            configStore.handleShowAppConfig('showReFresh', e)
+                        <el-switch size="default" @change="((e: unknown) => {
+                            if (typeof e === 'boolean') {
+                                configStore.handleShowAppConfig('showReFresh', e)
+                            }
                         })" inactive-color="#A8ABB2" v-model="configStore.appConfig.showReFresh" inline-prompt
                             active-text="开" inactive-text="关" />
                     </li>
                     <li>
                         <label>折叠按钮</label>
-                        <el-switch @change="((e: any) => {
-                            configStore.handleShowAppConfig('showFoldButton', e)
+                        <el-switch size="default" @change="((e: unknown) => {
+                            if (typeof e === 'boolean') {
+                                configStore.handleShowAppConfig('showFoldButton', e)
+                            }
                         })" inactive-color="#A8ABB2" v-model="configStore.appConfig.showFoldButton" inline-prompt
                             active-text="开" inactive-text="关" />
                     </li>
                     <li>
                         <label>国际化</label>
-                        <el-switch @change="((e: any) => {
-                            configStore.handleShowAppConfig('showI18n', e)
+                        <el-switch size="default" @change="((e: unknown) => {
+                            if (typeof e === 'boolean') {
+                                configStore.handleShowAppConfig('showI18n', e)
+                            }
                         })" inactive-color="#A8ABB2" v-model="configStore.appConfig.showI18n" inline-prompt
                             active-text="开" inactive-text="关" />
                     </li>
                     <li>
                         <label>消息</label>
-                        <el-switch @change="((e: any) => {
-                            configStore.handleShowAppConfig('showMessage', e)
+                        <el-switch size="default" @change="((e: unknown) => {
+                            if (typeof e === 'boolean') {
+                                configStore.handleShowAppConfig('showMessage', e)
+                            }
                         })" inactive-color="#A8ABB2" v-model="configStore.appConfig.showMessage" inline-prompt
                             active-text="开" inactive-text="关" />
                     </li>
                     <li>
                         <label>全屏</label>
-                        <el-switch @change="((e: any) => {
-                            configStore.handleShowAppConfig('showFullScreen', e)
+                        <el-switch size="default" @change="((e: unknown) => {
+                            if (typeof e === 'boolean') {
+                                configStore.handleShowAppConfig('showFullScreen', e)
+                            }
                         })" inactive-color="#A8ABB2" v-model="configStore.appConfig.showFullScreen" inline-prompt
                             active-text="开" inactive-text="关" />
                     </li>
                     <li>
                         <label>logo</label>
-                        <el-switch @change="((e: any) => {
-                            configStore.handleShowAppConfig('showLogo', e)
+                        <el-switch size="default" @change="((e: unknown) => {
+                            if (typeof e === 'boolean') {
+                                configStore.handleShowAppConfig('showLogo', e)
+                            }
                         })" inactive-color="#A8ABB2" v-model="configStore.appConfig.showLogo" inline-prompt
                             active-text="开" inactive-text="关" />
                     </li>
@@ -77,8 +93,10 @@
                 <ul class="config-list">
                     <li>
                         <label>是否启用</label>
-                        <el-switch @change="((e: any) => {
-                            configStore.handleShowAppConfig('showTabBar', e)
+                        <el-switch size="default" @change="((e: unknown) => {
+                            if (typeof e === 'boolean') {
+                                configStore.handleShowAppConfig('showTabBar', e)
+                            }
                         })" inactive-color="#A8ABB2" v-model="configStore.appConfig.showTabBar" inline-prompt
                             active-text="开" inactive-text="关" />
                     </li>
@@ -95,10 +113,23 @@
                             configStore.$patch({
                                 componentSize: e
                             })
+                        
                         })" size="default" v-bind:model-value="configStore.componentSize">
                             <el-radio-button :label="item.value" v-for="(item, index) in Component_Size" :key="index">
                                 {{ item.label }}</el-radio-button>
                         </el-radio-group>
+                    </li>
+                    <li>
+                        <label>页面最大缓存实例数</label>
+
+                        <el-input-number size="default" v-model="configStore.KeepAliveMaxLength" :min="1" :max="10"
+                            @change="((e: unknown) => {
+                                if (typeof e === 'number') {
+                                    configStore.$patch({
+                                        KeepAliveMaxLength: e
+                                    })
+                                }
+                            })" />
                     </li>
                 </ul>
             </div>
@@ -109,6 +140,7 @@
 import { useConfigStore } from "@/pinia/modules/config";
 import { Component_Size } from "@/assets/js/dictionarie";
 import { useDark, useToggle } from '@vueuse/core'
+import { Moon, Sunny } from '@element-plus/icons-vue'
 const isDark = useDark()
 const toggleDark = useToggle(isDark)
 const configStore = useConfigStore();
@@ -132,6 +164,7 @@ const handleClose = () => {
     //关闭设置
     emits("update:configVisible", false)
 }
+
 </script>
 <style lang="scss" scoped>
 .appConfig {
@@ -144,14 +177,10 @@ const handleClose = () => {
             justify-content: space-between;
             align-items: center;
             padding: 2px 8px;
-
+            margin-bottom: 4px;
             label {
                 font-size: 15px;
             }
-        }
-
-        li:hover {
-            background: #E6E8EB;
         }
     }
 }

@@ -4,10 +4,11 @@
   }" class="sidebar">
     <div class="admin-sidebar-nav" v-if="configStore.appConfig.showLogo">
       <img :src="getImage('LG', 'png')" />
-      <h1 v-if="!collapse">{{siteName}}</h1>
+      <h1 v-if="!collapse">{{ siteName }}</h1>
     </div>
+    <!--  background-color="#001529" active-text-color="#ffffff" text-color="#C0C4CC" -->
     <el-menu :default-active="onRoutes" class="sidebar-el-menu" :collapse="collapse" :collapse-transition="true"
-      unique-opened background-color="#001529" active-text-color="#ffffff" text-color="#C0C4CC" router>
+      unique-opened router>
       <template v-for="item in menuItem">
         <template v-if="item?.children?.length">
           <el-sub-menu :key="item.resourceUrl" :index="item.resourceUrl">
@@ -86,7 +87,8 @@ const collapse = computed<boolean>(() => tagStore.collapse);
   height: 100%;
   box-sizing: border-box;
   transition: width 0.3s ease-in-out;
-  background-color: #001529;
+  background-color: var(--af-sidebar-color);
+
   .sidebar-el-menu {
     overflow-x: hidden;
     overflow-y: scroll;
@@ -95,7 +97,7 @@ const collapse = computed<boolean>(() => tagStore.collapse);
   .admin-sidebar-nav {
     box-sizing: border-box;
     padding: 16px 10px 16px 10px;
-    background-color: rgb(0, 21, 41);
+    background-color: var(--af-sidebar-color);
     display: flex;
     align-items: center;
 
@@ -110,21 +112,12 @@ const collapse = computed<boolean>(() => tagStore.collapse);
       display: inline-block;
       height: 32px;
       margin: 0 0 0 12px;
-      color: #fff;
+      color: var(--af-siteName-color);
       font-weight: 600;
       font-size: 18px;
       line-height: 32px;
       vertical-align: middle;
     }
-  }
-
-  .fa {
-    vertical-align: middle;
-    margin-right: 5px;
-    width: 24px;
-    text-align: center;
-    font-size: 18px;
-    //color: #c0c4cc;
   }
 }
 </style>

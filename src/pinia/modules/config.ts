@@ -2,6 +2,7 @@ import { defineStore } from "pinia";
 import { ElConfig } from "@/types/layout";
 interface State extends Partial<ElConfig> {
   isDark: boolean;
+  KeepAliveMaxLength:number;
   appConfig: {
     showBreadcrumb: boolean;
     showReFresh: boolean;
@@ -26,6 +27,7 @@ export const useConfigStore = defineStore({
       language: undefined, //系统语言
       componentSize: undefined, //组件大小
       isDark: false, //是否是黑夜模式
+      KeepAliveMaxLength:1,//缓存最大数量
       appConfig: {
         showBreadcrumb: true, //面包屑是否展示
         showReFresh: false, //刷新按钮是否展示

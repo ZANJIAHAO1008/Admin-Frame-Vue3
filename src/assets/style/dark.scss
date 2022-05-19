@@ -1,0 +1,53 @@
+html.dark {
+  --af-header-bg-color: #141414;
+  --af-bg-color: #000000;
+  --af-default-font-color: rgba(235, 235, 235, 0.6);
+  --af-siteName-color: #ffffff;
+  --af-mouseEnter-color: #ffffff;
+  --af-tag-check-color: #003a8c;
+  --af-tag-nullCheck-color: #151515;
+  --af-tag-nullCheck-border-color: #434343;
+  --af-tag-nullCheck-font-color: #bfbfbf;
+  --af-sidebar-color: #212121;
+  --af-sidebar-active-color: #003a8c;
+  --af-pop-bg-color:#262626;
+  .admin-header {
+    background-color: var(--af-header-bg-color);
+  }
+  .app-wrapper .el-main {
+    background-color: var(--af-bg-color);
+  }
+  .el-menu {
+    background-color: #212121;
+    --el-menu-text-color: rgb(192, 196, 204);
+    .el-sub-menu__title {
+      color: rgb(192, 196, 204);
+      background-color: #212121 !important;
+    }
+    .el-menu-item.is-active {
+      color: #ffffff;
+    }
+    .el-menu .el-menu-item.is-active {
+      background-color: #003a8c !important;
+    }
+    .el-menu-item.is-active:hover {
+      background-color: #003a8c !important;
+    }
+    .el-menu-item:hover {
+      background-color: #434343 !important;
+      color: #ffffff;
+    }
+    .el-menu-item.is-active {
+      background-color: #003a8c;
+    }
+  }
+  .el-dropdown-menu{
+    background: var( --af-bg-color);
+  }
+  .el-drawer{
+    --el-drawer-bg-color:var(--af-pop-bg-color);
+  }
+  .el-dialog{
+    background-color:var(--af-pop-bg-color);
+  }
+}

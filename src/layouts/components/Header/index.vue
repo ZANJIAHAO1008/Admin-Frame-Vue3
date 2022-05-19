@@ -188,8 +188,7 @@ const changeI18n = <T extends string>(type: T) => {
   width: 100%;
   height: 64px;
   font-size: 18px;
-  color: #616161;
-  background: #fff;
+  color: var(--af-default-font-color);
   display: flex;
   justify-content: space-between;
 

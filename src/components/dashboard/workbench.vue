@@ -1,6 +1,6 @@
 <template>
     <div class="workbench">
-        <el-card shadow="always" :body-style="{ padding: '10px 30px' }">
+        <el-card shadow="never" :body-style="{ padding: '10px 30px' }">
             <div class="workbench-nav">
                 <el-image style="width: 300px; height: 200px" :src="getImage('workbench', 'svg')" fit="fill" />
                 <div class="image-space">
@@ -11,7 +11,7 @@
         </el-card>
         <el-row :gutter="10">
             <el-col :xs="16" :sm="18">
-                <el-card class="box-card m-t16" shadow="always" :body-style="{ padding: '35px 20px' }"> <template
+                <el-card class="box-card m-t16" shadow="never" :body-style="{ padding: '35px 20px' }"> <template
                         #header>
                         <div class="card-header">
                             <i class="fa fa-th-large module-icon" aria-hidden="true"></i> 项目统计
@@ -42,7 +42,7 @@
                         </li>
                     </ul>
                 </el-card>
-                <el-card class="box-card m-t16" shadow="always" :body-style="{ padding: '20px' }">
+                <el-card class="box-card m-t16" shadow="never" :body-style="{ padding: '20px' }">
                     <template #header>
                         <div class="card-header">
                             <i class="fa fa-check-square-o module-icon" aria-hidden="true"></i> 待办事项
@@ -52,16 +52,19 @@
                         <el-table-column prop="taskName" label="任务名称" width="180" />
                         <el-table-column prop="name" label="发起人" width="180" />
                         <el-table-column prop="taskDetail" label="任务详情" />
-                        <el-table-column fixed="right" label="操作" width="120">
-                            <template #default>
-                                <el-button type="text" size="small">查看详情</el-button>
+                        <el-table-column label="操作">
+                            <template #default="scope">
+                                <el-space spacer="|" style="color: #dedede">
+                                    <el-button type="text">查看详情</el-button>
+                                    <el-button type="text">提交</el-button>
+                                </el-space>
                             </template>
                         </el-table-column>
                     </el-table>
                 </el-card>
             </el-col>
             <el-col :xs="8" :sm="6">
-                <el-card class="box-card m-t16" shadow="always" :body-style="{ padding: '10px 20px 35px 20px' }">
+                <el-card class="box-card m-t16" shadow="never" :body-style="{ padding: '10px 20px 35px 20px' }">
                     <template #header>
                         <div class="card-header">
                             <i class="fa fa-bars module-icon" aria-hidden="true"></i>快速导航 / 最近使用
@@ -70,11 +73,11 @@
                     <ul class="workbench-navigation">
                         <li v-for="item in QuickNavigation" :key="item.url" @click="$router.push(item.url)">
                             <i :class="item.icon" aria-hidden="true" :style="{ color: item.color }"></i>
-                            {{ item.name }}
+                            <span> {{ item.name }}</span>
                         </li>
                     </ul>
                 </el-card>
-                <el-card class="box-card m-t16" shadow="always" :body-style="{ padding: '10px 20px 35px 20px' }">
+                <el-card class="box-card m-t16" shadow="never" :body-style="{ padding: '10px 20px 35px 20px' }">
                     <template #header>
                         <div class="card-header">
                             <i class="fa fa-question-circle module-icon" aria-hidden="true"></i>使用帮助
@@ -108,7 +111,7 @@ import {
 import { siteName } from "@/router/middleware";
 import { getImage } from "@/utils";
 import {
-  useRoute,
+    useRoute,
 } from "vue-router";
 const { proxy } = <any>getCurrentInstance();
 let hoursTip = ref<string>('');
@@ -216,7 +219,6 @@ const toViewDocument = (url: string) => {
     }
 
     &-nav {
-        background-color: #ffffff;
         border-radius: 4px;
         display: flex;
         align-items: center;
@@ -245,7 +247,7 @@ const toViewDocument = (url: string) => {
         &-label {
             font-size: 15px;
             display: block;
-            color: #595959;
+            color: var(--af-default-font-color);
             padding: 4px 5px;
         }
 
@@ -254,7 +256,7 @@ const toViewDocument = (url: string) => {
             padding-top: 10px;
             font-size: 25px;
             font-weight: bold;
-            color: #000000;
+            color: var(--af-default-font-color);
         }
     }
 
@@ -279,6 +281,10 @@ const toViewDocument = (url: string) => {
 
             i {
                 font-size: 22px;
+            }
+
+            span {
+                color: var(--af-default-font-color);
             }
         }
 

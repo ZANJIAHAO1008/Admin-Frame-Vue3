@@ -171,8 +171,8 @@ onMounted(() => {
 </script>
 <style lang="scss" scoped>
 .tag_content {
-  padding-top: 6px;
-  margin: 0px 12px;
+  padding-top: 2px;
+  margin: 0px 12px 0 8px;
   box-sizing: border-box;
   white-space: nowrap;
   display: flex;
@@ -229,21 +229,23 @@ onMounted(() => {
 
   .tag_check {
     border-radius: 1px;
+    background-color: var(--af-tag-check-color);
+    border-color: var(--af-tag-check-color);
   }
 
   .tag_null_check {
-    background-color: #ffffff !important;
-    border-color: #e4e7ed !important;
-    color: rgb(97, 97, 97) !important;
+    background-color: var(--af-tag-nullCheck-color) !important;
+    border-color: var(--af-tag-nullCheck-border-color) !important;
+    color: var(--af-tag-nullCheck-font-color) !important;
     border-radius: 1px;
   }
 
   .right_trigger_box {
     display: flex;
-    border: 1px solid #e4e7ed;
+    border: 1px solid var(--af-tag-nullCheck-border-color);
 
     .fullScreen {
-      border-right: 1px solid #e4e7ed;
+      border-right: 1px solid var(--af-tag-nullCheck-border-color);
     }
 
     .el-dropdown-link {
@@ -251,11 +253,11 @@ onMounted(() => {
       height: 26px;
       width: 50px;
       display: flex;
-      background: #fff;
+      background: var(--af-bg-color);
       border-radius: 2px;
       align-items: center;
       justify-content: center;
-      color: #a8abb2;
+      color: var(--af-default-font-color);
 
       .fa-angle-down {
         font-size: 20px;
@@ -263,7 +265,7 @@ onMounted(() => {
     }
 
     .el-dropdown-link:hover {
-      color: #000;
+      color: var(--af-mouseEnter-color);
     }
   }
 }

@@ -1,0 +1,43 @@
+html {
+  --af-bg-color: #ffffff;
+  --af-main-bg-color: #f0f2f5;
+  --af-bg-color: #ffffff;
+  --af-default-font-color: #616161;
+  --af-siteName-color: #ffffff;
+  --af-mouseEnter-color: #000000;
+  --af-tag-check-color: #409eff;
+  --af-tag-nullCheck-color: #ffffff;
+  --af-tag-nullCheck-border-color: #e4e7ed;
+  --af-tag-nullCheck-font-color: rgb(97, 97, 97);
+  --af-sidebar-color: #001529;
+  .admin-header {
+    background-color: var(--af-bg-color);
+  }
+  .app-wrapper .el-main {
+    background-color: var(--af-main-bg-color);
+  }
+  .el-menu {
+    background-color: #001529;
+    --el-menu-text-color: rgb(192, 196, 204);
+    .el-sub-menu__title {
+      color: rgb(192, 196, 204);
+      background-color: rgb(0, 21, 41);
+    }
+    .el-menu-item.is-active {
+      color: #ffffff;
+    }
+    .el-menu .el-menu-item.is-active {
+      background-color: #409eff !important;
+    }
+    .el-menu-item.is-active:hover {
+      background-color: #409eff !important;
+    }
+    .el-menu-item:hover {
+      background-color: #434343 !important;
+      color: #ffffff;
+    }
+    .el-menu-item.is-active {
+      background-color: #409eff;
+    }
+  }
+}

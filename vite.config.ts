@@ -11,6 +11,14 @@ import {
   ElementPlusResolve,
 } from "vite-plugin-style-import";
 import VueSetupExtend from "vite-plugin-vue-setup-extend";
+import Unocss from "unocss/vite";
+import {
+  presetAttributify,
+  presetIcons,
+  presetUno,
+  transformerDirectives,
+  transformerVariantGroup,
+} from "unocss";
 import ElementPlus from "unplugin-element-plus/vite";
 export default defineConfig({
   base: "./", //打包路径
@@ -33,11 +41,23 @@ export default defineConfig({
     AutoImport({
       imports: ["vue", "vue-router"],
     }),
-    viteMockServe({ //Mock服务自动注册
+    viteMockServe({
+      //Mock服务自动注册
       mockPath: "./src/mock",
       localEnabled: true,
-      prodEnabled: true
+      prodEnabled: true,
     }),
+    // Unocss({
+    //   presets: [
+    //     presetUno(),
+    //     presetAttributify(),
+    //     presetIcons({
+    //       scale: 1.2,
+    //       warn: true,
+    //     }),
+    //   ],
+    //   transformers: [transformerDirectives(), transformerVariantGroup()],
+    // }),
     // Components({  //自动注册组件
     //   dts:true,
     //   resolvers: [ElementPlusResolver(
@@ -102,7 +122,7 @@ export default defineConfig({
   css: {
     preprocessorOptions: {
       scss: {
-        additionalData: '@use "@/assets/style/main.scss" as *;',
+        additionalData: '@use "@/assets/style/element.scss" as *;',
       },
     },
     postcss: {

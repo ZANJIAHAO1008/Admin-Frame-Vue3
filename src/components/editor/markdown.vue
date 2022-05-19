@@ -1,5 +1,5 @@
 <template>
-  <el-card shadow="always" :body-style="{ padding: '30px' }" >
+  <el-card shadow="never" :body-style="{ padding: '30px' }" >
     <template #header>
       <div class="card-header">
         Markdown编辑器，基于vue3，使用jsx和typescript语法开发，支持切换主题、prettier美化文本等。

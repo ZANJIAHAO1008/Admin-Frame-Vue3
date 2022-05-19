@@ -1,6 +1,6 @@
 <template>
 
-  <el-card shadow="always" :body-style="{ padding: '30px' }">
+  <el-card shadow="never" :body-style="{ padding: '30px' }">
     <template #header>
       <div class="card-header">
         QuillEditor —— 轻量级 web 富文本编辑器，配置方便，使用简单。

@@ -1,6 +1,6 @@
 <template>
   <div class="role">
-     <el-card shadow="always" :body-style="{ padding: '30px 10px 15px 10px' }" >
+     <el-card shadow="never" :body-style="{ padding: '30px 10px 15px 10px' }" >
       <el-form
         :inline="true"
         :model="state.queryParams"
@@ -34,7 +34,7 @@
         </el-form-item>
       </el-form>
   </el-card>  
-     <el-card shadow="always" :body-style="{ padding: '30px 10px 15px 10px' }" class="m-t16">
+     <el-card shadow="never" :body-style="{ padding: '30px 10px 15px 10px' }" class="m-t16">
       <el-table
         :data="state.roleList"
         height="calc(100vh - 345px)"

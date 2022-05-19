@@ -1,6 +1,6 @@
 <template>
     <div class="feedbackCenter">
-        <el-card shadow="always" :body-style="{ padding: '30px 10px 15px 10px' }">
+        <el-card shadow="never" :body-style="{ padding: '30px 10px 15px 10px' }">
             <el-form :inline="true" :model="queryForm" label-position="right" label-width="84px">
                 <el-form-item label="反馈人：">
                     <el-input v-model.trim="queryForm.name" clearable placeholder="请输入反馈人姓名">
@@ -16,7 +16,7 @@
                 </el-form-item>
             </el-form>
         </el-card>
-        <el-card shadow="always" :body-style="{ padding: '30px 10px 15px 10px' }" class="m-t16">
+        <el-card shadow="never" :body-style="{ padding: '30px 10px 15px 10px' }" class="m-t16">
             <el-table :data="tableData" height="calc(100vh - 345px)" style="width: 100%">
                 <el-table-column prop="id" label="ID"></el-table-column>
                 <el-table-column prop="name" label="创建人"></el-table-column>

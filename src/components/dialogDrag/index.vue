@@ -1,6 +1,6 @@
 <template>
   <div>
-    <el-card shadow="always" :body-style="{ padding: '30px' }">
+    <el-card shadow="never" :body-style="{ padding: '30px' }">
       <template #header>
         <div class="card-header">
           可拖拽弹框

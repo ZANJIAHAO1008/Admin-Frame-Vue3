@@ -2,7 +2,7 @@
   <div class="analysis">
     <el-row :gutter="10">
       <el-col v-for="(item, index) in dataList" :key="index" :xs="24" :sm="24" :md="6" :lg="6" :xl="6">
-        <el-card class=" m-b8" shadow="always" :body-style="{ padding: '35px 20px' }">
+        <el-card class=" m-b8" shadow="never" :body-style="{ padding: '35px 20px' }">
           <template #header>
             <div class="card-header">
               <span class="card-header-title">{{ item.title }}</span>
@@ -17,7 +17,7 @@
     </el-row>
     <el-row :gutter="10">
       <el-col :xs="24" :sm="24" :md="24" :lg="24" :xl="24">
-        <el-card class=" m-b8" shadow="always" :body-style="{ padding: '0' }">
+        <el-card class=" m-b8" shadow="never" :body-style="{ padding: '0' }">
           <template #header>
             <div class="card-header">
               <span class="card-header-title">各时间段流量监控</span>
@@ -31,7 +31,7 @@
     </el-row>
     <el-row :gutter="10">
       <el-col :xs="24" :sm="24" :md="8" :lg="8" :xl="8">
-        <el-card class="" shadow="always">
+        <el-card class="" shadow="never">
           <template #header>
             <div class="card-header">
               <span class="card-header-title">数据来源</span>
@@ -43,7 +43,7 @@
         </el-card>
       </el-col>
       <el-col :xs="24" :sm="24" :md="8" :lg="8" :xl="8">
-        <el-card class="" shadow="always">
+        <el-card class="" shadow="never">
           <template #header>
             <div class="card-header">
               <span class="card-header-title">周活跃量统计</span>
@@ -55,7 +55,7 @@
         </el-card>
       </el-col>
       <el-col :xs="24" :sm="24" :md="8" :lg="8" :xl="8">
-        <el-card class="" shadow="always">
+        <el-card class="" shadow="never">
           <template #header>
             <div class="card-header">
               <span class="card-header-title">用户数据统计</span>
