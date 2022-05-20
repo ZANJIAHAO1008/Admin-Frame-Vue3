@@ -10,19 +10,20 @@ html.dark {
   --af-tag-nullCheck-font-color: #bfbfbf;
   --af-sidebar-color: #212121;
   --af-sidebar-active-color: #003a8c;
-  --af-pop-bg-color:#262626;
+  --af-pop-bg-color: #262626;
   .admin-header {
     background-color: var(--af-header-bg-color);
+    border-bottom: 1px solid var(--el-border-color-dark);
   }
   .app-wrapper .el-main {
     background-color: var(--af-bg-color);
   }
   .el-menu {
-    background-color: #212121;
+    background-color: var(--af-sidebar-color);
     --el-menu-text-color: rgb(192, 196, 204);
     .el-sub-menu__title {
       color: rgb(192, 196, 204);
-      background-color: #212121 !important;
+      background-color: var(--af-sidebar-color) !important;
     }
     .el-menu-item.is-active {
       color: #ffffff;
@@ -41,13 +42,14 @@ html.dark {
       background-color: #003a8c;
     }
   }
-  .el-dropdown-menu{
-    background: var( --af-bg-color);
+  .el-dropdown-menu {
+    background: var(--af-bg-color);
   }
-  .el-drawer{
-    --el-drawer-bg-color:var(--af-pop-bg-color);
+  .el-drawer {
+    --el-drawer-bg-color: var(--af-pop-bg-color);
   }
-  .el-dialog{
-    background-color:var(--af-pop-bg-color);
+  .el-dialog,
+  .el-divider__text {
+    background-color: var(--af-pop-bg-color);
   }
 }

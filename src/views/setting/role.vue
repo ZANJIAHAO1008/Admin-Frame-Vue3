@@ -1,91 +1,51 @@
 <template>
   <div class="role">
-     <el-card shadow="never" :body-style="{ padding: '30px 10px 15px 10px' }" >
-      <el-form
-        :inline="true"
-        :model="state.queryParams"
-        class="demo-form-inline"
-        label-position="right"
-        label-width="84px"
-      >
+    <el-card shadow="never" :body-style="{ padding: '30px 10px 15px 10px' }">
+      <el-form :inline="true" :model="state.queryParams" class="demo-form-inline" label-position="right"
+        label-width="84px">
         <el-form-item label="角色名：">
-          <el-input
-            v-model.trim="state.queryParams.roleName"
-            clearable
-            placeholder="请输入角色名"
-            @keyup.enter="getRoles"
-          >
+          <el-input v-model.trim="state.queryParams.roleName" clearable placeholder="请输入角色名" @keyup.enter="getRoles">
           </el-input>
         </el-form-item>
         <el-form-item label="角色ID：">
-          <el-input
-            v-model.trim="state.queryParams.roleId"
-            clearable
-            placeholder="请输入角色ID"
-            @keyup.enter="getRoles"
-          >
+          <el-input v-model.trim="state.queryParams.roleId" clearable placeholder="请输入角色ID" @keyup.enter="getRoles">
           </el-input>
         </el-form-item>
         <el-form-item>
           <el-button type="primary" @click="getRoles">查 询</el-button>
-          <el-button type="primary" @click="handlePopup(null, 'add')"
-            >新增角色</el-button
-          >
+          <el-button type="primary" @click="handlePopup(null, 'add')">新增角色</el-button>
         </el-form-item>
       </el-form>
-  </el-card>  
-     <el-card shadow="never" :body-style="{ padding: '30px 10px 15px 10px' }" class="m-t16">
-      <el-table
-        :data="state.roleList"
-        height="calc(100vh - 345px)"
-        stripe
-        style="width: 100%"
-      >
+    </el-card>
+    <el-card shadow="never" :body-style="{ padding: '30px 10px 15px 10px' }" class="m-t16">
+      <el-table :data="state.roleList" height="calc(100vh - 345px)" stripe style="width: 100%">
         <el-table-column label="角色名称" prop="roleName"></el-table-column>
         <el-table-column label="备注" prop="marks"></el-table-column>
         <el-table-column label="是否默认" prop="grant">
           <template #default="scope">
-            <el-tag v-if="scope.row.grant === '1'" effect="dark" type="success"
-              >是</el-tag
-            >
+            <el-tag v-if="scope.row.grant === '1'" effect="dark" type="success">是</el-tag>
             <el-tag v-else effect="dark" type="danger">否</el-tag>
           </template>
         </el-table-column>
         <el-table-column label="创建时间" prop="createTime"></el-table-column>
         <el-table-column label="操作">
           <template #default="scope">
-            <el-space spacer="|" style="color: #dedede">
-              <el-button type="text" @click="openAuthorize(scope.row)"
-                >授权</el-button
-              >
-              <el-button type="text" @click="handlePopup(scope.row, 'edit')"
-                >编辑</el-button
-              >
-              <el-button type="text" @click="delDataById(scope.row)"
-                >删除</el-button
-              >
+            <el-space spacer="|">
+              <el-button type="" @click="handlePopup(scope.row, 'edit')">编辑</el-button>
+              <el-button type="primary" @click="openAuthorize(scope.row)">授权</el-button>
+              <el-button type="danger" @click="delDataById(scope.row)">删除</el-button>
             </el-space>
           </template>
         </el-table-column>
       </el-table>
-  </el-card>  
-    <el-dialog
-      v-model="showRoleDialog"
-      :before-close="
-        () => {
-          handleClose(roleFormRef);
-        }
-      "
-      title="角色配置"
-      width="865px"
-    >
-      <el-form
-        ref="roleFormRef"
-        :model="state.roleForm"
-        :rules="state.roleRules"
-        class="demo-ruleForm"
-        label-width="94px"
-      >
+    </el-card>
+    <el-dialog v-model="showRoleDialog" :before-close="
+      () => {
+        handleClose(roleFormRef);
+      }
+    " title="角色配置" width="865px">
+      <el-form ref="roleFormRef" :model="state.roleForm" :rules="state.roleRules" class="demo-ruleForm"
+        label-width="94px">
         <el-row>
           <el-col :span="11">
             <el-form-item label="角色名称：" prop="roleName">
@@ -96,24 +56,15 @@
         <el-row>
           <el-col>
             <el-form-item label="是否默认：" prop="grant">
-              <el-switch
-                v-model="state.roleForm.grant"
-                active-text="是"
-                active-value="1"
-                inactive-text="否"
-                inactive-value="0"
-              ></el-switch>
+              <el-switch v-model="state.roleForm.grant" active-text="是" active-value="1" inactive-text="否"
+                inactive-value="0"></el-switch>
             </el-form-item>
           </el-col>
         </el-row>
         <el-row>
           <el-col :span="24">
             <el-form-item label="说明：" prop="marks">
-              <el-input
-                v-model="state.roleForm.marks"
-                :autosize="{ minRows: 3, maxRows: 5 }"
-                type="textarea"
-              >
+              <el-input v-model="state.roleForm.marks" :autosize="{ minRows: 3, maxRows: 5 }" type="textarea">
               </el-input>
             </el-form-item>
           </el-col>
@@ -122,28 +73,14 @@
       <template #footer>
         <span class="dialog-footer">
           <el-button @click="handleClose(roleFormRef)">取 消</el-button>
-          <el-button type="primary" @click="onSubmit(roleFormRef)"
-            >确 定</el-button
-          >
+          <el-button type="primary" @click="onSubmit(roleFormRef)">确 定</el-button>
         </span>
       </template>
     </el-dialog>
-    <el-dialog
-      v-model="showJurDialog"
-      :before-close="closeAuthorizeWindow"
-      title="权限分配"
-      width="600px"
-    >
+    <el-dialog v-model="showJurDialog" :before-close="closeAuthorizeWindow" title="权限分配" width="600px">
       <div class="distribution_content">
-        <el-tree
-          ref="treeFormRef"
-          :data="resourceList"
-          :props="state.defaultProps"
-          check-on-click-node
-          default-expand-all
-          node-key="resourceId"
-          show-checkbox
-        ></el-tree>
+        <el-tree ref="treeFormRef" :data="resourceList" :props="state.defaultProps" check-on-click-node
+          default-expand-all node-key="resourceId" show-checkbox></el-tree>
       </div>
       <template #footer>
         <span class="dialog-footer">
@@ -291,7 +228,7 @@ const delDataById = (data: any) => {
     .then(() => {
       getRoles();
     })
-    .catch(() => {});
+    .catch(() => { });
 }
 
 const openAuthorize = (data: any) => {

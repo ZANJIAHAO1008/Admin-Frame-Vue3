@@ -30,8 +30,8 @@
               <div class="bottom">
                 <time class="time">上架日期：{{ item.putWayDate }}</time>
                 <el-space :size="10" spacer="|">
-                  <el-button type="text" @click="handlePopup('edit', {})">编辑</el-button>
-                  <el-button type="text" @click="removeDataById(item.id)">删除</el-button>
+                  <el-link type="primary" @click="handlePopup('edit', {})" :underline="false">编辑</el-link>
+                  <el-link type="primary" @click="removeDataById(item.id)" :underline="false">删除</el-link>
                 </el-space>
               </div>
             </div>

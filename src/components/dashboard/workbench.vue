@@ -53,10 +53,10 @@
                         <el-table-column prop="name" label="发起人" width="180" />
                         <el-table-column prop="taskDetail" label="任务详情" />
                         <el-table-column label="操作">
-                            <template #default="scope">
-                                <el-space spacer="|" style="color: #dedede">
-                                    <el-button type="text">查看详情</el-button>
-                                    <el-button type="text">提交</el-button>
+                            <template #default>
+                                <el-space spacer="|">
+                                     <el-link type="primary" :underline="false">查看详情</el-link>
+                                     <el-link type="primary" :underline="false">去处理</el-link>
                                 </el-space>
                             </template>
                         </el-table-column>
@@ -91,7 +91,7 @@
                         </ul>
                         <div class="other-help">
                             <span class="other-help-label">其他</span>
-                            <el-button type="text">新手引导</el-button>
+                            <el-button type="primary" plain>新手引导</el-button>
                         </div>
                     </div>
                 </el-card>

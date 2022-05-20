@@ -24,11 +24,11 @@
         <el-table-column label="操作">
           <template #default="scope">
             <el-space spacer="|" style="color: #dedede">
-              <el-button type="text" @click="handlePopup(operationStatus.edit, scope.row)">编辑</el-button>
-              <el-button type="text">{{
+              <el-button type="" @click="handlePopup(operationStatus.edit, scope.row)">编辑</el-button>
+              <el-button type="primary">{{
                   scope.row.enabled === "0" ? useStatus.start : useStatus.close
               }}</el-button>
-              <el-button type="text" @click="removeDataById(scope.row.id)">删除</el-button>
+              <el-button type="danger" @click="removeDataById(scope.row.id)">删除</el-button>
             </el-space>
           </template>
         </el-table-column>

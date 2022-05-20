@@ -50,11 +50,11 @@
         <el-table-column prop="createTime" label="注册时间"></el-table-column>
         <el-table-column label="操作">
           <template #default="scope">
-            <el-space spacer="|" style="color: #dedede">
-              <el-button type="text" @click="baseInfoEdit(scope.row)"
+            <el-space spacer="|">
+              <el-button type="" @click="baseInfoEdit(scope.row)"
                 >编辑</el-button
               >
-              <el-button type="text" @click="deleteUser(scope.row)"
+              <el-button type="danger" @click="deleteUser(scope.row)"
                 >删除</el-button
               >
             </el-space>

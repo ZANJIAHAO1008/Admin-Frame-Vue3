@@ -10,8 +10,8 @@
                         <label>暗黑模式</label>
                         <el-switch size="default" @change="(() => {
                             toggleDark()
-                        })" inactive-color="#A8ABB2" v-model="configStore.isDark" inline-prompt :active-icon="Sunny"
-                            :inactive-icon="Moon" />
+                        })" inactive-color="#A8ABB2" v-model="configStore.isDark" inline-prompt :active-icon="Moon"
+                            :inactive-icon="Sunny" />
                     </li>
 
                 </ul>

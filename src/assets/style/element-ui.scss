@@ -8,9 +8,6 @@
   border-color: #ffffff !important;
 }
 
-.el-input__prefix {
-  font-size: 18px !important;
-}
 //menu
 
 .el-menu {
@@ -56,34 +53,9 @@
   text-align: center;
 }
 
-// dialog
-// .el-dialog {
-//   border-radius: 6px 6px 0 0 !important;
-
-//   .el-dialog__header {
-//     background: #6190e8;
-//     /* fallback for old browsers */
-//     background: -webkit-linear-gradient(to left, #a7bfe8, #6190e8);
-//     /* Chrome 10-25, Safari 5.1-6 */
-//     background: linear-gradient(to left, #a7bfe8, #6190e8);
-//     /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-//     padding: 15px 10px 10px 10px !important;
-//     border-radius: 6px 6px 0 0 !important;
-//     margin-right: 0px !important;
-//   }
-
-//   .el-dialog__title,
-//   .el-icon-close {
-//     color: #fff !important;
-//     font-size: 16px !important;
-//   }
-// }
-
 // drawer
 #el-drawer__title {
   padding: 10px !important;
   margin-bottom: 20px !important;
   font-size: 16px !important;
 }
-
-
