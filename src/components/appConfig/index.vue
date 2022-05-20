@@ -13,7 +13,11 @@
                         })" inactive-color="#A8ABB2" v-model="configStore.isDark" inline-prompt :active-icon="Moon"
                             :inactive-icon="Sunny" />
                     </li>
-
+                    <li>
+                        <label>灰色模式</label>
+                        <el-switch size="default"  inactive-color="#A8ABB2"
+                            v-model="configStore.isGrayscale" inline-prompt active-text="开" inactive-text="关" />
+                    </li>
                 </ul>
             </div>
             <div>
@@ -165,6 +169,7 @@ const handleClose = () => {
     emits("update:configVisible", false)
 }
 
+
 </script>
 <style lang="scss" scoped>
 .appConfig {
@@ -178,6 +183,7 @@ const handleClose = () => {
             align-items: center;
             padding: 2px 8px;
             margin-bottom: 4px;
+
             label {
                 font-size: 15px;
             }

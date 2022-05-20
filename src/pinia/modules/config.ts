@@ -2,7 +2,8 @@ import { defineStore } from "pinia";
 import { ElConfig } from "@/types/layout";
 interface State extends Partial<ElConfig> {
   isDark: boolean;
-  KeepAliveMaxLength:number;
+  isGrayscale: boolean;
+  KeepAliveMaxLength: number;
   appConfig: {
     showBreadcrumb: boolean;
     showReFresh: boolean;
@@ -11,9 +12,9 @@ interface State extends Partial<ElConfig> {
     showMessage: boolean;
     showFullScreen: boolean;
     showLogo: boolean;
-    showHeader:boolean;
+    showHeader: boolean;
     showTabBar: boolean;
-    showSideBar:boolean;
+    showSideBar: boolean;
   };
 }
 
@@ -27,7 +28,8 @@ export const useConfigStore = defineStore({
       language: undefined, //系统语言
       componentSize: undefined, //组件大小
       isDark: false, //是否是黑夜模式
-      KeepAliveMaxLength:1,//缓存最大数量
+      isGrayscale: false, //是否为灰色模式
+      KeepAliveMaxLength: 1, //缓存最大数量
       appConfig: {
         showBreadcrumb: true, //面包屑是否展示
         showReFresh: false, //刷新按钮是否展示
@@ -36,9 +38,9 @@ export const useConfigStore = defineStore({
         showMessage: true, //消息是否展示
         showFullScreen: true, //全屏是否展示
         showLogo: true, //logo是否展示
-        showHeader:true, //是否显示顶栏
+        showHeader: true, //是否显示顶栏
         showTabBar: true, //标签栏是否展示
-        showSideBar:true,//是否显示菜单栏
+        showSideBar: true, //是否显示菜单栏
       },
     };
   },

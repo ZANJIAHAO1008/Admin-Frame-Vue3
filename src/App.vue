@@ -35,6 +35,27 @@ watch(
   },
 )
 
+watch(
+  () => configStore.isGrayscale,
+  (newValue, oldValue) => {
+    //实时监听灰色模式
+    if (newValue) {
+      document.body.setAttribute('style', 'filter:grayscale(100%)')
+    } else {
+      document.body.setAttribute('style', 'filter:grayscale(0)')
+    }
+  },
+)
+
+
+onMounted(() => {
+  if (configStore.isGrayscale) {
+    document.body.setAttribute('style', 'filter:grayscale(100%)')
+  } else {
+    document.body.setAttribute('style', 'filter:grayscale(0)')
+  }
+})
+
 provide("eCharts", eCharts); //全局穿透eCharts
 
 const setDefaultSetting = () => {

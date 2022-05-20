@@ -12,6 +12,7 @@ html {
   --af-sidebar-color: #001529;
   .admin-header {
     background-color: var(--af-bg-color);
+    border-bottom: 1px solid var(--el-border-color-light);
   }
   .app-wrapper .el-main {
     background-color: var(--af-main-bg-color);
