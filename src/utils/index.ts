@@ -7,7 +7,7 @@ export const debounce = (function () {
   return function (callback: Function, ms: number) {
     clearTimeout(timer);
     timer = setTimeout(callback, ms);
-  }
+  };
 })();
 
 export function Loading() {
@@ -31,9 +31,10 @@ export function getValues<T extends object, K extends keyof T>(
 export function toObtainAnalyticalData<T>(target: T): T {
   //多层proxy解析
   return JSON.parse(JSON.stringify(unref(target)));
-};
+}
 
 export function getImage(url: string, type: string) {
+  //公共的获取图片的方法
   return new URL(`../assets/image/${url}.${type}`, import.meta.url).href;
 }
 
@@ -46,6 +47,14 @@ export const printVersion = (name: string, version: string) => {
   console.log(config.description);
   console.log("%c希望世界和平." + "\n" + "Peace & Love.", "color: #40a9ff;");
   console.log(`%c项目地址:${config.url}`, "color: red;");
-}
+};
 
 printVersion(config.name, config.version);
+
+export const judgeEquipment = (): null | object => {
+  //判断设备类型是否为手机
+  let flag = navigator.userAgent.match(
+    /(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i
+  );
+  return flag;
+};

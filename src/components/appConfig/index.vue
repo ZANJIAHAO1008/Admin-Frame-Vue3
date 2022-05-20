@@ -15,8 +15,8 @@
                     </li>
                     <li>
                         <label>灰色模式</label>
-                        <el-switch size="default"  inactive-color="#A8ABB2"
-                            v-model="configStore.isGrayscale" inline-prompt active-text="开" inactive-text="关" />
+                        <el-switch size="default" inactive-color="#A8ABB2" v-model="configStore.isGrayscale"
+                            inline-prompt active-text="开" inactive-text="关" />
                     </li>
                 </ul>
             </div>

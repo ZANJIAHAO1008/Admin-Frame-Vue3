@@ -40,7 +40,7 @@
           <i class="fa faPad fa-bell-o"></i>
         </el-badge>
       </span>
-      <span class="faSpan" @click="configVisible = true">
+      <span class="faSpan" @click="configVisible = true"  v-if="configStore.appConfig.showConfigMenu">
         <i class="fa faPad fa-cogs"></i>
       </span>
       <!-- 用户名下拉菜单 -->

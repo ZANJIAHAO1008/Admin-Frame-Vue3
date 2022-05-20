@@ -10,7 +10,7 @@
             </div>
         </el-card>
         <el-row :gutter="10">
-            <el-col :xs="16" :sm="18">
+            <el-col :xs="24" :sm="18">
                 <el-card class="box-card m-t16" shadow="never" :body-style="{ padding: '35px 20px' }"> <template
                         #header>
                         <div class="card-header">
@@ -42,29 +42,29 @@
                         </li>
                     </ul>
                 </el-card>
-                <el-card class="box-card m-t16" shadow="never" :body-style="{ padding: '20px' }">
+                <el-card class="box-card m-t16" shadow="never" :body-style="{ padding: '15px 20px' }">
                     <template #header>
                         <div class="card-header">
                             <i class="fa fa-check-square-o module-icon" aria-hidden="true"></i> 待办事项
                         </div>
                     </template>
-                    <el-table :data="taskData" style="width: 100%" height="280">
+                    <el-table :data="taskData" style="width: 100%" height="255">
                         <el-table-column prop="taskName" label="任务名称" width="180" />
                         <el-table-column prop="name" label="发起人" width="180" />
                         <el-table-column prop="taskDetail" label="任务详情" />
                         <el-table-column label="操作">
                             <template #default>
                                 <el-space spacer="|">
-                                     <el-link type="primary" :underline="false">查看详情</el-link>
-                                     <el-link type="primary" :underline="false">去处理</el-link>
+                                    <el-link type="primary" :underline="false">查看详情</el-link>
+                                    <el-link type="primary" :underline="false">去处理</el-link>
                                 </el-space>
                             </template>
                         </el-table-column>
                     </el-table>
                 </el-card>
             </el-col>
-            <el-col :xs="8" :sm="6">
-                <el-card class="box-card m-t16" shadow="never" :body-style="{ padding: '10px 20px 35px 20px' }">
+            <el-col :xs="24" :sm="6">
+                <el-card class="box-card m-t16" shadow="never" :body-style="{ padding: '20px' }">
                     <template #header>
                         <div class="card-header">
                             <i class="fa fa-bars module-icon" aria-hidden="true"></i>快速导航 / 最近使用
@@ -73,11 +73,11 @@
                     <ul class="workbench-navigation">
                         <li v-for="item in QuickNavigation" :key="item.url" @click="$router.push(item.url)">
                             <i :class="item.icon" aria-hidden="true" :style="{ color: item.color }"></i>
-                            <span> {{ item.name }}</span>
+                            <div>{{ item.name }}</div>
                         </li>
                     </ul>
                 </el-card>
-                <el-card class="box-card m-t16" shadow="never" :body-style="{ padding: '10px 20px 35px 20px' }">
+                <el-card class="box-card m-t16" shadow="never" :body-style="{ padding: '20px 20px 35px 20px' }">
                     <template #header>
                         <div class="card-header">
                             <i class="fa fa-question-circle module-icon" aria-hidden="true"></i>使用帮助
@@ -261,26 +261,21 @@ const toViewDocument = (url: string) => {
     }
 
     &-navigation {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-around;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 12px 20px;
         list-style: none;
 
         li {
-            display: flex;
-            flex-direction: column;
             cursor: pointer;
-            width: 94px;
             text-align: center;
-            height: 50px;
             border-radius: 3px;
-            line-height: 50px;
-            margin-top: 25px;
             color: #606266;
             font-size: 14px;
 
             i {
                 font-size: 22px;
+                padding-bottom: 8px;
             }
 
             span {

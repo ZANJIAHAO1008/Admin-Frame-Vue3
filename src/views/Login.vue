@@ -21,8 +21,8 @@
         </el-form-item>
       </el-form>
       <div class="other-content">
-        <el-button type="text" disabled>其它登录方式</el-button>
-        <el-button type="text" disabled>忘记密码</el-button>
+        <el-button text disabled>其它登录方式</el-button>
+        <el-button text disabled>忘记密码</el-button>
       </div>
 
     </div>
@@ -104,6 +104,7 @@ const toLogin = async (formEl: FormInstance | undefined) => {
     box-sizing: border-box;
     margin-left: -198px;
     margin-top: -255px;
+    background-color: var(--af-bg-color);
 
     .logo {
       padding: 12px;

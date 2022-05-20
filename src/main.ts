@@ -1,4 +1,5 @@
 import { createApp } from "vue";
+import "@/pinia/modules/config";
 import App from "./App.vue";
 import router from "@/router";
 import pinia from "@/pinia";
