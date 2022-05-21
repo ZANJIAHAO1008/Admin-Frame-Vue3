@@ -14,7 +14,7 @@
         </el-form-item>
       </el-form>
     </el-card>
-    <el-card shadow="never" :body-style="{ padding: '30px 10px 15px 10px' }" class="m-t16">
+    <el-card shadow="never" :body-style="{ padding: '30px 10px 15px 10px' }" class="m-t8">
       <el-row :gutter="20">
         <el-col :span="12">
           <el-tree :data="state.resourceList" :expand-on-click-node="false" :props="state.defaultProps"

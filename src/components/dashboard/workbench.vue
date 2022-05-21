@@ -11,7 +11,7 @@
         </el-card>
         <el-row :gutter="10">
             <el-col :xs="24" :sm="18">
-                <el-card class="box-card m-t16" shadow="never" :body-style="{ padding: '35px 20px' }"> <template
+                <el-card class="box-card m-t8" shadow="never" :body-style="{ padding: '35px 20px' }"> <template
                         #header>
                         <div class="card-header">
                             <i class="fa fa-th-large module-icon" aria-hidden="true"></i> 项目统计
@@ -42,7 +42,7 @@
                         </li>
                     </ul>
                 </el-card>
-                <el-card class="box-card m-t16" shadow="never" :body-style="{ padding: '15px 20px' }">
+                <el-card class="box-card m-t8" shadow="never" :body-style="{ padding: '15px 20px' }">
                     <template #header>
                         <div class="card-header">
                             <i class="fa fa-check-square-o module-icon" aria-hidden="true"></i> 待办事项
@@ -64,7 +64,7 @@
                 </el-card>
             </el-col>
             <el-col :xs="24" :sm="6">
-                <el-card class="box-card m-t16" shadow="never" :body-style="{ padding: '20px' }">
+                <el-card class="box-card m-t8" shadow="never" :body-style="{ padding: '20px' }">
                     <template #header>
                         <div class="card-header">
                             <i class="fa fa-bars module-icon" aria-hidden="true"></i>快速导航 / 最近使用
@@ -77,7 +77,7 @@
                         </li>
                     </ul>
                 </el-card>
-                <el-card class="box-card m-t16" shadow="never" :body-style="{ padding: '20px 20px 35px 20px' }">
+                <el-card class="box-card m-t8" shadow="never" :body-style="{ padding: '20px 20px 35px 20px' }">
                     <template #header>
                         <div class="card-header">
                             <i class="fa fa-question-circle module-icon" aria-hidden="true"></i>使用帮助

@@ -1,5 +1,5 @@
 <template>
-  <div class="tag_content">
+  <div class="tag_content borderBottom">
     <TransitionGroup v-if="tagsList.length" name="list" class="tags" tag="div">
       <el-tag v-for="(tag, index) in tagsList" :key="index" :type="selectPath === tag.path ? '' : 'info'"
         :class="selectPath === tag.path ? 'tag_check' : 'tag_null_check'"
@@ -171,8 +171,7 @@ onMounted(() => {
 </script>
 <style lang="scss" scoped>
 .tag_content {
-  padding-top: 2px;
-  margin: 0px 12px 0 8px;
+  padding: 0px 12px 6px 8px;
   box-sizing: border-box;
   white-space: nowrap;
   display: flex;

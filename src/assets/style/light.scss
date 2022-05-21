@@ -10,9 +10,12 @@ html {
   --af-tag-nullCheck-border-color: #e4e7ed;
   --af-tag-nullCheck-font-color: rgb(97, 97, 97);
   --af-sidebar-color: #001529;
+  .borderBottom {
+    border-bottom: 1px solid var(--el-border-color-light);
+  }
+  .tag_content,
   .admin-header {
     background-color: var(--af-bg-color);
-    border-bottom: 1px solid var(--el-border-color-light);
   }
   .app-wrapper .el-main {
     background-color: var(--af-main-bg-color);

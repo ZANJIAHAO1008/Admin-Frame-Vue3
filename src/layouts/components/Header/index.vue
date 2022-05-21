@@ -1,5 +1,5 @@
 <template>
-  <div class="admin-header">
+  <div :class="configStore.appConfig.showTabBar ? 'admin-header' : 'admin-header borderBottom'">
     <div class="collapse-left">
       <div class="collapse-btn">
         <i v-if="configStore.appConfig.showFoldButton" title="点击打开关闭菜单" @click="switchCollapse"

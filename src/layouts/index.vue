@@ -13,15 +13,15 @@
           <div id="screen-display" v-loading="!isReload" class="content" :style="{
             height: configStore.appConfig.showTabBar ? 'calc(100vh - 105px)' : 'calc(100vh - 71px)'
           }">
-              <router-view v-if="isReload" v-slot="{ Component,router }">
-                <Transition appear name="fade" appear-active-class="animate__animated animate__pulse"
-                  enter-active-class="animate__animated animate__fadeIn">
-                  <!--进入 enter-active-class   移出 leave-active-class  初始 appear-active-class-->
-                  <KeepAlive :max="configStore.KeepAliveMaxLength">
-                    <component :is="Component" />
-                  </KeepAlive>
-                </Transition>
-              </router-view>
+            <router-view v-if="isReload" v-slot="{ Component, router }">
+              <Transition appear name="fade" appear-active-class="animate__animated animate__pulse"
+                enter-active-class="animate__animated animate__fadeIn">
+                <!--进入 enter-active-class   移出 leave-active-class  初始 appear-active-class-->
+                <KeepAlive :max="configStore.KeepAliveMaxLength">
+                  <component :is="Component" />
+                </KeepAlive>
+              </Transition>
+            </router-view>
 
             <el-backtop target=".content"></el-backtop>
           </div>
@@ -66,7 +66,7 @@ provide("reload", reload);
 
   .el-main {
     .content {
-      padding: 2px 5px 8px 5px;
+      padding: 8px 5px 8px 5px;
       box-sizing: border-box;
       margin: 0 2px;
       // background: #ffffff;

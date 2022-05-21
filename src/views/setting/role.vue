@@ -17,7 +17,7 @@
         </el-form-item>
       </el-form>
     </el-card>
-    <el-card shadow="never" :body-style="{ padding: '30px 10px 15px 10px' }" class="m-t16">
+    <el-card shadow="never" :body-style="{ padding: '30px 10px 15px 10px' }" class="m-t8">
       <el-table :data="state.roleList" height="calc(100vh - 345px)" stripe style="width: 100%">
         <el-table-column label="角色名称" prop="roleName"></el-table-column>
         <el-table-column label="备注" prop="marks"></el-table-column>
