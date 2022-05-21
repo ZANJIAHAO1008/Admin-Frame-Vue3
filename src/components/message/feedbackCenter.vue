@@ -24,8 +24,8 @@
                 <el-table-column label="操作">
                     <template #default="scope">
                         <el-space spacer="|" style="color: #dedede">
-                            <el-button type="text">查看详情</el-button>
-                            <el-button type="text">处理</el-button>
+                            <el-button text type="primary">查看详情</el-button>
+                            <el-button text type="primary">处理</el-button>
                         </el-space>
                     </template>
                 </el-table-column>

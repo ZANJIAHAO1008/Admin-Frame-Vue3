@@ -49,9 +49,5 @@ export const useTagStore = defineStore({
       });
       this.tagsList = [...tagList];
     },
-    // 侧边栏折叠
-    switchCollapse(state: boolean) {
-      this.collapse = state;
-    },
   },
 });

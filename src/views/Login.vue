@@ -91,8 +91,6 @@ const toLogin = async (formEl: FormInstance | undefined) => {
   position: relative;
   width: 100%;
   height: 100vh;
-  background-size: 100% 100%;
-  background-image: url("../assets/image/BG.png");
 
   .login-body {
     position: absolute;
@@ -104,7 +102,6 @@ const toLogin = async (formEl: FormInstance | undefined) => {
     box-sizing: border-box;
     margin-left: -198px;
     margin-top: -255px;
-    background-color: var(--af-bg-color);
 
     .logo {
       padding: 12px;

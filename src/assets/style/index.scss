@@ -1,3 +1,7 @@
+@use "animate.css/animate.min.css" as *;
+@use "@/assets/style/element-ui.scss" as *;
+@use "@/assets/css/font-awesome.min.css" as *; //font 样式
+
 @mixin min-wid($width) {
   // 最低宽度
   min-width: $width;

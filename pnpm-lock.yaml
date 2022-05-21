@@ -25,7 +25,7 @@ specifiers:
   default-passive-events: ^2.0.0
   driver.js: ^0.9.8
   echarts: ^5.1.2
-  element-plus: ^2.2.0
+  element-plus: ^2.2.1
   eslint: ^8.12.0
   eslint-config-prettier: ^8.5.0
   eslint-plugin-prettier: ^4.0.0
@@ -71,7 +71,7 @@ dependencies:
   default-passive-events: registry.npmmirror.com/default-passive-events/2.0.0
   driver.js: registry.npmmirror.com/driver.js/0.9.8
   echarts: registry.npmmirror.com/echarts/5.3.2
-  element-plus: registry.npmmirror.com/element-plus/2.2.0_vue@3.2.31
+  element-plus: registry.npmmirror.com/element-plus/2.2.1_vue@3.2.31
   js-cookie: registry.npmmirror.com/js-cookie/2.2.1
   md-editor-v3: registry.npmmirror.com/md-editor-v3/1.11.4
   mockjs: registry.npmmirror.com/mockjs/1.1.0
@@ -226,18 +226,18 @@ packages:
       - supports-color
     dev: true
 
-  registry.npmmirror.com/@floating-ui/core/0.6.2:
-    resolution: {integrity: sha512-jktYRmZwmau63adUG3GKOAVCofBXkk55S/zQ94XOorAHhwqFIOFAy1rSp2N0Wp6/tGbe9V3u/ExlGZypyY17rg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@floating-ui/core/-/core-0.6.2.tgz}
+  registry.npmmirror.com/@floating-ui/core/0.7.1:
+    resolution: {integrity: sha512-grcqEmI8DTIolufpxhJagVeJmvloxBXE6xxSrVnSXz/Wz1uUIsC85ad+UNBqAoBOvzLxE42wvDj3YkmSGqWRxA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@floating-ui/core/-/core-0.7.1.tgz}
     name: '@floating-ui/core'
-    version: 0.6.2
+    version: 0.7.1
     dev: false
 
-  registry.npmmirror.com/@floating-ui/dom/0.4.5:
-    resolution: {integrity: sha512-b+prvQgJt8pieaKYMSJBXHxX/DYwdLsAWxKYqnO5dO2V4oo/TYBZJAUQCVNjTWWsrs6o4VDrNcP9+E70HAhJdw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@floating-ui/dom/-/dom-0.4.5.tgz}
+  registry.npmmirror.com/@floating-ui/dom/0.5.1:
+    resolution: {integrity: sha512-dkPSy5JPiQEtljc3VpG9lauYctxfLlqj/8N9f+lmsR92gQaSVMAWuBbFBH2keY5DmdQn3p4Dv1dQd+e8osH+/g==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@floating-ui/dom/-/dom-0.5.1.tgz}
     name: '@floating-ui/dom'
-    version: 0.4.5
+    version: 0.5.1
     dependencies:
-      '@floating-ui/core': registry.npmmirror.com/@floating-ui/core/0.6.2
+      '@floating-ui/core': registry.npmmirror.com/@floating-ui/core/0.7.1
     dev: false
 
   registry.npmmirror.com/@humanwhocodes/config-array/0.9.5:
@@ -1260,10 +1260,10 @@ packages:
     version: 1.2.1
     dev: true
 
-  registry.npmmirror.com/async-validator/4.0.7:
-    resolution: {integrity: sha512-Pj2IR7u8hmUEDOwB++su6baaRi+QvsgajuFB9j95foM1N2gy5HM4z60hfusIO0fBPG5uLAEl6yCJr1jNSVugEQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/async-validator/-/async-validator-4.0.7.tgz}
+  registry.npmmirror.com/async-validator/4.1.1:
+    resolution: {integrity: sha512-p4DO/JXwjs8klJyJL8Q2oM4ks5fUTze/h5k10oPPKMiLe1fj3G1QMzPHNmN1Py4ycOk7WlO2DcGXv1qiESJCZA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/async-validator/-/async-validator-4.1.1.tgz}
     name: async-validator
-    version: 4.0.7
+    version: 4.1.1
     dev: false
 
   registry.npmmirror.com/axios/0.21.4:
@@ -1752,22 +1752,22 @@ packages:
     version: 1.1.1
     dev: false
 
-  registry.npmmirror.com/element-plus/2.2.0_vue@3.2.31:
-    resolution: {integrity: sha512-zxmAFEAa1T/n09rR+NozXcWl5CjaFtqoaxhFSafag0dgc90tgEHitDXfegdFAl4ahugdNTqu9aLzngx3VhDAtA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/element-plus/-/element-plus-2.2.0.tgz}
-    id: registry.npmmirror.com/element-plus/2.2.0
+  registry.npmmirror.com/element-plus/2.2.1_vue@3.2.31:
+    resolution: {integrity: sha512-+U3Rq6S2lrzgFWlO1IvqBRtWuOGfyA84OSJOTDC8DHG6XkbNE507Thueb+9Ghk8eIqjGtpvje5hEQRWOJ85+pA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/element-plus/-/element-plus-2.2.1.tgz}
+    id: registry.npmmirror.com/element-plus/2.2.1
     name: element-plus
-    version: 2.2.0
+    version: 2.2.1
     peerDependencies:
       vue: ^3.2.0
     dependencies:
       '@ctrl/tinycolor': registry.npmmirror.com/@ctrl/tinycolor/3.4.1
       '@element-plus/icons-vue': registry.npmmirror.com/@element-plus/icons-vue/1.1.4_vue@3.2.31
-      '@floating-ui/dom': registry.npmmirror.com/@floating-ui/dom/0.4.5
+      '@floating-ui/dom': registry.npmmirror.com/@floating-ui/dom/0.5.1
       '@popperjs/core': registry.npmmirror.com/@sxzz/popperjs-es/2.11.7
       '@types/lodash': registry.npmmirror.com/@types/lodash/4.14.182
       '@types/lodash-es': registry.npmmirror.com/@types/lodash-es/4.17.6
       '@vueuse/core': registry.npmmirror.com/@vueuse/core/8.5.0_vue@3.2.31
-      async-validator: registry.npmmirror.com/async-validator/4.0.7
+      async-validator: registry.npmmirror.com/async-validator/4.1.1
       dayjs: registry.npmmirror.com/dayjs/1.11.2
       escape-html: registry.npmmirror.com/escape-html/1.0.3
       lodash: registry.npmmirror.com/lodash/4.17.21

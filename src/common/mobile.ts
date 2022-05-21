@@ -2,7 +2,7 @@
  * @description 手机访问时添加一些默认配置
  */
 import { judgeEquipment } from "@/utils";
-export function useMobile(configStore: any) {
+export function useMobile(configStore: any, tagStore: any) {
   let isMobile = computed(() => {
     return Boolean(judgeEquipment());
   });
@@ -26,6 +26,9 @@ export function useMobile(configStore: any) {
         showTabBar: false, //标签栏是否展示
         showSideBar: true, //是否显示菜单栏
       },
+    });
+    tagStore.$patch({
+      collapse: true, //关闭菜单栏
     });
   };
 

@@ -8,13 +8,14 @@ import * as eCharts from "echarts";
 import { provide } from "vue";
 import { useConfigStore } from "@/pinia/modules/config";
 import { useMobile } from '@/common/mobile';
-import { useAppConfig } from '@/common/appConfig'
+import { useAppConfig } from '@/common/appConfig';
+import { useTagStore } from "@/pinia/modules/tag";
 const configStore = useConfigStore();
-const { isMobile } = useMobile(configStore);
+const tagStore = useTagStore();
+const { isMobile } = useMobile(configStore,tagStore);
 const { elConfig } = useAppConfig(configStore);
 provide("eCharts", eCharts); //全局穿透eCharts
 </script>
 <style lang="scss">
-@import "@/assets/style/index.scss";
-@import "@/assets/style/element-ui.scss";
+@use "@/assets/style/index.scss" as *;
 </style>

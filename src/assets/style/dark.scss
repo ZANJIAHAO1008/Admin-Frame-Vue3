@@ -52,4 +52,8 @@ html.dark {
   // .el-divider__text {
   //   background-color: var(--af-pop-bg-color);
   // }
+  .login-container {
+    background-color: var(--af-sidebar-color)!important;
+    background-image: none;
+  }
 }

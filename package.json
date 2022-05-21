@@ -6,7 +6,7 @@
   "url": "https://github.com/ZANJIAHAO1008/Admin-Frame-Vue3",
   "scripts": {
     "dev": "vite",
-    "build": "vue-tsc --noEmit && vite build",
+    "build": "vite build",
     "preview": "vite preview --port 8888",
     "lint": "eslint src --fix --ext .ts,.tsx,.vue,.js,.jsx",
     "prettier": "prettier --write .",
@@ -25,7 +25,7 @@
     "default-passive-events": "^2.0.0",
     "driver.js": "^0.9.8",
     "echarts": "^5.1.2",
-    "element-plus": "^2.2.0",
+    "element-plus": "^2.2.1",
     "js-cookie": "^2.2.1",
     "md-editor-v3": "^1.4.4",
     "mockjs": "^1.1.0",

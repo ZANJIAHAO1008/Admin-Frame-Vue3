@@ -7,13 +7,8 @@
         </div>
       </template>
       <div class="text item">
-        <el-button
-          v-copy="'copydir'"
-          type="text"
-          class="copydir"
-          data-clipboard-text="我是指令复制"
-          >我是指令复制(点击复制)</el-button
-        >
+        <el-button v-copy="'copydir'" text type="primary" class="copydir" data-clipboard-text="我是指令复制">我是指令复制(点击复制)
+        </el-button>
       </div>
     </el-card>
 
@@ -24,13 +19,8 @@
         </div>
       </template>
       <div class="text item">
-        <el-button
-          type="text"
-          class="copyBtn"
-          data-clipboard-text="我是组件内方法复制"
-          @click="copy"
-          >我是组件内方法复制(点击复制)</el-button
-        >
+        <el-button text type="primary" class="copyBtn" data-clipboard-text="我是组件内方法复制" @click="copy">我是组件内方法复制(点击复制)
+        </el-button>
       </div>
     </el-card>
   </el-space>

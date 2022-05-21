@@ -122,7 +122,7 @@ export default defineConfig({
   css: {
     preprocessorOptions: {
       scss: {
-        additionalData: '@use "@/assets/style/element.scss" as *;',
+        additionalData: '@use "@/assets/style/theme.scss" as *;',
       },
     },
     postcss: {

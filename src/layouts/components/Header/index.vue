@@ -40,7 +40,7 @@
           <i class="fa faPad fa-bell-o"></i>
         </el-badge>
       </span>
-      <span class="faSpan" @click="configVisible = true"  v-if="configStore.appConfig.showConfigMenu">
+      <span class="faSpan" @click="configVisible = true" v-if="configStore.appConfig.showConfigMenu">
         <i class="fa faPad fa-cogs"></i>
       </span>
       <!-- 用户名下拉菜单 -->
@@ -137,9 +137,9 @@ const requestFullScreen = () => {
 
 const switchCollapse = () => {
   //菜单栏展开关闭
-  setTimeout(() => {
-    tagStore.switchCollapse(!unref(collapse));
-  }, 0);
+  tagStore.$patch({
+    collapse: !unref(collapse)
+  })
 };
 
 const handleCommand = <T extends string>(command: T) => {
