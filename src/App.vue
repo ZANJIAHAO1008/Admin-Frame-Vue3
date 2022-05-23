@@ -5,17 +5,17 @@
 </template>
 <script setup lang="ts">
 import * as eCharts from "echarts";
-import { provide } from "vue";
 import { useConfigStore } from "@/pinia/modules/config";
 import { useMobile } from '@/common/mobile';
 import { useAppConfig } from '@/common/appConfig';
 import { useTagStore } from "@/pinia/modules/tag";
 const configStore = useConfigStore();
 const tagStore = useTagStore();
-const { isMobile } = useMobile(configStore,tagStore);
+const { isMobile } = useMobile(configStore, tagStore);
 const { elConfig } = useAppConfig(configStore);
 provide("eCharts", eCharts); //全局穿透eCharts
+
 </script>
 <style lang="scss">
-@use "@/assets/style/index.scss" as *;
+@use "@/assets/style/index.scss"as *;
 </style>

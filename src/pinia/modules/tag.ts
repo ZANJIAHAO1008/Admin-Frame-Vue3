@@ -12,6 +12,12 @@ export const useTagStore = defineStore({
   id: "tag_974813758", // id必填，且需要唯
   persist: {
     enabled: true, // 开启数据缓存
+    strategies: [
+      {
+        key:'tag_974813758',
+        storage: localStorage,
+      },
+    ],
   },
   state: (): State => {
     return {

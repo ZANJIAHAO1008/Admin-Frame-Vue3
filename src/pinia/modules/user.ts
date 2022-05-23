@@ -8,6 +8,12 @@ export const useUserStore = defineStore({
   id: "user_974813758", // id必填，且需要唯一
   persist: {
     enabled: true, // 开启数据缓存
+    strategies: [
+      {
+        key: "user_974813758",
+        storage: localStorage,
+      },
+    ],
   },
   state: (): State => {
     return {
