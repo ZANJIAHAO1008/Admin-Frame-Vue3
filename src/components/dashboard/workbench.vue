@@ -1,23 +1,53 @@
 <template>
     <div class="workbench">
-        <el-card shadow="never" :body-style="{ padding: '10px 30px' }">
-            <div class="workbench-nav">
-                <el-image style="width: 300px; height: 200px" :src="getImage('workbench', 'svg')" fit="fill" />
-                <div class="image-space">
-                    <strong class="workbench-nav-title">{{ hoursTip }}，欢迎使用{{ siteName }}，祝你开开心心每一天 !</strong>
-                    <small class="workbench-nav-introduce">轻松创建、部署您的中后台系统、提升研发效率、降低业务成本。</small>
-                </div>
-            </div>
+        <el-card shadow="never">
+            <el-row :gutter="10" class="workbench-nav">
+                <el-col :xs="24" :sm="8" :md="8" :lg="8" :xl="8">
+                    <el-image style="width: 100%; height: 200px" :src="getImage('workbench', 'svg')" fit="fill" />
+                </el-col>
+                <el-col :xs="24" :sm="10" :md="10" :lg="10" :xl="10">
+                    <div class="image-space">
+                        <strong class="workbench-nav-title">{{ hoursTip }}，欢迎使用{{ siteName }}，祝你开开心心每一天 !</strong>
+                        <small class="workbench-nav-introduce">轻松创建、部署您的中后台系统、提升研发效率、降低业务成本。</small>
+                    </div>
+                </el-col>
+            </el-row>
         </el-card>
         <el-row :gutter="10">
             <el-col :xs="24" :sm="18">
-                <el-card class="box-card m-t8" shadow="never" :body-style="{ padding: '35px 20px' }"> <template
-                        #header>
+                <el-card class="box-card m-t8" shadow="never"
+                    :body-style="{ padding: '35px 20px', textAlign: 'center' }">
+                    <template #header>
                         <div class="card-header">
                             <i class="fa fa-th-large module-icon" aria-hidden="true"></i> 项目统计
                         </div>
                     </template>
-                    <ul class="workbench-statistics">
+                    <el-row :gutter="10" class="workbench-statistics">
+                        <el-col :xs="12" :sm="6" :md="6" :lg="6" :xl="6">
+                            <span class="workbench-statistics-label">项目总数</span>
+                            <span class="workbench-statistics-value">5</span>
+                        </el-col>
+                        <el-col :xs="12" :sm="6" :md="6" :lg="6" :xl="6">
+                            <el-badge type="info" :value="180">
+                                <span class="workbench-statistics-label">待处理</span>
+                            </el-badge>
+                            <span class="workbench-statistics-value">180</span>
+                        </el-col>
+                        <el-col :xs="12" :sm="6" :md="6" :lg="6" :xl="6">
+                            <el-badge type="success" :value="5400">
+                                <span class="workbench-statistics-label">已处理</span>
+                            </el-badge>
+                            <span class="workbench-statistics-value">5400</span>
+                        </el-col>
+                        <el-col :xs="12" :sm="6" :md="6" :lg="6" :xl="6">
+                            <el-badge type="danger" :value="118">
+                                <span class="workbench-statistics-label">用户反馈</span>
+                            </el-badge>
+                            <span class="workbench-statistics-value">118</span>
+                        </el-col>
+
+                    </el-row>
+                    <!-- <ul class="workbench-statistics">
                         <li>
                             <span class="workbench-statistics-label">项目总数</span>
                             <span class="workbench-statistics-value">5</span>
@@ -40,7 +70,7 @@
                             </el-badge>
                             <span class="workbench-statistics-value">118</span>
                         </li>
-                    </ul>
+                    </ul> -->
                 </el-card>
                 <el-card class="box-card m-t8" shadow="never" :body-style="{ padding: '15px 20px' }">
                     <template #header>
@@ -52,11 +82,11 @@
                         <el-table-column prop="taskName" label="任务名称" width="180" />
                         <el-table-column prop="name" label="发起人" width="180" />
                         <el-table-column prop="taskDetail" label="任务详情" />
-                        <el-table-column label="操作">
+                        <el-table-column label="操作" fixed="right" width="110">
                             <template #default>
                                 <el-space spacer="|">
-                                    <el-link type="primary" :underline="false">查看详情</el-link>
-                                    <el-link type="primary" :underline="false">去处理</el-link>
+                                    <el-link type="primary" :underline="false">详情</el-link>
+                                    <el-link type="primary" :underline="false">处理</el-link>
                                 </el-space>
                             </template>
                         </el-table-column>
@@ -224,7 +254,7 @@ const toViewDocument = (url: string) => {
         align-items: center;
 
         .image-space {
-            padding-left: 50px;
+            text-align: center;
         }
 
         .workbench-nav-title {
@@ -239,11 +269,6 @@ const toViewDocument = (url: string) => {
     }
 
     &-statistics {
-        display: flex;
-        justify-content: space-around;
-        list-style: none;
-        text-align: center;
-
         &-label {
             font-size: 15px;
             display: block;
