@@ -1,6 +1,6 @@
 <template>
-  <el-space direction="vertical">
-    <el-card class="box-card" style="width: 60vw">
+  <div>
+        <el-card class="box-card" >
       <template #header>
         <div class="card-header">
           <span>监听网络是否断开</span>
@@ -12,7 +12,7 @@
         }}</el-tag>
       </div>
     </el-card>
-    <el-card class="box-card" style="width: 60vw">
+    <el-card class="box-card m-t8" >
       <template #header>
         <div class="card-header">
           <span>鼠标位置</span>
@@ -20,7 +20,7 @@
       </template>
       <div class="text item">X轴_____{{ x }} y轴_____{{ y }}</div>
     </el-card>
-    <el-card class="box-card" style="width: 60vw">
+    <el-card class="box-card m-t8" >
       <template #header>
         <div class="card-header">
           <span>按键监听</span>
@@ -28,7 +28,7 @@
       </template>
       <div class="text item">可监听单个或多个按键 按下大写的A,B,C,D试试。</div>
     </el-card>
-    <el-card class="box-card" style="width: 60vw">
+    <el-card class="box-card m-t8" >
       <template #header>
         <div class="card-header">
           <span>键修饰符( 监听按键是否启用 )</span>
@@ -49,7 +49,7 @@
         </el-tag>
       </div>
     </el-card>
-    <el-card class="box-card" style="width: 60vw">
+    <el-card class="box-card m-t8" >
       <template #header>
         <div class="card-header">
           <span>获取地理位置</span>
@@ -61,7 +61,7 @@
         {{ error }}
       </div>
     </el-card>
-    <el-card class="box-card" style="width: 60vw">
+    <el-card class="box-card m-t8">
       <template #header>
         <div class="card-header">
           <span>浏览器位置查看</span>
@@ -69,7 +69,7 @@
       </template>
       <div class="text item">{{ location }}</div>
     </el-card>
-  </el-space>
+  </div>
 </template>
 <script setup lang="ts" name="AdminComputerMonitor">
 import {

@@ -1,7 +1,7 @@
 <template>
     <div class="workbench">
         <el-card shadow="never">
-            <el-row :gutter="10" class="workbench-nav">
+            <el-row :gutter="8" class="workbench-nav">
                 <el-col :xs="24" :sm="8" :md="8" :lg="8" :xl="8">
                     <el-image style="width: 100%; height: 200px" :src="getImage('workbench', 'svg')" fit="fill" />
                 </el-col>
@@ -13,7 +13,7 @@
                 </el-col>
             </el-row>
         </el-card>
-        <el-row :gutter="10">
+        <el-row :gutter="8">
             <el-col :xs="24" :sm="18">
                 <el-card class="box-card m-t8" shadow="never"
                     :body-style="{ padding: '35px 20px', textAlign: 'center' }">
@@ -22,7 +22,7 @@
                             <i class="fa fa-th-large module-icon" aria-hidden="true"></i> 项目统计
                         </div>
                     </template>
-                    <el-row :gutter="10" class="workbench-statistics">
+                    <el-row :gutter="8" class="workbench-statistics">
                         <el-col :xs="12" :sm="6" :md="6" :lg="6" :xl="6">
                             <span class="workbench-statistics-label">项目总数</span>
                             <span class="workbench-statistics-value">5</span>

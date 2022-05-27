@@ -7,7 +7,7 @@
     })"></div>
     <el-container style="height: 100vh">
       <el-aside style="width: auto">
-        <side-bar ></side-bar>
+        <side-bar></side-bar>
       </el-aside>
       <el-container>
         <el-header height="64px">
@@ -15,8 +15,8 @@
         </el-header>
         <el-main>
           <Tags v-if="configStore.appConfig.showTabBar"></Tags>
-          <div id="screen-display" v-loading="!isReload" class="content" :style="{
-            height: configStore.appConfig.showTabBar ? 'calc(100vh - 105px)' : 'calc(100vh - 71px)'
+          <el-scrollbar id="screen-display" v-loading="!isReload" class="content" :style="{
+            height: configStore.appConfig.showTabBar ? 'calc(100vh - 105px)' : 'calc(100vh - 82px)'
           }">
             <router-view v-if="isReload" v-slot="{ Component, router }">
               <Transition appear name="fade" appear-active-class="animate__animated animate__pulse"
@@ -29,7 +29,7 @@
             </router-view>
 
             <el-backtop target=".content"></el-backtop>
-          </div>
+          </el-scrollbar>
         </el-main>
       </el-container>
     </el-container>
@@ -47,7 +47,7 @@ const configStore = useConfigStore();
 const isReload = ref<boolean>(true);
 const tagStore = useTagStore();
 const collapse = computed(() => tagStore.collapse); //打开关闭sidebar
-const isMobile = computed(()=> Boolean(judgeEquipment()))//是否是手机登录
+const isMobile = computed(() => Boolean(judgeEquipment()))//是否是手机登录
 const reload = () => {
   isReload.value = false;
   nextTick(() => {
@@ -76,14 +76,10 @@ provide("reload", reload);
 
   .el-main {
     .content {
-      padding: 8px 5px 8px 5px;
       box-sizing: border-box;
-      margin: 0 2px;
-      // background: #ffffff;
-      overflow-x: hidden;
-      overflow-y: auto;
+      margin: 8px 5px 8px 5px;
       color: #515a6e;
-      min-width: 1000px;
+      // padding-bottom: 12px;
     }
   }
 

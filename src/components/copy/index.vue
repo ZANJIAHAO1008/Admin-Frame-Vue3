@@ -1,6 +1,5 @@
 <template>
-  <el-space direction="vertical">
-    <el-card class="box-card" style="width: 60vw">
+    <el-card class="box-card">
       <template #header>
         <div class="card-header">
           <span>指令复制</span>
@@ -12,7 +11,7 @@
       </div>
     </el-card>
 
-    <el-card class="box-card m-t8" style="width: 60vw">
+    <el-card class="box-card m-t8" >
       <template #header>
         <div class="card-header">
           <span>组件内方法复制</span>
@@ -23,7 +22,6 @@
         </el-button>
       </div>
     </el-card>
-  </el-space>
 </template>
 <script setup lang="ts" name="AdminCopy">
 import Clipboard from "clipboard";

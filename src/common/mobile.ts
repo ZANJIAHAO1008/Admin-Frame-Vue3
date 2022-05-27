@@ -21,7 +21,7 @@ export function useMobile(configStore: any, tagStore: any) {
         showI18n: false, //国际化是否展示
         showMessage: false, //消息是否展示
         showFullScreen: false, //全屏是否展示
-        showLogo: false, //logo是否展示
+        showLogo: true, //logo是否展示
         showHeader: true, //是否显示顶栏
         showTabBar: false, //标签栏是否展示
         showSideBar: true, //是否显示菜单栏

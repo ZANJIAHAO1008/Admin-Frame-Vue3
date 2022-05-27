@@ -1,7 +1,6 @@
 <template>
   <div>
-    <el-space direction="vertical">
-      <el-card class="box-card" style="width: 60vw">
+      <el-card class="box-card" >
         <template #header>
           <div class="card-header">
             <span>{{ t("message.introduce.i18n") }}</span>
@@ -12,7 +11,6 @@
             :label="locale" @change="changLang">{{ $filters.inspectLanguage(locale) }}</el-radio>
         </div>
       </el-card>
-    </el-space>
   </div>
 </template>
 <script setup lang="ts" name="AdminI18n">

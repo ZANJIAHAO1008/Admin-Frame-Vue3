@@ -2,7 +2,7 @@
 @use "@/assets/style/element-ui.scss" as *;
 @use "@/assets/css/font-awesome.min.css" as *; //font 样式
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 990px) {
   .el-message-box {
     width: 300px !important;
   }

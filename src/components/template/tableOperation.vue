@@ -42,7 +42,7 @@
       }
     " width="1000px" :close-on-click-modal="false" :close-on-press-escape="false" top="8vh">
       <el-form ref="operationFormRef" :model="newlyForm" :newly-rules="newlyRules" label-width="108px">
-        <el-row :gutter="20">
+        <el-row >
           <el-col :span="12">
             <el-form-item label="姓名：" prop="name">
               <el-input v-model="newlyForm.name" placeholder="请输入姓名" clearable></el-input>
@@ -55,7 +55,7 @@
           </el-col>
         </el-row>
 
-        <el-row :gutter="20">
+        <el-row >
           <el-col :span="12">
             <el-form-item label="身高（cm）：" prop="height">
               <el-input v-model="newlyForm.height" placeholder="请输入身高" clearable></el-input>
@@ -67,14 +67,14 @@
             </el-form-item>
           </el-col>
         </el-row>
-        <el-row :gutter="20">
+        <el-row >
           <el-col :span="24">
             <el-form-item label="地址：" prop="address">
               <el-input v-model="newlyForm.address" placeholder="请输入地址" clearable></el-input>
             </el-form-item>
           </el-col>
         </el-row>
-        <el-row :gutter="20">
+        <el-row >
           <el-col :span="24">
             <el-form-item label="基本介绍：" prop="introduction">
               <el-input v-model="newlyForm.introduction" type="textarea" :autosize="{ minRows: 2, maxRows: 5 }"
@@ -82,7 +82,7 @@
             </el-form-item>
           </el-col>
         </el-row>
-        <el-row :gutter="20">
+        <el-row >
           <el-col :span="24">
             <el-form-item label="备注：" prop="marks">
               <el-input v-model="newlyForm.marks" type="textarea" :autosize="{ minRows: 3, maxRows: 5 }"></el-input>

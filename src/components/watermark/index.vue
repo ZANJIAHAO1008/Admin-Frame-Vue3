@@ -18,7 +18,7 @@
 import { onMounted, onUnmounted, ref, watch } from "vue";
 import { setWaterMarker, removeWaterMarker } from "@/common/watermark"; // 引入水印
 
-const value = ref<boolean>(true);
+const value = ref<boolean>(false);
 
 watch(value, (newV, oldV) => {
   if (newV) {
@@ -27,10 +27,6 @@ watch(value, (newV, oldV) => {
     removeWaterMarker(); //卸载水印
   }
 });
-
-onMounted(() => {
-  setWaterMarker("Admin Frame 添加水印"); // 添加水印
-})
 
 onUnmounted(() => {
   removeWaterMarker(); //卸载水印

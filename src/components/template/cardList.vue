@@ -15,7 +15,7 @@
       </el-form>
     </el-card>
     <div class="m-t8">
-      <el-row :gutter="10">
+      <el-row :gutter="8">
         <el-col v-for="(item, index) in list" :key="index" :xs="24" :sm="24" :md="12" :lg="12" :xl="6"
           style="margin-top: 9px">
           <el-card :body-style="{ padding: '24px 0px 6px 0px' }">
@@ -45,7 +45,7 @@
       }
     " width="1000px" :close-on-click-modal="false" :close-on-press-escape="false" top="8vh">
       <el-form ref="tableFormRef" :model="form" :rules="rules" label-width="108px">
-        <el-row :gutter="20">
+        <el-row :gutter="8">
           <el-col :span="12">
             <el-form-item label="商品名称：" prop="name">
               <el-input v-model="form.name" placeholder="请输入商品名称" clearable></el-input>
@@ -53,14 +53,14 @@
           </el-col>
         </el-row>
 
-        <el-row :gutter="20">
+        <el-row :gutter="8">
           <el-col :span="12">
             <el-form-item label="商品类型：" prop="height">
               <el-input v-model="form.height" placeholder="请输入商品类型" clearable></el-input>
             </el-form-item>
           </el-col>
         </el-row>
-        <el-row :gutter="20">
+        <el-row :gutter="8">
           <el-col :span="24">
             <el-form-item label="基本介绍：" prop="introduction">
               <el-input v-model="form.introduction" type="textarea" :autosize="{ minRows: 2, maxRows: 5 }"
@@ -68,7 +68,7 @@
             </el-form-item>
           </el-col>
         </el-row>
-        <el-row :gutter="20">
+        <el-row :gutter="8">
           <el-col :span="24">
             <el-form-item label="备注：" prop="marks">
               <el-input v-model="form.marks" type="textarea" :autosize="{ minRows: 3, maxRows: 5 }"></el-input>

@@ -1,66 +1,68 @@
 <template>
   <div :style="{
-    width: collapse ?isMobile?'0px':'64px':'200px',
+    width: collapse ? isMobile ? '0px' : '64px' : '200px',
   }" class="sidebar">
+     <el-scrollbar>
     <div class="admin-sidebar-nav" v-if="configStore.appConfig.showLogo">
       <img :src="getImage('LG', 'png')" />
-      <h1 v-if="!collapse">{{ siteName }}</h1>
+      <span v-if="!collapse">{{ siteName }}</span>
     </div>
-    <el-menu :default-active="onRoutes"    :collapse="collapse" :collapse-transition="true"
-      unique-opened router>
-      <template v-for="item in menuItem">
-        <template v-if="item?.children?.length">
-          <el-sub-menu :key="item.resourceUrl" :index="item.resourceUrl">
-            <template #title>
-              <i :class="item.resourceIcon"></i>
-              <span :class="
-                item.resourceIcon
-                  ? 'sidebar-title'
-                  : 'sidebar-title sidebar-nullIcon'
-              ">{{ t(item.resourceName) }}</span>
-            </template>
-            <template v-for="childItem in item.children">
-              <el-menu-item-group v-if="childItem?.children?.length" :key="childItem.resourceUrl"
-                :index="childItem.resourceUrl">
-                <template #title>
-                  <i :class="childItem.resourceIcon"></i>
-                  <span :class="
-                    childItem.resourceIcon
-                      ? 'sidebar-title'
-                      : 'sidebar-title sidebar-nullIcon'
-                  ">{{ t(childItem.resourceName) }}</span>
-                </template>
-                <el-menu-item v-for="(grandsonItem, i) in childItem.children" :key="i"
-                  :index="grandsonItem.resourceUrl">
-                  <span class="sidebar-title">{{
-                      t(grandsonItem.resourceName)
-                  }}</span>
+ 
+      <el-menu :default-active="onRoutes" :collapse="collapse" :collapse-transition="true" unique-opened router>
+        <template v-for="item in menuItem">
+          <template v-if="item?.children?.length">
+            <el-sub-menu :key="item.resourceUrl" :index="item.resourceUrl">
+              <template #title>
+                <i :class="item.resourceIcon"></i>
+                <span :class="
+                  item.resourceIcon
+                    ? 'sidebar-title'
+                    : 'sidebar-title sidebar-nullIcon'
+                ">{{ t(item.resourceName) }}</span>
+              </template>
+              <template v-for="childItem in item.children">
+                <el-menu-item-group v-if="childItem?.children?.length" :key="childItem.resourceUrl"
+                  :index="childItem.resourceUrl">
+                  <template #title>
+                    <i :class="childItem.resourceIcon"></i>
+                    <span :class="
+                      childItem.resourceIcon
+                        ? 'sidebar-title'
+                        : 'sidebar-title sidebar-nullIcon'
+                    ">{{ t(childItem.resourceName) }}</span>
+                  </template>
+                  <el-menu-item v-for="(grandsonItem, i) in childItem.children" :key="i"
+                    :index="grandsonItem.resourceUrl">
+                    <span class="sidebar-title">{{
+                        t(grandsonItem.resourceName)
+                    }}</span>
+                  </el-menu-item>
+                </el-menu-item-group>
+                <el-menu-item v-else :key="childItem.resourceUrl + 'childItem'" :index="childItem.resourceUrl">
+                  <template #title>
+                    <i :class="childItem.resourceIcon"></i>
+                    <span :class="
+                      childItem.resourceIcon
+                        ? 'sidebar-title'
+                        : 'sidebar-title sidebar-nullIcon'
+                    ">{{ t(childItem.resourceName) }}</span>
+                  </template>
                 </el-menu-item>
-              </el-menu-item-group>
-              <el-menu-item v-else :key="childItem.resourceUrl + 'childItem'" :index="childItem.resourceUrl">
-                <template #title>
-                  <i :class="childItem.resourceIcon"></i>
-                  <span :class="
-                    childItem.resourceIcon
-                      ? 'sidebar-title'
-                      : 'sidebar-title sidebar-nullIcon'
-                  ">{{ t(childItem.resourceName) }}</span>
-                </template>
-              </el-menu-item>
-            </template>
-          </el-sub-menu>
-        </template>
+              </template>
+            </el-sub-menu>
+          </template>
 
-        <template v-else>
-          <el-menu-item :key="item.resourceUrl" :index="item.resourceUrl">
-            <i :class="item.resourceIcon"></i>
-            <template #title class="sidebar-title">{{
-                t(item.resourceName)
-            }}</template>
-          </el-menu-item>
+          <template v-else>
+            <el-menu-item :key="item.resourceUrl" :index="item.resourceUrl">
+              <i :class="item.resourceIcon"></i>
+              <template #title class="sidebar-title">{{
+                  t(item.resourceName)
+              }}</template>
+            </el-menu-item>
+          </template>
         </template>
-      </template>
-    </el-menu>
+      </el-menu>
+    </el-scrollbar>
   </div>
 </template>
 <script lang="ts" setup name="AdminSidebar">
@@ -74,7 +76,7 @@ import { ResourceItem } from "@/types/setting";
 import { useConfigStore } from "@/pinia/modules/config";
 import { siteName } from '@/router/middleware';
 import { judgeEquipment } from "@/utils";
-const isMobile = computed(()=> Boolean(judgeEquipment()))//是否是手机登录
+const isMobile = computed(() => Boolean(judgeEquipment()))//是否是手机登录
 const configStore = useConfigStore();
 const { t } = useI18n();
 const tagStore = useTagStore();
@@ -91,11 +93,6 @@ const collapse = computed<boolean>(() => tagStore.collapse);
   background-color: var(--af-sidebar-color);
   overflow: auto;
 
-.el-menu {
-    overflow-x: hidden;
-    overflow-y: scroll;
-  }
-
   .admin-sidebar-nav {
     box-sizing: border-box;
     padding: 16px 10px 16px 10px;
@@ -109,7 +106,7 @@ const collapse = computed<boolean>(() => tagStore.collapse);
       padding-left: 5px;
     }
 
-    h1 {
+    span {
       white-space: nowrap;
       display: inline-block;
       height: 32px;
