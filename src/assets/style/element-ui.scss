@@ -12,7 +12,7 @@
 
 .el-menu {
   border-right: none !important;
-
+  transition: width 0.3s ease-in-out;
   &::-webkit-scrollbar {
     display: none;
   }

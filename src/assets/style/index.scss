@@ -29,9 +29,32 @@
   .content {
     min-width: 300px !important;
   }
-  // .el-card {
-  //   width: 305px;
-  // }
+  .mobile {
+    width: 100% !important;
+    height: 100% !important;
+    position: fixed;
+    position: relative;
+    top: 0;
+    .drawer-bg {
+      background: #000;
+      opacity: 0.3;
+      width: 100%;
+      top: 0;
+      height: 100%;
+      position: absolute;
+      z-index: 999;
+    }
+    .sidebar-el-menu{
+      display: none;
+    }
+  }
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 1001;
+  }
 }
 
 @mixin min-wid($width) {

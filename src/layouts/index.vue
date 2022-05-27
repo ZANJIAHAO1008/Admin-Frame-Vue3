@@ -1,8 +1,13 @@
 <template>
-  <div class="app-wrapper">
+  <div class="app-wrapper mobile">
+    <div class="drawer-bg" v-if="isMobile && !collapse" @click="(() => {
+      tagStore.$patch({
+        collapse: true
+      })
+    })"></div>
     <el-container style="height: 100vh">
       <el-aside style="width: auto">
-        <side-bar></side-bar>
+        <side-bar ></side-bar>
       </el-aside>
       <el-container>
         <el-header height="64px">
@@ -34,10 +39,15 @@
 import SideBar from "@/layouts/components/SideBar/index.vue";
 import Header from "@/layouts/components/Header/index.vue";
 import Tags from "@/layouts/components/Tags/index.vue";
-import { nextTick, provide, ref } from "vue";
+import { nextTick, provide, ref, } from "vue";
 import { useConfigStore } from "@/pinia/modules/config";
+import { useTagStore } from "@/pinia/modules/tag";
+import { judgeEquipment } from "@/utils";
 const configStore = useConfigStore();
 const isReload = ref<boolean>(true);
+const tagStore = useTagStore();
+const collapse = computed(() => tagStore.collapse); //打开关闭sidebar
+const isMobile = computed(()=> Boolean(judgeEquipment()))//是否是手机登录
 const reload = () => {
   isReload.value = false;
   nextTick(() => {

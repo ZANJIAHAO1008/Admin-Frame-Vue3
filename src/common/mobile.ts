@@ -17,7 +17,7 @@ export function useMobile(configStore: any, tagStore: any) {
         showConfigMenu: false, //配置按钮是否展示
         showBreadcrumb: true, //面包屑是否展示
         showReFresh: false, //刷新按钮是否展示
-        showFoldButton: false, //折叠按钮是否展示
+        showFoldButton: true, //折叠按钮是否展示
         showI18n: false, //国际化是否展示
         showMessage: false, //消息是否展示
         showFullScreen: false, //全屏是否展示

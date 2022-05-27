@@ -1,13 +1,12 @@
 <template>
   <div :style="{
-    width: collapse ? '64px' : '200px',
+    width: collapse ?isMobile?'0px':'64px':'200px',
   }" class="sidebar">
     <div class="admin-sidebar-nav" v-if="configStore.appConfig.showLogo">
       <img :src="getImage('LG', 'png')" />
       <h1 v-if="!collapse">{{ siteName }}</h1>
     </div>
-    <!--  background-color="#001529" active-text-color="#ffffff" text-color="#C0C4CC" -->
-    <el-menu :default-active="onRoutes" class="sidebar-el-menu" :collapse="collapse" :collapse-transition="true"
+    <el-menu :default-active="onRoutes"    :collapse="collapse" :collapse-transition="true"
       unique-opened router>
       <template v-for="item in menuItem">
         <template v-if="item?.children?.length">
@@ -74,6 +73,8 @@ import { useTagStore } from "@/pinia/modules/tag";
 import { ResourceItem } from "@/types/setting";
 import { useConfigStore } from "@/pinia/modules/config";
 import { siteName } from '@/router/middleware';
+import { judgeEquipment } from "@/utils";
+const isMobile = computed(()=> Boolean(judgeEquipment()))//是否是手机登录
 const configStore = useConfigStore();
 const { t } = useI18n();
 const tagStore = useTagStore();
@@ -88,8 +89,9 @@ const collapse = computed<boolean>(() => tagStore.collapse);
   box-sizing: border-box;
   transition: width 0.3s ease-in-out;
   background-color: var(--af-sidebar-color);
+  overflow: auto;
 
-  .sidebar-el-menu {
+.el-menu {
     overflow-x: hidden;
     overflow-y: scroll;
   }
