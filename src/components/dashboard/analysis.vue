@@ -2,7 +2,7 @@
   <div class="analysis">
     <el-row :gutter="8">
       <el-col v-for="(item, index) in dataList" :key="index" :xs="12" :sm="12" :md="6" :lg="6" :xl="6">
-        <el-card   shadow="never" :body-style="{ padding: '35px 20px' }">
+        <el-card shadow="never" :body-style="{ padding: '35px 20px' }">
           <template #header>
             <div class="card-header">
               <span class="card-header-title">{{ item.title }}</span>
@@ -107,20 +107,30 @@ const dataList: DataList[] = [
   },
 ];
 
-let visitChart = ref<any>(null);
-let originChart = ref<any>(null);
-let activeChart = ref<any>(null);
+const visitChart = ref<any>(null);
+const originChart = ref<any>(null);
+const activeChart = ref<any>(null);
+const statisticsChart = ref<any>(null);
+onMounted(() => chartsInit())
+onActivated(() => chartsInit())
+onUnmounted(() => chartsDispose())
+onDeactivated(() => chartsDispose())
 
-onMounted(() => {
-  // window.onresize = function () {
-  //   //页面尺寸变化 自适应大小
-  //   chartsInit();
-  // };
-  chartsInit();
-})
+const chartsDispose = () => {
+  if (originChart.value) {
+    originChart.value.dispose()
+  }
 
-onUnmounted(() => {
-});
+  if (visitChart.value) {
+    visitChart.value.dispose()
+  }
+  if (activeChart.value) {
+    activeChart.value.dispose()
+  }
+  if (statisticsChart.value) {
+    statisticsChart.value.dispose()
+  }
+}
 
 const chartsInit = () => {
   //图标初始化
@@ -142,9 +152,6 @@ const loadVisitChart = () => {
     }
   };
 
-  if (visitChart.value) {
-    visitChart.value.dispose()
-  }
   visitChart.value = eCharts.init(document.getElementById("visitChart"));
   const option = {
     xAxis: {
@@ -166,9 +173,6 @@ const loadVisitChart = () => {
 
 const loadOriginChart = () => {
   //加载访问图表
-  if (originChart.value) {
-    originChart.value.dispose()
-  }
   originChart.value = eCharts.init(document.getElementById("originChart"));
   const option = {
     tooltip: {
@@ -218,9 +222,6 @@ const loadOriginChart = () => {
 
 const loadActiveChart = () => {
   //每周访问量
-  if (activeChart.value) {
-    activeChart.value.dispose()
-  }
   activeChart.value = eCharts.init(document.getElementById("activeChart"));
   // 绘制图表
   const option = {
@@ -248,7 +249,7 @@ const loadActiveChart = () => {
 
 const loadGenderChart = () => {
   //用户性别统计
-  const myChart = eCharts.init(document.getElementById("genderChart"));
+  statisticsChart.value = eCharts.init(document.getElementById("genderChart"));
   // 绘制图表
   const option = {
     xAxis: {
@@ -284,7 +285,7 @@ const loadGenderChart = () => {
       },
     ],
   };
-  myChart.setOption(option);
+  statisticsChart.value.setOption(option);
 }
 </script>
 <style lang="scss" scoped>

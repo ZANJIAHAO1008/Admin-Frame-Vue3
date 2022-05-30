@@ -13,22 +13,23 @@
       class="demo-checkPassForm"
       label-width="100px"
       status-icon
+      label-position="top"
     >
-      <el-form-item label="原密码" prop="oldPassword">
+      <el-form-item label="原密码：" prop="oldPassword">
         <el-input
           v-model="checkPassForm.oldPassword"
           autocomplete="off"
           type="password"
         ></el-input>
       </el-form-item>
-      <el-form-item label="新密码" prop="newPassword">
+      <el-form-item label="新密码：" prop="newPassword">
         <el-input
           v-model="checkPassForm.newPassword"
           autocomplete="off"
           type="password"
         ></el-input>
       </el-form-item>
-      <el-form-item label="确认密码" prop="checkPass">
+      <el-form-item label="确认密码：" prop="checkPass">
         <el-input
           v-model="checkPassForm.checkPass"
           autocomplete="off"

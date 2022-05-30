@@ -16,7 +16,7 @@
         <el-main>
           <Tags v-if="configStore.appConfig.showTabBar"></Tags>
           <el-scrollbar id="screen-display" v-loading="!isReload" class="content" :style="{
-            height: configStore.appConfig.showTabBar ? 'calc(100vh - 105px)' : 'calc(100vh - 82px)'
+            height: configStore.appConfig.showTabBar ? 'calc(100vh - 120px)' : 'calc(100vh - 82px)'
           }">
             <router-view v-if="isReload" v-slot="{ Component, router }">
               <Transition appear name="fade" appear-active-class="animate__animated animate__pulse"

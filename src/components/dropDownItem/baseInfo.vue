@@ -1,117 +1,52 @@
 <template>
-  <el-drawer
-    :before-close="close"
-    :model-value="baseVisible"
-    title="基本信息"
-    size="800px"
-    @open="getInit"
-  >
-    <el-form
-      ref="baseInfoFormRef"
-      :model="state.baseInfoForm"
-      :rules="state.baseInfoRules"
-      label-width="114px"
-    >
-      <el-row>
-        <el-col :span="10">
-          <el-form-item label="姓名：">
-            <el-input v-model="state.baseInfoForm.staffName"></el-input>
-          </el-form-item>
-        </el-col>
-        <el-col :span="10">
-          <el-form-item label="用户名：" prop="username">
-            <el-input v-model="state.baseInfoForm.username"></el-input>
-          </el-form-item>
-        </el-col>
-      </el-row>
-      <el-row>
-        <el-col :span="10">
-          <el-form-item label="性别：">
-            <el-select
-              v-model="state.baseInfoForm.sex"
-              placeholder="请选择性别"
-            >
-              <el-option label="女" value="0"></el-option>
-              <el-option label="男" value="1"></el-option>
-            </el-select>
-          </el-form-item>
-        </el-col>
-        <el-col :span="10">
-          <el-form-item label="手机号码：">
-            <el-input v-model="state.baseInfoForm.phone"></el-input>
-          </el-form-item>
-        </el-col>
-      </el-row>
-      <el-row>
-        <el-col :span="10">
-          <el-form-item label="出生日期：">
-            <el-date-picker
-              v-model="state.baseInfoForm.birthDate"
-              placeholder="选择日期"
-              type="date"
-            ></el-date-picker>
-          </el-form-item>
-        </el-col>
-      </el-row>
-      <el-row>
-        <el-col :span="10">
-          <el-form-item label="账号状态：">
-            <el-select
-              v-model="state.baseInfoForm.userState"
-              placeholder="请选择"
-            >
-              <el-option label="正常" value="0"></el-option>
-              <el-option label="冻结" value="1"></el-option>
-            </el-select>
-          </el-form-item>
-        </el-col>
-        <el-col :span="10">
-          <el-form-item label="权限分配：" prop="jurisdiction">
-            <el-select
-              v-model="state.baseInfoForm.jurisdiction"
-              multiple
-              placeholder="请选择"
-            >
-              <el-option
-                v-for="item in roleList"
-                :key="item.roleId"
-                :label="item.marks"
-                :value="item.roleId"
-              >
-              </el-option>
-            </el-select>
-          </el-form-item>
-        </el-col>
-      </el-row>
-      <el-row>
-        <el-col :span="20">
-          <el-form-item label="家庭住址：">
-            <el-input v-model="state.baseInfoForm.address"></el-input>
-          </el-form-item>
-        </el-col>
-      </el-row>
-      <el-row>
-        <el-col :span="20">
-          <el-form-item label="个人说明：">
-            <el-input
-              v-model="state.baseInfoForm.marks"
-              :autosize="{ minRows: 4, maxRows: 6 }"
-              type="textarea"
-            ></el-input>
-          </el-form-item>
-        </el-col>
-      </el-row>
-      <el-row>
-        <el-col :span="20">
-          <div class="baseInfo_footer">
-            <el-form-item>
-              <el-button @click="close">取消</el-button>
-              <el-button type="primary" @click="saveBaseInfo">确定</el-button>
-            </el-form-item>
-          </div>
-        </el-col>
-      </el-row>
-    </el-form>
+  <el-drawer :before-close="close" :model-value="baseVisible" title="基本信息" @open="getInit">
+    <template #default>
+      <el-form ref="baseInfoFormRef" hide-required-asterisk  :model="state.baseInfoForm" :rules="state.baseInfoRules" label-position="top">
+        <el-form-item label="姓名：">
+          <el-input v-model="state.baseInfoForm.staffName"></el-input>
+        </el-form-item>
+        <el-form-item label="用户名：" prop="username">
+          <el-input v-model="state.baseInfoForm.username"></el-input>
+        </el-form-item>
+                <el-form-item label="手机号码：">
+          <el-input v-model="state.baseInfoForm.phone"></el-input>
+        </el-form-item>
+        <el-form-item label="性别：">
+          <el-select v-model="state.baseInfoForm.sex" placeholder="请选择性别">
+            <el-option label="女" value="0"></el-option>
+            <el-option label="男" value="1"></el-option>
+          </el-select>
+        </el-form-item>
+        <el-form-item label="出生日期：">
+          <el-date-picker v-model="state.baseInfoForm.birthDate" placeholder="选择日期" type="date"></el-date-picker>
+        </el-form-item>
+        <el-form-item label="账号状态：">
+          <el-select v-model="state.baseInfoForm.userState" placeholder="请选择">
+            <el-option label="正常" value="0"></el-option>
+            <el-option label="冻结" value="1"></el-option>
+          </el-select>
+        </el-form-item>
+        <el-form-item label="权限分配：" prop="jurisdiction">
+          <el-select v-model="state.baseInfoForm.jurisdiction" multiple placeholder="请选择">
+            <el-option v-for="item in roleList" :key="item.roleId" :label="item.marks" :value="item.roleId">
+            </el-option>
+          </el-select>
+        </el-form-item>
+        <el-form-item label="家庭住址：">
+          <el-input v-model="state.baseInfoForm.address"></el-input>
+        </el-form-item>
+        <el-form-item label="个人说明：">
+          <el-input v-model="state.baseInfoForm.marks" :autosize="{ minRows: 4, maxRows: 6 }" type="textarea">
+          </el-input>
+        </el-form-item>
+      </el-form>
+    </template>
+    <template #footer>
+      <div style="flex: auto">
+        <el-button @click="close">取消</el-button>
+        <el-button type="primary" @click="saveBaseInfo">确定</el-button>
+      </div>
+    </template>
   </el-drawer>
 </template>
 
