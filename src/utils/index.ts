@@ -51,10 +51,10 @@ export const printVersion = (name: string, version: string) => {
 
 printVersion(config.name, config.version);
 
-export const judgeEquipment = (): null | object => {
+export const judgeEquipment = ():boolean => {
   //判断设备类型是否为手机
   let flag = navigator.userAgent.match(
     /(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i
   );
-  return flag;
+  return !!flag;
 };

@@ -11,10 +11,15 @@ import { useAppConfig } from '@/common/appConfig';
 import { useTagStore } from "@/pinia/modules/tag";
 const configStore = useConfigStore();
 const tagStore = useTagStore();
-const { isMobile } = useMobile(configStore, tagStore);
+const { isMobile, addMobileConfig } = useMobile(configStore, tagStore);
 const { elConfig } = useAppConfig(configStore);
 provide("eCharts", eCharts); //全局穿透eCharts
-
+onMounted(() => {
+  if (isMobile) {
+    //如果设备是手机则添加默认配置
+    addMobileConfig();
+  }
+})
 </script>
 <style lang="scss">
 @use "@/assets/style/index.scss"as *;

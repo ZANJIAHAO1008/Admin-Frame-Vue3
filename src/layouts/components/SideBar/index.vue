@@ -76,7 +76,7 @@ import { ResourceItem } from "@/types/setting";
 import { useConfigStore } from "@/pinia/modules/config";
 import { siteName } from '@/router/middleware';
 import { judgeEquipment } from "@/utils";
-const isMobile = computed(() => Boolean(judgeEquipment()))//是否是手机登录
+const isMobile = computed(() => judgeEquipment())//是否是手机登录
 const configStore = useConfigStore();
 const { t } = useI18n();
 const tagStore = useTagStore();

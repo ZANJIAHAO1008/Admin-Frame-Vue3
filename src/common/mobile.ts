@@ -4,7 +4,7 @@
 import { judgeEquipment } from "@/utils";
 export function useMobile(configStore: any, tagStore: any) {
   let isMobile = computed(() => {
-    return Boolean(judgeEquipment());
+    return judgeEquipment();
   });
 
   const addMobileConfig = () => {
@@ -32,12 +32,6 @@ export function useMobile(configStore: any, tagStore: any) {
     });
   };
 
-  onMounted(() => {
-    if (unref(isMobile)) {
-      //如果设备是手机则添加默认配置
-      addMobileConfig();
-    }
-  });
   return {
     isMobile: unref(isMobile),
     addMobileConfig,

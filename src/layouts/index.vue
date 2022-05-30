@@ -47,7 +47,7 @@ const configStore = useConfigStore();
 const isReload = ref<boolean>(true);
 const tagStore = useTagStore();
 const collapse = computed(() => tagStore.collapse); //打开关闭sidebar
-const isMobile = computed(() => Boolean(judgeEquipment()))//是否是手机登录
+const isMobile = computed(() => judgeEquipment())//是否是手机登录
 const reload = () => {
   isReload.value = false;
   nextTick(() => {

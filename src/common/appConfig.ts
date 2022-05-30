@@ -7,12 +7,17 @@ import en from "element-plus/lib/locale/lang/en";
 import Cookies from "js-cookie";
 import { usePreferredLanguages } from "@vueuse/core";
 export function useAppConfig(configStore: any) {
+
+  // 查询本机语言
   const defaultLanguages = usePreferredLanguages();
+
+  // Element全局配置
   const elConfig: Partial<ElConfig> = reactive({
     locale: undefined,
     componentSize: "",
   });
 
+  // 监听各配置变化
   watch(
     () => [
       configStore.language,
@@ -57,7 +62,6 @@ export function useAppConfig(configStore: any) {
 
   const settingDefaultConfig = () => {
     //添加默认配置
-
     if (!Cookies.get("lang")) {
       if (configStore.language) {
         Cookies.set("lang", configStore.language);
