@@ -20,7 +20,7 @@
     </ul>
     <template #footer>
       <span class="dialog-footer">
-        <el-button type="primary" plain @click="close">返 回</el-button>
+        <el-button type="primary"  @click="close">返 回</el-button>
       </span>
     </template>
   </el-dialog>

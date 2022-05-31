@@ -11,8 +11,8 @@
                     </el-input>
                 </el-form-item>
                 <el-form-item>
-                    <el-button type="primary">查 询</el-button>
-                    <el-button type="primary">新增</el-button>
+                    <el-button plain type="primary">查询</el-button>
+                    <el-button plain type="primary">新增</el-button>
                 </el-form-item>
             </el-form>
         </el-card>

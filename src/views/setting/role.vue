@@ -12,8 +12,8 @@
           </el-input>
         </el-form-item>
         <el-form-item>
-          <el-button type="primary" @click="getRoles">查 询</el-button>
-          <el-button type="primary" @click="handlePopup(null, 'add')">新增角色</el-button>
+          <el-button type="primary" plain @click="getRoles">查询</el-button>
+          <el-button type="primary" plain @click="handlePopup(null, 'add')">新增</el-button>
         </el-form-item>
       </el-form>
     </el-card>
@@ -31,9 +31,9 @@
         <el-table-column label="操作">
           <template #default="scope">
             <el-space spacer="|">
-              <el-button type="" @click="handlePopup(scope.row, 'edit')">编辑</el-button>
-              <el-button type="primary" @click="openAuthorize(scope.row)">授权</el-button>
-              <el-button type="danger" @click="delDataById(scope.row)">删除</el-button>
+              <el-button text type="primary" @click="openAuthorize(scope.row)">授权</el-button>
+              <el-button text type="primary" @click="handlePopup(scope.row, 'edit')">编辑</el-button>
+              <el-button text type="danger" @click="delDataById(scope.row)">删除</el-button>
             </el-space>
           </template>
         </el-table-column>

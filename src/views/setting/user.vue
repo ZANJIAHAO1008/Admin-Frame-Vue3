@@ -27,7 +27,7 @@
           </el-input>
         </el-form-item>
         <el-form-item>
-          <el-button type="primary" @click="getUsers">查 询</el-button>
+          <el-button type="primary" plain @click="getUsers">查询</el-button>
         </el-form-item>
       </el-form>
     </el-card>  
@@ -51,10 +51,10 @@
         <el-table-column label="操作">
           <template #default="scope">
             <el-space spacer="|">
-              <el-button type="" @click="baseInfoEdit(scope.row)"
+              <el-button text type="primary" @click="baseInfoEdit(scope.row)"
                 >编辑</el-button
               >
-              <el-button type="danger" @click="deleteUser(scope.row)"
+              <el-button text type="danger" @click="deleteUser(scope.row)"
                 >删除</el-button
               >
             </el-space>

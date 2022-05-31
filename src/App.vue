@@ -1,5 +1,5 @@
 <template>
-  <el-config-provider :locale="elConfig.locale" :size="elConfig.componentSize">
+  <el-config-provider :locale="elConfig.locale" :size="elConfig.componentSize" >
     <router-view />
   </el-config-provider>
 </template>
@@ -22,5 +22,5 @@ onMounted(() => {
 })
 </script>
 <style lang="scss">
-@use "@/assets/style/index.scss"as *;
+@use "@/assets/style/index.scss" as *;
 </style>

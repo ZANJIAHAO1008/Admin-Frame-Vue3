@@ -9,8 +9,8 @@
           </el-input>
         </el-form-item>
         <el-form-item>
-          <el-button type="primary" @click="getResourceList">查 询</el-button>
-          <el-button type="primary" @click="handlePopup(null, 'add')">新增资源</el-button>
+          <el-button type="primary"  plain @click="getResourceList">查询</el-button>
+          <el-button type="primary" plain @click="handlePopup(null, 'add')">新增</el-button>
         </el-form-item>
       </el-form>
     </el-card>
@@ -24,9 +24,9 @@
                 <span>{{ node.label }}</span>
                 <span>
                   <el-space spacer="|">
-                    <el-link type="primary" @click="handlePopup(data, 'add')" :underline="false">添加</el-link>
-                    <el-link type="primary" @click="handlePopup(data, 'modify')" :underline="false">编辑</el-link>
-                    <el-link type="primary" @click="delDataById(data)" :underline="false">删除</el-link>
+                    <el-button link type="primary" @click="handlePopup(data, 'add')" :underline="false">添加</el-button>
+                    <el-button link type="primary" @click="handlePopup(data, 'modify')" :underline="false">编辑</el-button>
+                    <el-button link type="danger" @click="delDataById(data)" :underline="false">删除</el-button>
                   </el-space>
                 </span>
               </span>
