@@ -3,20 +3,20 @@
     <el-card shadow="never" :body-style="{ padding: '30px 10px 15px 10px' }">
       <el-form ref="baseInfoRef" :inline="true" :model="state.queryParams" class="demo-form-inline"
         label-position="right" label-width="84px">
-        <el-form-item label="资源名称：">
+        <el-form-item>
           <el-input v-model.trim="state.queryParams.resourceName" clearable placeholder="请输入资源名称"
             @keyup.enter="getResourceList">
           </el-input>
         </el-form-item>
         <el-form-item>
-          <el-button type="primary"  plain @click="getResourceList">查询</el-button>
+          <el-button type="primary" plain @click="getResourceList">查询</el-button>
           <el-button type="primary" plain @click="handlePopup(null, 'add')">新增</el-button>
         </el-form-item>
       </el-form>
     </el-card>
     <el-card shadow="never" :body-style="{ padding: '30px 10px 15px 10px' }" class="m-t8">
       <el-row>
-        <el-col :span="12">
+        <el-col :xs="24" :sm="24" :md="12" :lg="12" :xl="12">
           <el-tree :data="state.resourceList" :expand-on-click-node="false" :props="state.defaultProps"
             default-expand-all node-key="resourceId">
             <template #default="{ node, data }">
@@ -25,7 +25,8 @@
                 <span>
                   <el-space spacer="|">
                     <el-button link type="primary" @click="handlePopup(data, 'add')" :underline="false">添加</el-button>
-                    <el-button link type="primary" @click="handlePopup(data, 'modify')" :underline="false">编辑</el-button>
+                    <el-button link type="primary" @click="handlePopup(data, 'modify')" :underline="false">编辑
+                    </el-button>
                     <el-button link type="danger" @click="delDataById(data)" :underline="false">删除</el-button>
                   </el-space>
                 </span>
@@ -40,49 +41,44 @@
         handleClose(resourceFormRef);
       }
     " title="资源配置" width="865px">
-      <el-form ref="resourceFormRef" :model="state.resourceForm" :rules="state.resourceRules" class="demo-ruleForm"
-        label-width="74px">
+      <el-form hide-required-asterisk ref="resourceFormRef" :model="state.resourceForm" :rules="state.resourceRules"
+        class="demo-ruleForm" label-width="84px">
         <el-row>
-          <el-col :span="12">
-            <el-form-item label="名称：" prop="resourceName">
+          <el-col :xs="24" :sm="24" :md="12" :lg="12" :xl="12">
+            <el-form-item label="资源名称：" prop="resourceName">
               <el-input v-model.trim="state.resourceForm.resourceName"></el-input>
             </el-form-item>
           </el-col>
-          <el-col :span="12">
-            <el-form-item label="路径：" prop="resourceUrl">
+          <el-col :xs="24" :sm="24" :md="12" :lg="12" :xl="12">
+            <el-form-item label="资源路径：" prop="resourceUrl">
               <el-input v-model.trim="state.resourceForm.resourceUrl"></el-input>
             </el-form-item>
           </el-col>
-        </el-row>
-        <el-row>
-          <el-col :span="12">
-            <el-form-item label="图标：" prop="resourceIcon">
+          <el-col :span="24">
+            <el-form-item label="资源图标：" prop="resourceIcon">
               <el-input v-model="state.resourceForm.resourceIcon"></el-input>
             </el-form-item>
           </el-col>
-          <el-col :span="12">
-            <el-form-item label="权重：" prop="resourceOrder">
+          <el-col :xs="24" :sm="24" :md="12" :lg="12" :xl="12">
+            <el-form-item label="资源权重：" prop="resourceOrder">
               <el-input-number v-model="state.resourceForm.resourceOrder" :max="999" :min="1"></el-input-number>
             </el-form-item>
           </el-col>
-        </el-row>
-        <el-row>
-          <el-col :span="12">
-            <el-form-item label="类型：" prop="resourceType">
+          <el-col :xs="24" :sm="24" :md="12" :lg="12" :xl="12">
+            <el-form-item label="资源类型：" prop="resourceType">
               <el-select v-model="state.resourceForm.resourceType" placeholder="请选择资源类型">
                 <el-option label="菜单" value="1"></el-option>
                 <el-option label="url" value="2"></el-option>
               </el-select>
             </el-form-item>
           </el-col>
-        </el-row>
-        <el-row>
           <el-col :span="24">
             <el-form-item label="说明：" prop="marks">
               <el-input v-model="state.resourceForm.marks" :rows="2" placeholder="请输入说明" type="textarea"></el-input>
             </el-form-item>
           </el-col>
         </el-row>
+
       </el-form>
       <template #footer>
         <span class="dialog-footer">

@@ -1,17 +1,16 @@
 <template>
   <div class="tableOperation">
-    <el-card shadow="never" :body-style="{ padding: '30px 10px 15px 10px' }" >
-      <el-form :inline="true" :model="queryForm" label-position="right"
-        label-width="84px">
-        <el-form-item label="姓名：">
+    <el-card shadow="never" :body-style="{ padding: '30px 10px 15px 10px' }">
+      <el-form :inline="true" :model="queryForm" label-position="right" label-width="84px">
+        <el-form-item>
           <el-input v-model.trim="queryForm.name" clearable placeholder="请输入姓名" @keyup.enter="getList"></el-input>
         </el-form-item>
-        <el-form-item label="ID：">
+        <el-form-item>
           <el-input v-model.trim="queryForm.id" clearable placeholder="请输入ID" @keyup.enter="getList"></el-input>
         </el-form-item>
         <el-form-item>
-          <el-button type="primary" @click="getList">查 询</el-button>
-          <el-button type="primary" @click="handlePopup(operationStatus.add, null)">新增</el-button>
+          <el-button type="primary" plain @click="getList">查 询</el-button>
+          <el-button type="primary" plain @click="handlePopup(operationStatus.add, null)">新增</el-button>
         </el-form-item>
       </el-form>
     </el-card>
@@ -21,19 +20,20 @@
         <el-table-column prop="id" label="ID"></el-table-column>
         <el-table-column prop="name" label="姓名"></el-table-column>
         <el-table-column prop="address" label="地址"></el-table-column>
-        <el-table-column label="操作">
+        <el-table-column label="操作" fixed="right" width="100">
           <template #default="scope">
-            <el-space spacer="|" style="color: #dedede">
-              <el-button type="" @click="handlePopup(operationStatus.edit, scope.row)">编辑</el-button>
-              <el-button type="primary">{{
-                  scope.row.enabled === "0" ? useStatus.start : useStatus.close
-              }}</el-button>
-              <el-button type="danger" @click="removeDataById(scope.row.id)">删除</el-button>
-            </el-space>
+
+            <el-button text type="primary" @click="handlePopup(operationStatus.edit, scope.row)">编辑</el-button>
+            <br>
+            <el-button text type="primary">{{
+                scope.row.enabled === "0" ? useStatus.start : useStatus.close
+            }}</el-button>
+            <br>
+            <el-button text type="danger" @click="removeDataById(scope.row.id)">删除</el-button>
           </template>
         </el-table-column>
       </el-table>
-      <Pagination  :pagination="pagination" @change="handleChangeCurrent"></Pagination>
+      <Pagination :pagination="pagination" @change="handleChangeCurrent"></Pagination>
     </el-card>
 
     <el-dialog v-model="isDialog" :title="dialogTitle" :before-close="
@@ -41,40 +41,40 @@
         handleClose(operationFormRef);
       }
     " width="1000px" :close-on-click-modal="false" :close-on-press-escape="false" top="8vh">
-      <el-form ref="operationFormRef" :model="newlyForm" :newly-rules="newlyRules" label-width="108px">
-        <el-row >
-          <el-col :span="12">
+      <el-form ref="operationFormRef" :model="newlyForm" :newly-rules="newlyRules" label-width="92px">
+        <el-row>
+          <el-col :xs="24" :sm="24" :md="12" :lg="12" :xl="12">
             <el-form-item label="姓名：" prop="name">
               <el-input v-model="newlyForm.name" placeholder="请输入姓名" clearable></el-input>
             </el-form-item>
           </el-col>
-          <el-col :span="12">
+          <el-col :xs="24" :sm="24" :md="12" :lg="12" :xl="12">
             <el-form-item label="英文名：" prop="englishName">
               <el-input v-model="newlyForm.englishName" placeholder="请输入英文名" clearable></el-input>
             </el-form-item>
           </el-col>
         </el-row>
 
-        <el-row >
-          <el-col :span="12">
-            <el-form-item label="身高（cm）：" prop="height">
-              <el-input v-model="newlyForm.height" placeholder="请输入身高" clearable></el-input>
+        <el-row>
+          <el-col :xs="24" :sm="24" :md="12" :lg="12" :xl="12">
+            <el-form-item label="身高：" prop="height">
+              <el-input v-model="newlyForm.height" placeholder="请输入身高（cm）" clearable></el-input>
             </el-form-item>
           </el-col>
-          <el-col :span="12">
-            <el-form-item label="体重（kg）：" prop="weight">
-              <el-input v-model="newlyForm.weight" placeholder="请输入体重" clearable></el-input>
+          <el-col :xs="24" :sm="24" :md="12" :lg="12" :xl="12">
+            <el-form-item label="体重：" prop="weight">
+              <el-input v-model="newlyForm.weight" placeholder="请输入体重（kg）" clearable></el-input>
             </el-form-item>
           </el-col>
         </el-row>
-        <el-row >
+        <el-row>
           <el-col :span="24">
             <el-form-item label="地址：" prop="address">
               <el-input v-model="newlyForm.address" placeholder="请输入地址" clearable></el-input>
             </el-form-item>
           </el-col>
         </el-row>
-        <el-row >
+        <el-row>
           <el-col :span="24">
             <el-form-item label="基本介绍：" prop="introduction">
               <el-input v-model="newlyForm.introduction" type="textarea" :autosize="{ minRows: 2, maxRows: 5 }"
@@ -82,7 +82,7 @@
             </el-form-item>
           </el-col>
         </el-row>
-        <el-row >
+        <el-row>
           <el-col :span="24">
             <el-form-item label="备注：" prop="marks">
               <el-input v-model="newlyForm.marks" type="textarea" :autosize="{ minRows: 3, maxRows: 5 }"></el-input>

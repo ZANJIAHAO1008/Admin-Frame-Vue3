@@ -2,11 +2,11 @@
     <div class="feedbackCenter">
         <el-card shadow="never" :body-style="{ padding: '30px 10px 15px 10px' }">
             <el-form :inline="true" :model="queryForm" label-position="right" label-width="84px">
-                <el-form-item label="反馈人：">
+                <el-form-item >
                     <el-input v-model.trim="queryForm.name" clearable placeholder="请输入反馈人姓名">
                     </el-input>
                 </el-form-item>
-                <el-form-item label="人员ID：">
+                <el-form-item >
                     <el-input v-model.trim="queryForm.id" clearable placeholder="请输入人员ID">
                     </el-input>
                 </el-form-item>
@@ -21,12 +21,13 @@
                 <el-table-column prop="id" label="ID"></el-table-column>
                 <el-table-column prop="name" label="创建人"></el-table-column>
                 <el-table-column prop="address" label="反馈问题"></el-table-column>
-                <el-table-column label="操作">
+                <el-table-column label="操作" fixed="right" width="100">
                     <template #default="scope">
-                        <el-space spacer="|" style="color: #dedede">
-                            <el-button text type="primary">查看详情</el-button>
-                            <el-button text type="primary">处理</el-button>
-                        </el-space>
+                       
+                            <el-button text type="primary">详情</el-button>
+                            <br>
+                            <el-button text type="warning">处理</el-button>
+
                     </template>
                 </el-table-column>
             </el-table>

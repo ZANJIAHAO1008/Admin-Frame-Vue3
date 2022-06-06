@@ -1,48 +1,32 @@
 <template>
-  <el-dialog
-    :before-close="close"
-    :model-value="passVisible"
-    title="修改密码"
-    width="500px"
-  >
-    <el-form
-      ref="checkPassFormRef"
-      :hide-required-asterisk="true"
-      :model="checkPassForm"
-      :rules="rules"
-      class="demo-checkPassForm"
-      label-width="100px"
-      status-icon
-      label-position="top"
-    >
-      <el-form-item label="原密码：" prop="oldPassword">
-        <el-input
-          v-model="checkPassForm.oldPassword"
-          autocomplete="off"
-          type="password"
-        ></el-input>
-      </el-form-item>
-      <el-form-item label="新密码：" prop="newPassword">
-        <el-input
-          v-model="checkPassForm.newPassword"
-          autocomplete="off"
-          type="password"
-        ></el-input>
-      </el-form-item>
-      <el-form-item label="确认密码：" prop="checkPass">
-        <el-input
-          v-model="checkPassForm.checkPass"
-          autocomplete="off"
-          type="password"
-        ></el-input>
-      </el-form-item>
+  <el-dialog :before-close="close" :model-value="passVisible" title="修改密码" width="500px">
+    <el-form ref="checkPassFormRef" :hide-required-asterisk="true" :model="checkPassForm" :rules="rules"
+      class="demo-checkPassForm" status-icon  label-width="92px">
+      <el-row>
+        <el-col :span="24">
+          <el-form-item prop="oldPassword" label="原密码：">
+            <el-input v-model="checkPassForm.oldPassword" placeholder="请输入原密码" autocomplete="off" type="password">
+            </el-input>
+          </el-form-item>
+        </el-col>
+        <el-col :span="24">
+          <el-form-item rop="newPassword" label="新密码：">
+            <el-input v-model="checkPassForm.newPassword" placeholder="请输入新密码" autocomplete="off" type="password">
+            </el-input>
+          </el-form-item>
+        </el-col>
+        <el-col :span="24">
+          <el-form-item prop="checkPass" label="再次输入：">
+            <el-input v-model="checkPassForm.checkPass" placeholder="请再次输入新密码" autocomplete="off" type="password">
+            </el-input>
+          </el-form-item>
+        </el-col>
+      </el-row>
     </el-form>
     <template #footer>
       <span class="dialog-footer">
         <el-button @click="close">取 消</el-button>
-        <el-button type="primary" @click="submitForm(checkPassFormRef)"
-          >确 定</el-button
-        >
+        <el-button type="primary" @click="submitForm(checkPassFormRef)">确 定</el-button>
       </span>
     </template>
   </el-dialog>

@@ -2,15 +2,15 @@
   <div class="cardList">
     <el-card shadow="never" :body-style="{ padding: '30px 10px 15px 10px' }">
       <el-form :inline="true" :model="queryParams" class="demo-form-inline" label-position="right" label-width="84px">
-        <el-form-item label="商品名称：">
+        <el-form-item>
           <el-input v-model.trim="queryParams.name" clearable placeholder="请输入商品名称" @keyup.enter="getList"></el-input>
         </el-form-item>
-        <el-form-item label="商品ID：">
+        <el-form-item>
           <el-input v-model.trim="queryParams.id" clearable placeholder="请输入商品ID" @keyup.enter="getList"></el-input>
         </el-form-item>
         <el-form-item>
-          <el-button type="primary" @click="getList">查 询</el-button>
-          <el-button type="primary" @click="handlePopup('add', {})">新增</el-button>
+          <el-button type="primary" plain @click="getList">查 询</el-button>
+          <el-button type="primary" plain @click="handlePopup('add', {})">新增</el-button>
         </el-form-item>
       </el-form>
     </el-card>
@@ -44,31 +44,24 @@
         handleClose(tableFormRef);
       }
     " width="1000px" :close-on-click-modal="false" :close-on-press-escape="false" top="8vh">
-      <el-form ref="tableFormRef" :model="form" :rules="rules" label-width="108px">
-        <el-row :gutter="8">
-          <el-col :span="12">
+      <el-form hide-required-asterisk ref="tableFormRef" :model="form" :rules="rules" label-width="92px">
+        <el-row>
+          <el-col :xs="24" :sm="24" :md="12" :lg="12" :xl="12">
             <el-form-item label="商品名称：" prop="name">
               <el-input v-model="form.name" placeholder="请输入商品名称" clearable></el-input>
             </el-form-item>
           </el-col>
-        </el-row>
-
-        <el-row :gutter="8">
-          <el-col :span="12">
+          <el-col :xs="24" :sm="24" :md="12" :lg="12" :xl="12">
             <el-form-item label="商品类型：" prop="height">
               <el-input v-model="form.height" placeholder="请输入商品类型" clearable></el-input>
             </el-form-item>
           </el-col>
-        </el-row>
-        <el-row :gutter="8">
           <el-col :span="24">
             <el-form-item label="基本介绍：" prop="introduction">
               <el-input v-model="form.introduction" type="textarea" :autosize="{ minRows: 2, maxRows: 5 }"
                 placeholder="请输入基本介绍"></el-input>
             </el-form-item>
           </el-col>
-        </el-row>
-        <el-row :gutter="8">
           <el-col :span="24">
             <el-form-item label="备注：" prop="marks">
               <el-input v-model="form.marks" type="textarea" :autosize="{ minRows: 3, maxRows: 5 }"></el-input>

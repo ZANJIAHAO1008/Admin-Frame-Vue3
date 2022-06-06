@@ -1,42 +1,23 @@
 <template>
   <div>
-    <el-card shadow="never" :body-style="{ padding: '30px 10px 15px 10px' }" >
-      <el-form
-        label-position="right"
-        label-width="84px"
-        :inline="true"
-        :model="state.queryParams"
-        class="demo-form-inline"
-      >
-        <el-form-item label="用户姓名：">
-          <el-input
-            v-model.trim="state.queryParams.staffName"
-            clearable
-            placeholder="请输入姓名"
-            @keyup.enter="getUsers"
-          >
+    <el-card shadow="never" :body-style="{ padding: '30px 10px 15px 10px' }">
+      <el-form label-position="right" label-width="84px" :inline="true" :model="state.queryParams"
+        class="demo-form-inline">
+        <el-form-item >
+          <el-input v-model.trim="state.queryParams.staffName" clearable placeholder="请输入姓名" @keyup.enter="getUsers">
           </el-input>
         </el-form-item>
-        <el-form-item label="用户ID：">
-          <el-input
-            v-model.trim="state.queryParams.staffId"
-            clearable
-            placeholder="请输入ID"
-            @keyup.enter="getUsers"
-          >
+        <el-form-item >
+          <el-input v-model.trim="state.queryParams.staffId" clearable placeholder="请输入ID" @keyup.enter="getUsers">
           </el-input>
         </el-form-item>
         <el-form-item>
           <el-button type="primary" plain @click="getUsers">查询</el-button>
         </el-form-item>
       </el-form>
-    </el-card>  
+    </el-card>
     <el-card shadow="never" :body-style="{ padding: '30px 10px 15px 10px' }" class="m-t8">
-      <el-table
-        :data="state.userList"
-        height="calc(100vh - 345px)"
-        style="width: 100%"
-      >
+      <el-table :data="state.userList" height="calc(100vh - 345px)" style="width: 100%">
         <el-table-column prop="staffName" label="用户姓名"></el-table-column>
         <el-table-column prop="staffId" label="用户ID"></el-table-column>
         <el-table-column prop="username" label="用户名"></el-table-column>
@@ -48,24 +29,16 @@
         <el-table-column prop="phone" label="手机号码"></el-table-column>
         <el-table-column prop="address" label="用户住址"></el-table-column>
         <el-table-column prop="createTime" label="注册时间"></el-table-column>
-        <el-table-column label="操作">
-          <template #default="scope">
-            <el-space spacer="|">
-              <el-button text type="primary" @click="baseInfoEdit(scope.row)"
-                >编辑</el-button
-              >
-              <el-button text type="danger" @click="deleteUser(scope.row)"
-                >删除</el-button
-              >
-            </el-space>
+        <el-table-column label="操作" fixed="right" width="100">
+          <template #default="scope" >
+            <el-button text type="primary" @click="baseInfoEdit(scope.row)">编辑</el-button>
+            <br>
+            <el-button text type="danger" @click="deleteUser(scope.row)">删除</el-button>
           </template>
         </el-table-column>
       </el-table>
-      <Pagination
-        :pagination="state.pagination"
-        @change="handleChangeCurrent"
-      ></Pagination>
-    </el-card>  
+      <Pagination :pagination="state.pagination" @change="handleChangeCurrent"></Pagination>
+    </el-card>
     <base-info ref="baseInfoRef" v-model:baseVisible="baseVisible"></base-info>
   </div>
 </template>
@@ -167,8 +140,8 @@ const deleteUser = ({ id }: any) => {
     cancelButtonText: "取消",
     type: "warning",
   })
-    .then(() => {})
-    .catch(() => {});
+    .then(() => { })
+    .catch(() => { });
 }
 
 onMounted(() => {

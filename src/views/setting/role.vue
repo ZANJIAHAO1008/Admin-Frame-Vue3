@@ -3,11 +3,11 @@
     <el-card shadow="never" :body-style="{ padding: '30px 10px 15px 10px' }">
       <el-form :inline="true" :model="state.queryParams" class="demo-form-inline" label-position="right"
         label-width="84px">
-        <el-form-item label="角色名：">
+        <el-form-item>
           <el-input v-model.trim="state.queryParams.roleName" clearable placeholder="请输入角色名" @keyup.enter="getRoles">
           </el-input>
         </el-form-item>
-        <el-form-item label="角色ID：">
+        <el-form-item>
           <el-input v-model.trim="state.queryParams.roleId" clearable placeholder="请输入角色ID" @keyup.enter="getRoles">
           </el-input>
         </el-form-item>
@@ -28,13 +28,13 @@
           </template>
         </el-table-column>
         <el-table-column label="创建时间" prop="createTime"></el-table-column>
-        <el-table-column label="操作">
+        <el-table-column label="操作" fixed="right" width="100">
           <template #default="scope">
-            <el-space spacer="|">
-              <el-button text type="primary" @click="openAuthorize(scope.row)">授权</el-button>
-              <el-button text type="primary" @click="handlePopup(scope.row, 'edit')">编辑</el-button>
-              <el-button text type="danger" @click="delDataById(scope.row)">删除</el-button>
-            </el-space>
+            <el-button text type="primary" @click="openAuthorize(scope.row)">授权</el-button>
+            <br>
+            <el-button text type="primary" @click="handlePopup(scope.row, 'edit')">编辑</el-button>
+            <br>
+            <el-button text type="danger" @click="delDataById(scope.row)">删除</el-button>
           </template>
         </el-table-column>
       </el-table>
@@ -44,24 +44,20 @@
         handleClose(roleFormRef);
       }
     " title="角色配置" width="865px">
-      <el-form ref="roleFormRef" :model="state.roleForm" :rules="state.roleRules" class="demo-ruleForm"
-        label-width="94px">
+      <el-form hide-required-asterisk	 ref="roleFormRef" :model="state.roleForm" :rules="state.roleRules" class="demo-ruleForm"
+        label-width="92px">
         <el-row>
-          <el-col :span="11">
+          <el-col :span="24">
             <el-form-item label="角色名称：" prop="roleName">
               <el-input v-model.trim="state.roleForm.roleName"></el-input>
             </el-form-item>
           </el-col>
-        </el-row>
-        <el-row>
-          <el-col>
+          <el-col :span="24">
             <el-form-item label="是否默认：" prop="grant">
               <el-switch v-model="state.roleForm.grant" active-text="是" active-value="1" inactive-text="否"
                 inactive-value="0"></el-switch>
             </el-form-item>
           </el-col>
-        </el-row>
-        <el-row>
           <el-col :span="24">
             <el-form-item label="说明：" prop="marks">
               <el-input v-model="state.roleForm.marks" :autosize="{ minRows: 3, maxRows: 5 }" type="textarea">
