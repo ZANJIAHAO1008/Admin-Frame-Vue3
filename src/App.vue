@@ -1,5 +1,5 @@
 <template>
-  <el-config-provider :locale="elConfig.locale" :size="elConfig.componentSize" >
+  <el-config-provider :locale="elConfig.locale" :size="elConfig.componentSize">
     <router-view />
   </el-config-provider>
 </template>
@@ -12,9 +12,10 @@ import { useTagStore } from "@/pinia/modules/tag";
 const configStore = useConfigStore();
 const tagStore = useTagStore();
 const { isMobile, addMobileConfig } = useMobile(configStore, tagStore);
-const { elConfig } = useAppConfig(configStore);
+const { elConfig, addDefaultConfig } = useAppConfig(configStore);
 provide("eCharts", eCharts); //全局穿透eCharts
 onMounted(() => {
+  addDefaultConfig();
   if (isMobile) {
     //如果设备是手机则添加默认配置
     addMobileConfig();

@@ -1,6 +1,6 @@
 <template>
   <el-pagination v-model:currentPage="pagination.page" v-model:page-size="pagination.pageSize" :background="!isMobile"
-    :page-sizes="[10, 20, 100, 200]" :layout="isMobile?MobileLayout:DeskLayout" :total="pagination.total"
+    :page-sizes="[10, 20, 100, 200]" :layout="isMobile ? MobileLayout : DeskLayout" :total="pagination.total"
     @size-change="sizeChange" @current-change="currentChange" class="pagination-location" />
 </template>
 
@@ -56,7 +56,7 @@ const sizeChange = (pageSize: number) => {
 <style lang="scss" scoped>
 .pagination-location {
   display: flex;
-  justify-content: right;
+  justify-content: center;
   padding-top: 15px;
 }
 </style>

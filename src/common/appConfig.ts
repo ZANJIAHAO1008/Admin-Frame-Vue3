@@ -7,7 +7,6 @@ import en from "element-plus/lib/locale/lang/en";
 import Cookies from "js-cookie";
 import { usePreferredLanguages } from "@vueuse/core";
 export function useAppConfig(configStore: any) {
-
   // 查询本机语言
   const defaultLanguages = usePreferredLanguages();
 
@@ -17,6 +16,15 @@ export function useAppConfig(configStore: any) {
     componentSize: "",
   });
 
+  const switchLanguage = (lang: string) => {
+    //切换语言
+    if (lang === "en") {
+      elConfig.locale = en;
+    } else if (lang === "zh") {
+      elConfig.locale = zhCn;
+    }
+    Cookies.set("lang", lang);
+  };
   // 监听各配置变化
   watch(
     () => [
@@ -29,19 +37,17 @@ export function useAppConfig(configStore: any) {
       [oLanguage, oComponentSize, oIsGrayscale]
     ) => {
       if (nLanguage !== oLanguage) {
-        settingElLanguage(nLanguage);
+        switchLanguage(nLanguage);
       }
-
       if (nComponentSize !== oComponentSize) {
         elConfig.componentSize = nComponentSize;
       }
       if (nIsGrayscale !== oIsGrayscale) {
-        settingGrayscale(nIsGrayscale);
+        grayscaleConfig(nIsGrayscale);
       }
     }
   );
-
-  const settingGrayscale = (status: boolean) => {
+  const grayscaleConfig = (status: boolean) => {
     //添加灰色主题
     if (status) {
       document.body.setAttribute("style", "filter:grayscale(100%)");
@@ -49,47 +55,41 @@ export function useAppConfig(configStore: any) {
       document.body.setAttribute("style", "filter:grayscale(0)");
     }
   };
-
-  const settingElLanguage = (lang: string) => {
-    //切换Element语言
-    if (lang === "en") {
-      elConfig.locale = en;
-    } else if (lang === "zh") {
-      elConfig.locale = zhCn;
-    }
-    Cookies.set("lang", lang);
-  };
-
-  const settingDefaultConfig = () => {
-    //添加默认配置
+  const languageConfig = () => {
+    //配置语言
+    const defaultLanguage = "zh";
     if (!Cookies.get("lang")) {
       if (configStore.language) {
         Cookies.set("lang", configStore.language);
       } else {
-        const defaultLang = "zh";
         //如果未设置过 则默认中文 可根据接口返回的个人信息中 增加默认语言
-        Cookies.set("lang", defaultLanguages?.value[1] ?? defaultLang);
+        Cookies.set("lang", defaultLanguages?.value[1] ?? defaultLanguage);
         configStore.$patch({
-          language: defaultLang,
+          language: defaultLanguage,
         });
-        settingElLanguage(defaultLang);
+        switchLanguage(defaultLanguage);
       }
-    }
-
-    if (!configStore.componentSize) {
-      //默认添加size大小
-      configStore.$patch({
-        componentSize: "",
-      });
+    } else if (Cookies.get("lang")) {
+      switchLanguage(Cookies.get("lang") ?? defaultLanguage);
     }
   };
+  const componentSizeConfig = () => {
+    //配置组件大小
+    configStore.$patch({
+      componentSize: configStore.componentSize || "default",
+    });
 
-  onMounted(() => {
-    settingDefaultConfig();
-    settingGrayscale(configStore.isGrayscale);
-  });
+    elConfig.componentSize = configStore.componentSize || "default";
+  };
+  const addDefaultConfig = () => {
+    //添加默认配置
+    languageConfig();
+    componentSizeConfig();
+    grayscaleConfig(configStore.isGrayscale);
+  };
 
   return {
     elConfig,
+    addDefaultConfig,
   };
 }
