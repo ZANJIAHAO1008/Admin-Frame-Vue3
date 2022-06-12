@@ -84,10 +84,10 @@
                         <el-table-column prop="taskDetail" label="任务详情" />
                         <el-table-column label="操作" fixed="right" width="110">
                             <template #default>
-                                <el-space spacer="|">
-                                    <el-link type="primary" :underline="false">详情</el-link>
-                                    <el-link type="primary" :underline="false">处理</el-link>
-                                </el-space>
+
+                                    <el-button type="primary" text>详情</el-button>
+                                    <br>
+                                    <el-button type="warning" text>处理</el-button>
                             </template>
                         </el-table-column>
                     </el-table>

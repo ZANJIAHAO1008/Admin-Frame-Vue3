@@ -6,7 +6,7 @@
       </template>
       <template #extra>
         <h2 class="abnormal-tip">很抱歉，您所访问的页面不存在</h2>
-        <el-button plain @click="router.go(-1)"
+        <el-button size="default" type="primary" plain @click="router.go(-1)"
           >返回</el-button
         >
       </template>

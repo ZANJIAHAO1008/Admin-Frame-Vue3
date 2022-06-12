@@ -6,7 +6,7 @@
       </template>
       <template #extra>
         <h2 class="abnormal-tip">网络不可用，请检查你的网络设置</h2>
-        <el-button plain @click="router.go(-1)">返回</el-button>
+        <el-button  size="default" type="primary"  plain @click="router.go(-1)">返 回</el-button>
       </template>
     </el-result>
   </div>

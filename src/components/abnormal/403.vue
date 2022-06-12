@@ -6,8 +6,8 @@
       </template>
       <template #extra>
         <h2 class="abnormal-tip">很抱歉，您暂无权限访问</h2>
-        <el-button plain @click="router.go(-1)"
-          >返回</el-button
+        <el-button size="default" type="primary" plain @click="router.go(-1)"
+          >返 回</el-button
         >
       </template>
     </el-result>
