@@ -1,15 +1,15 @@
 <template>
-  <div class="tag_content borderBottom">
+  <div class="tag-wrapper borderBottom">
     <TransitionGroup v-if="tagsList.length" name="list" class="tags" tag="div">
       <el-tag v-for="(tag, index) in tagsList" :key="index" :type="selectPath === tag.path ? '' : 'info'"
-        :class="selectPath === tag.path ? 'tag_check' : 'tag_null_check'"
+        :class="selectPath === tag.path ? 'tag-check' : 'tag-null-check'"
         :closable="tag.path == '/dashboard/workbench' ? false : true"
         :effect="selectPath === tag.path ? 'dark' : 'plain'" :disable-transitions="false" @close="closeTag(index)"
         @click="triggerTag(tag, 'go')" size="large">
         {{ t("message." + tag.title) }}
       </el-tag>
     </TransitionGroup>
-    <div class="right_trigger_box">
+    <div class="right-trigger">
       <span class="el-dropdown-link fullScreen" @click="toFullScreen">
         <el-icon>
           <full-screen />
@@ -170,7 +170,7 @@ onMounted(() => {
 });
 </script>
 <style lang="scss" scoped>
-.tag_content {
+.tag-wrapper {
   padding: 0px 12px 6px 8px;
   box-sizing: border-box;
   white-space: nowrap;
@@ -226,20 +226,20 @@ onMounted(() => {
     margin-right: 8px;
   }
 
-  .tag_check {
+  .tag-check {
     border-radius: 1px;
     background-color: var(--af-tag-check-color);
     border-color: var(--af-tag-check-color);
   }
 
-  .tag_null_check {
+  .tag-null-check {
     background-color: var(--af-tag-nullCheck-color) !important;
     border-color: var(--af-tag-nullCheck-border-color) !important;
     color: var(--af-tag-nullCheck-font-color) !important;
     border-radius: 1px;
   }
 
-  .right_trigger_box {
+  .right-trigger {
     display: flex;
     border: 1px solid var(--af-tag-nullCheck-border-color);
 

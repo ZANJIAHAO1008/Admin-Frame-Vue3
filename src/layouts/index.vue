@@ -1,5 +1,5 @@
 <template>
-  <div class="app-wrapper mobile">
+  <div class="main-wrapper mobile">
     <div class="drawer-bg" v-if="isMobile && !collapse" @click="(() => {
       tagStore.$patch({
         collapse: true
@@ -15,7 +15,7 @@
         </el-header>
         <el-main>
           <Tags v-if="configStore.appConfig.showTabBar"></Tags>
-          <el-scrollbar id="screen-display" v-loading="!isReload" class="content" :style="{
+          <el-scrollbar id="screen-display" v-loading="!isReload" class="main-content" :style="{
             height: configStore.appConfig.showTabBar ? 'calc(100vh - 120px)' : 'calc(100vh - 82px)'
           }">
             <router-view v-if="isReload" v-slot="{ Component, router }">
@@ -28,7 +28,7 @@
               </Transition>
             </router-view>
 
-            <el-backtop target=".content"></el-backtop>
+            <el-backtop target=".main-content"></el-backtop>
           </el-scrollbar>
         </el-main>
       </el-container>
@@ -59,7 +59,7 @@ const reload = () => {
 provide("reload", reload);
 </script>
 <style lang="scss" scoped>
-.app-wrapper {
+.main-wrapper {
   width: 100%;
   height: 100%;
   overflow: hidden;
@@ -75,7 +75,7 @@ provide("reload", reload);
   }
 
   .el-main {
-    .content {
+    .main-content {
       box-sizing: border-box;
       margin: 8px 5px 8px 5px;
       color: #515a6e;

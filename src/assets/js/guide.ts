@@ -9,7 +9,7 @@ const steps = [
     },
   },
   {
-    element: ".admin-sidebar-nav",
+    element: ".sidebar-info",
     popover: {
       title: "介绍",
       description: "Admin-Frame是一款中/后台管理系统",

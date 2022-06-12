@@ -1,26 +1,28 @@
 <template>
-  <div class="login-container">
-    <div class="login-body">
-      <div class="logo">
+  <div class="login-wrapper">
+    <div class="login-content">
+      <div class="logo-info">
         <img :src="getImage('LG', 'png')" />
         <p>{{ siteName }}</p>
         <span>{{ siteName }} 是一款中/后台管理系统</span>
       </div>
       <el-form ref="loginFormRef" @toLogin.prevent :model="loginForm" :rules="loginRules" hide-required-asterisk>
         <el-form-item prop="username">
-          <el-input v-model="loginForm.username" placeholder="请输入用户名">
+          <el-input size="default" v-model="loginForm.username" placeholder="请输入用户名">
           </el-input>
         </el-form-item>
         <el-form-item prop="password">
-          <el-input v-model="loginForm.password" placeholder="请输入密码" show-password @keyup.enter="toLogin(loginFormRef)">
+          <el-input size="default" v-model="loginForm.password" placeholder="请输入密码" show-password
+            @keyup.enter="toLogin(loginFormRef)">
           </el-input>
         </el-form-item>
         <el-form-item>
-          <el-button :loading="loading" style="width: 100%" type="primary" @click="toLogin(loginFormRef)">登录
+          <el-button size="default" :loading="loading" style="width: 100%" type="primary"
+            @click="toLogin(loginFormRef)">登录
           </el-button>
         </el-form-item>
       </el-form>
-      <div class="other-content">
+      <div class="other-login">
         <el-button text disabled>其它登录方式</el-button>
         <el-button text disabled>忘记密码</el-button>
       </div>
@@ -40,9 +42,7 @@ const userStore = useUserStore();
 const router = useRouter();
 const { proxy } = <any>getCurrentInstance();
 const loginFormRef = ref<FormInstance>();
-
 const loading = ref<boolean>(false); //缓冲
-
 const loginForm = reactive({
   username: "admin",
   password: "123456",
@@ -87,12 +87,11 @@ const toLogin = async (formEl: FormInstance | undefined) => {
 </script>
 
 <style lang="scss" scoped>
-.login-container {
+.login-wrapper {
   position: relative;
   width: 100%;
   height: 100vh;
-
-  .login-body {
+  .login-content {
     position: absolute;
     left: 50%;
     top: 50%;
@@ -102,38 +101,26 @@ const toLogin = async (formEl: FormInstance | undefined) => {
     box-sizing: border-box;
     margin-left: -198px;
     margin-top: -255px;
-
-    .logo {
+    .logo-info {
       padding: 12px;
       text-align: center;
-
       img {
         height: 55px;
       }
-
       p {
         font-size: 24px;
         padding: 2px 0px;
       }
-
       span {
         font-size: 14px;
         color: #909399;
       }
     }
-
-    .l-title {
-      padding: 8px 0 24px 0;
-      font-size: 20px;
-      color: #121212;
-      font-weight: 550;
-      text-align: center;
+    .other-login {
+      display: flex;
+      justify-content: space-between;
     }
   }
 
-  .other-content {
-    display: flex;
-    justify-content: space-between;
-  }
 }
 </style>

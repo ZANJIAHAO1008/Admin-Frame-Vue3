@@ -1,9 +1,9 @@
 <template>
   <div :style="{
     width: collapse ? isMobile ? '0px' : '64px' : '200px',
-  }" class="sidebar">
+  }" class="sidebar-wrapper">
      <el-scrollbar>
-    <div class="admin-sidebar-nav" v-if="configStore.appConfig.showLogo">
+    <div class="sidebar-info" v-if="configStore.appConfig.showLogo">
       <img :src="getImage('LG', 'png')" />
       <span v-if="!collapse">{{ siteName }}</span>
     </div>
@@ -16,8 +16,8 @@
                 <i :class="item.resourceIcon"></i>
                 <span :class="
                   item.resourceIcon
-                    ? 'sidebar-title'
-                    : 'sidebar-title sidebar-nullIcon'
+                    ? 'menu-title'
+                    : 'menu-title menu-nullIcon'
                 ">{{ t(item.resourceName) }}</span>
               </template>
               <template v-for="childItem in item.children">
@@ -27,13 +27,13 @@
                     <i :class="childItem.resourceIcon"></i>
                     <span :class="
                       childItem.resourceIcon
-                        ? 'sidebar-title'
-                        : 'sidebar-title sidebar-nullIcon'
+                        ? 'menu-title'
+                        : 'menu-title menu-nullIcon'
                     ">{{ t(childItem.resourceName) }}</span>
                   </template>
                   <el-menu-item v-for="(grandsonItem, i) in childItem.children" :key="i"
                     :index="grandsonItem.resourceUrl">
-                    <span class="sidebar-title">{{
+                    <span class="menu-title">{{
                         t(grandsonItem.resourceName)
                     }}</span>
                   </el-menu-item>
@@ -43,8 +43,8 @@
                     <i :class="childItem.resourceIcon"></i>
                     <span :class="
                       childItem.resourceIcon
-                        ? 'sidebar-title'
-                        : 'sidebar-title sidebar-nullIcon'
+                        ? 'menu-title'
+                        : 'menu-title menu-nullIcon'
                     ">{{ t(childItem.resourceName) }}</span>
                   </template>
                 </el-menu-item>
@@ -55,7 +55,7 @@
           <template v-else>
             <el-menu-item :key="item.resourceUrl" :index="item.resourceUrl">
               <i :class="item.resourceIcon"></i>
-              <template #title class="sidebar-title">{{
+              <template #title class="menu-title">{{
                   t(item.resourceName)
               }}</template>
             </el-menu-item>
@@ -86,14 +86,14 @@ const onRoutes = computed<string>(() => route.path);
 const collapse = computed<boolean>(() => tagStore.collapse);
 </script>
 <style lang="scss" scoped>
-.sidebar {
+.sidebar-wrapper {
   height: 100%;
   box-sizing: border-box;
   transition: width 0.3s ease-in-out;
   background-color: var(--af-sidebar-color);
   overflow: auto;
 
-  .admin-sidebar-nav {
+  .sidebar-info {
     box-sizing: border-box;
     padding: 16px 10px 16px 10px;
     background-color: var(--af-sidebar-color);

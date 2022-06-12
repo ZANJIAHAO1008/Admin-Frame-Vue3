@@ -1,7 +1,7 @@
 <template>
-  <div :class="configStore.appConfig.showTabBar ? 'admin-header' : 'admin-header borderBottom'">
+  <div :class="configStore.appConfig.showTabBar ? 'header-wrapper' : 'header-wrapper borderBottom'">
     <div class="collapse-left">
-      <div class="collapse-btn">
+      <div class="collapse-btn-group">
         <i v-if="configStore.appConfig.showFoldButton" title="点击打开关闭菜单" @click="switchCollapse"
           :class="collapse ? 'fa fabtn fa-indent' : 'fa fabtn fa-dedent'"></i>
         <i v-if="configStore.appConfig.showReFresh" title="刷新页面" @click="reload()" class="fa fa-refresh"
@@ -183,7 +183,7 @@ const changeI18n = <T extends string>(type: T) => {
 };
 </script>
 <style lang="scss" scoped>
-.admin-header {
+.header-wrapper {
   box-sizing: border-box;
   width: 100%;
   height: 64px;
@@ -197,7 +197,7 @@ const changeI18n = <T extends string>(type: T) => {
     justify-content: space-between;
     align-items: center;
 
-    .collapse-btn {
+    .collapse-btn-group {
       padding: 0px 0px 0 15px;
       cursor: pointer;
 

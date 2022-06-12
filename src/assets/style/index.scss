@@ -42,7 +42,7 @@
       margin-bottom: 0px !important;
     }
   }
-  .content {
+  .main-content {
     min-width: 300px !important;
   }
   .mobile {
@@ -64,7 +64,7 @@
       display: none;
     }
   }
-  .sidebar {
+  .sidebar-wrapper {
     position: fixed;
     top: 0;
     left: 0;
@@ -106,8 +106,10 @@
 
 .abnormal-img {
   //异常页面样式
-  @include abnormal;
-  padding-top: calc(100vh - 750px);
+  // @include abnormal;
+  max-width: 600px;
+  width: 100%;
+  padding-top: calc(100vh - 85vh);
 }
 .abnormal-tip {
   @include font-col(#909399);

@@ -13,11 +13,11 @@ html {
   .borderBottom {
     border-bottom: 1px solid var(--el-border-color-light);
   }
-  .tag_content,
-  .admin-header {
+  .tag-wrapper,
+  .header-wrapper {
     background-color: var(--af-bg-color);
   }
-  .app-wrapper .el-main {
+  .main-wrapper .el-main {
     background-color: var(--af-main-bg-color);
   }
   .el-menu {
@@ -44,7 +44,7 @@ html {
       background-color: #409eff;
     }
   }
-  .login-container {
+  .login-wrapper{
     background-size: 100% 100%;
     background-image: url("@/assets/image/BG.png");
   }

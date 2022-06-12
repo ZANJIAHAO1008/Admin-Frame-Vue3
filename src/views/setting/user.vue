@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="userList">
     <el-card shadow="never" :body-style="{ padding: '30px 10px 15px 10px' }">
       <el-form label-position="right" label-width="84px" :inline="true" :model="state.queryParams"
         class="demo-form-inline">

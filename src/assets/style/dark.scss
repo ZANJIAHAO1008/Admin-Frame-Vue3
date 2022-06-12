@@ -14,11 +14,11 @@ html.dark {
   .borderBottom {
     border-bottom: 1px solid var(--el-border-color-dark);
   }
-  .tag_content,
-  .admin-header {
+  .tag-wrapper,
+  .header-wrapper {
     background-color: var(--af-header-bg-color);
   }
-  .app-wrapper .el-main {
+  .main-wrapper .el-main {
     background-color: var(--af-bg-color);
   }
   .el-menu {
@@ -55,7 +55,7 @@ html.dark {
   // .el-divider__text {
   //   background-color: var(--af-pop-bg-color);
   // }
-  .login-container {
+  .login-wrapper {
     background-color: var(--af-sidebar-color) !important;
     background-image: none;
   }
